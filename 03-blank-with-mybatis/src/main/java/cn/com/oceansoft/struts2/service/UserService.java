@@ -4,6 +4,11 @@ import cn.com.oceansoft.struts2.entity.User;
 
 import java.util.List;
 
+/**
+ * User service 接口实现类
+ *
+ * @author 胡荆陵
+ */
 public interface UserService {
 
     void save(User user);
@@ -13,6 +18,8 @@ public interface UserService {
     void delete(String userId);
 
     User getById(String userId);
+
+    User getByName(String name);
 
     List<User> getAll();
 

@@ -3,21 +3,24 @@ package cn.com.oceansoft.struts2.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-/*
-* Author: Hu jingling
-* Description: User Entity
-*/
+/**
+ * User 实体类
+ *
+ * @author 胡荆陵
+ */
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String id;
-    private String name;
-    private Date birthday;
+    private String id; //主键
+    private String name; //姓名
+    private Date birthday; //生日
 
+    //构造方法
     public User() {
     }
 
+    //getter & setter
     public String getId() {
         return id;
     }
