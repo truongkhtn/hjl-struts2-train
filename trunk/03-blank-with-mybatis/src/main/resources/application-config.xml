@@ -23,15 +23,15 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!--use aliases in xml-->
-        <property name="typeAliasesPackage" value="cn.com.oceansoft.struts2.entity"/>
+        <!--<property name="typeAliasesPackage" value="cn.com.oceansoft.struts2.entity"/>-->
         <!--define xml locations-->
         <property name="mapperLocations" value="classpath*:mybatisMapper/**.xml"/>
     </bean>
     <!-- scan for mappers and let them be autowired -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!--define mappers-->
-        <property name="basePackage" value="cn.com.oceansoft.struts2.dao"/>
-    </bean>
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--&lt;!&ndash;define mappers&ndash;&gt;-->
+        <!--<property name="basePackage" value="cn.com.oceansoft.struts2.dao"/>-->
+    <!--</bean>-->
 
     <!-- enable autowire -->
     <context:annotation-config/>

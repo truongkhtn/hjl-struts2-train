@@ -3,11 +3,17 @@ package cn.com.oceansoft.struts2.service;
 import cn.com.oceansoft.struts2.dao.UserDao;
 import cn.com.oceansoft.struts2.entity.User;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * User service 接口类
+ *
+ * @author 胡荆陵
+ */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Resource
     private UserDao userDao;
@@ -27,6 +33,10 @@ public class UserServiceImpl implements UserService{
 
     public User getById(String userId) {
         return userDao.getById(userId);
+    }
+
+    public User getByName(String name) {
+        return userDao.getByName(name);
     }
 
     public List<User> getAll() {
