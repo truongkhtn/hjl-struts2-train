@@ -4,15 +4,30 @@
 
 <mapper namespace="cn.com.oceansoft.struts2.dao.UserDao">
 
+    <!--配置给定命名空间的缓存-->
     <cache/>
 
-    <select id="getById" parameterType="string" resultType="User">
-    SELECT
-          id,name
-    from
-          user
-      where
-        id =  #{id}
-  </select>
+    <!--resultMap：对象和数据库的映射表-->
+    <resultMap id="userResultMap" type="cn.com.oceansoft.struts2.entity.User">
+        <id property="id" column="user_id"/>
+        <result property="name" column="user_name"/>
+        <result property="birthday" column="birthday"/>
+    </resultMap>
+
+    <!--select 查询部分-->
+    <select id="getById" parameterType="string" resultMap="userResultMap">
+      select * from tbl_user where user_id =  #{id};
+    </select>
+
+     <select id="getAll"  resultMap="userResultMap">
+      select * from tbl_user;
+    </select>
+
+    <select id="countAll" resultType="int">
+        select count(*) from tbl_user;
+    </select>
+
+
+
 
 </mapper>

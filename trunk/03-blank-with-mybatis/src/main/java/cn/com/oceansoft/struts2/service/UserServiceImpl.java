@@ -32,4 +32,8 @@ public class UserServiceImpl implements UserService{
     public List<User> getAll() {
         return userDao.getAll();
     }
+
+    public int countAll() {
+        return userDao.countAll();
+    }
 }

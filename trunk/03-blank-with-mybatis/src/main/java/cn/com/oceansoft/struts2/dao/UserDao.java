@@ -16,4 +16,8 @@ public interface UserDao {
 
     List<User> getAll();
 
+    int countAll();
+
+
+
 }
