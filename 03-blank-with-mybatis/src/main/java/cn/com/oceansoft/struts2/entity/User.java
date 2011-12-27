@@ -1,6 +1,7 @@
 package cn.com.oceansoft.struts2.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /*
 * Author: Hu jingling
@@ -12,6 +13,7 @@ public class User implements Serializable {
 
     private String id;
     private String name;
+    private Date birthday;
 
     public User() {
     }
@@ -32,15 +34,20 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String toString() {
-        StringBuilder buf = new StringBuilder(30);
-        buf.append("{");
-        buf.append(id);
-        buf.append(", ");
-        buf.append(name);
-        buf.append("}");
-        return buf.toString();
+    public Date getBirthday() {
+        return birthday;
     }
 
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", birthday=" + birthday +
+                '}';
+    }
 }
