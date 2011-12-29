@@ -20,6 +20,13 @@ public class User implements Serializable {
     public User() {
     }
 
+    //全构造
+    public User(String id, String name, Date birthday) {
+        this.id = id;
+        this.name = name;
+        this.birthday = birthday;
+    }
+
     //getter & setter
     public String getId() {
         return id;

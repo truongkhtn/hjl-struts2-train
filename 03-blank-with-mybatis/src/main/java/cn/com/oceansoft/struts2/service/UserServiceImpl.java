@@ -2,7 +2,9 @@ package cn.com.oceansoft.struts2.service;
 
 import cn.com.oceansoft.struts2.dao.UserDao;
 import cn.com.oceansoft.struts2.entity.User;
+import cn.com.oceansoft.struts2.utils.UuidUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -49,5 +51,21 @@ public class UserServiceImpl implements UserService {
 
     public int countAll() {
         return userDao.countAll();
+    }
+
+    @Transactional
+    public void testTx() {
+        User user1 = new User(UuidUtil.genUuid(),"111",new Date());
+        userDao.save(user1);
+
+        User user2 = new User(UuidUtil.genUuid(),"222",new Date());
+        userDao.save(user2);
+
+        User user3 = new User(UuidUtil.genUuid(),"333",new Date());
+        userDao.save(user3);
+
+        User user4 = new User(UuidUtil.genUuid(),"444",new Date());
+        userDao.save(user4);
+        throw new RuntimeException("throw a test RuntimeException...");
     }
 }
