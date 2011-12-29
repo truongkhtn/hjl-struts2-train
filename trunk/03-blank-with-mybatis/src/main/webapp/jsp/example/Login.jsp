@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<s:form action="Login">
+<s:form action="Login" method="post" validate="true">
     <s:textfield key="username"/>
     <s:password key="password" />
     <s:submit/>

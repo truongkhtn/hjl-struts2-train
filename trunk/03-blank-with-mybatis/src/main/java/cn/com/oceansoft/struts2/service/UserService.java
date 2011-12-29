@@ -5,7 +5,7 @@ import cn.com.oceansoft.struts2.entity.User;
 import java.util.List;
 
 /**
- * User service 接口实现类
+ * User service 接口类
  *
  * @author 胡荆陵
  */

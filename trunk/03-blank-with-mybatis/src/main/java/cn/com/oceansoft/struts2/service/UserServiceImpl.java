@@ -5,10 +5,11 @@ import cn.com.oceansoft.struts2.entity.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
- * User service 接口类
+ * User service 接口实现类
  *
  * @author 胡荆陵
  */
@@ -20,6 +21,9 @@ public class UserServiceImpl implements UserService {
 
 
     public void save(User user) {
+        if (user.getBirthday() == null) {
+            user.setBirthday(new Date());
+        }
         userDao.save(user);
     }
 

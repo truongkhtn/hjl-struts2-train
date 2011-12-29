@@ -1,5 +1,5 @@
 /*
- * $Id: Login.java 471756 2006-11-06 15:01:43Z husted $
+ * $Id: ExampleSupport.java 471756 2006-11-06 15:01:43Z husted $
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -19,41 +19,25 @@
  * under the License.
  */
 
-package example;
+package cn.com.oceansoft.struts2.controller;
 
-public class Login extends ExampleSupport {
+import com.opensymphony.xwork2.ActionSupport;
 
-    public String execute() throws Exception {
+/**
+ * Action 基类，设置公共属性供子类使用
+ *
+ * @author 胡荆陵
+ */
+public class BaseAction extends ActionSupport {
 
-        if (isInvalid(getUsername())) return INPUT;
+    protected String id; //对象的主键, 查看/修改/删除 时使用
 
-        if (isInvalid(getPassword())) return INPUT;
-
-        return SUCCESS;
+    //getter & setter
+    public String getId() {
+        return id;
     }
 
-    private boolean isInvalid(String value) {
-        return (value == null || value.length() == 0);
+    public void setId(String id) {
+        this.id = id;
     }
-
-    private String username;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    private String password;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 }

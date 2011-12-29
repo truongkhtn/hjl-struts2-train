@@ -1,5 +1,5 @@
 /*
- * $Id: HelloWorldTest.java 577750 2007-09-20 13:54:31Z mrdon $
+ * $Id: HelloWorld.java 471756 2006-11-06 15:01:43Z husted $
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -19,21 +19,34 @@
  * under the License.
  */
 
-package example;
+package cn.com.oceansoft.struts2.controller;
 
-import org.apache.struts2.StrutsTestCase;
 
-import com.opensymphony.xwork2.ActionSupport;
-import junit.framework.TestCase;
+/**
+ * HelloWorld Action 类
+ *
+ * @author 胡荆陵
+ */
+public class HelloWorldAction extends BaseAction {
 
-public class HelloWorldTest extends StrutsTestCase {
+    public String execute() throws Exception {
+        setMessage(getText(MESSAGE));
+        return SUCCESS;
+    }
 
-    public void testHelloWorld() throws Exception {
-        HelloWorld hello_world = new HelloWorld();
-        String result = hello_world.execute();
-        assertTrue("Expected a success result!",
-                ActionSupport.SUCCESS.equals(result));
-        assertTrue("Expected the default message!",
-                hello_world.getText(HelloWorld.MESSAGE).equals(hello_world.getMessage()));
+    /**
+     * 对应 i18n 欢迎 key
+     */
+    public static final String MESSAGE = "HelloWorld.message";
+
+    private String message;
+
+    //getter & setter
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

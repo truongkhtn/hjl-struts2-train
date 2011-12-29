@@ -19,28 +19,23 @@
         <property name="password" value="${jdbc.password}"></property>
     </bean>
 
-    <!-- define the SqlSessionFactory -->
+    <!-- 设置 SqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <!--use aliases in xml-->
+        <!--在 myBatis xml 文件中使用 aliases 别名 -->
         <!--<property name="typeAliasesPackage" value="cn.com.oceansoft.struts2.entity"/>-->
-        <!--define xml locations-->
+        <!-- 设置 myBatis xml 路径-->
         <property name="mapperLocations" value="classpath*:mybatisMapper/**.xml"/>
     </bean>
-    <!-- scan for mappers and let them be autowired -->
-    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
-        <!--&lt;!&ndash;define mappers&ndash;&gt;-->
-        <!--<property name="basePackage" value="cn.com.oceansoft.struts2.dao"/>-->
-    <!--</bean>-->
 
-    <!-- enable autowire -->
+    <!-- 使用 spring annotation -->
     <context:annotation-config/>
-    <!-- enable component scanning (beware that this does not enable mapper scanning!) -->
+    <!-- annotation 扫描路径 -->
     <context:component-scan base-package="cn.com.oceansoft.struts2"/>
 
-    <!-- enable transaction demarcation with annotations -->
+    <!-- 使用 spring 事务 -->
     <tx:annotation-driven/>
-    <!-- transaction manager, use JtaTransactionManager for global tx -->
+    <!-- 设置 transaction manager -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
