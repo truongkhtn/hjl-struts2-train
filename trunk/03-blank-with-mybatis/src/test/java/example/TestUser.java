@@ -67,4 +67,11 @@ public class TestUser extends AbstractTransactionalJUnit4SpringContextTests{
         userService.delete(user.getId());
     }
 
+
+    @Test
+    @Rollback(value = false)
+    public void testTransaction(){
+        userService.testTx();
+    }
+
 }

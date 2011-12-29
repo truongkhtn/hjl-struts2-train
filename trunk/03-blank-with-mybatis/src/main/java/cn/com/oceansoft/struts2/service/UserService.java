@@ -25,4 +25,6 @@ public interface UserService {
 
     int countAll();
 
+    void testTx();
+
 }
