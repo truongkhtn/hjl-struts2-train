@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间-->
+<mapper namespace="cn.com.oceansoft.mybatis.User">
+
+    <!--使用缓存-->
+    <cache/>
+
+    <!--resultMap：对象和数据库的映射表-->
+    <resultMap id="userResultMap" type="User">
+        <id property="id" column="user_id"/>
+        <result property="name" column="user_name"/>
+        <result property="birthday" column="birthday"/>
+    </resultMap>
+
+    <!--定义一个可以重用的 sql 语段-->
+    <sql id="userColumns"> user_id,user_name,birthday </sql>
+
+    <!--select 查询 -->
+    <select id="getById" parameterType="string" resultMap="userResultMap">
+      select * from tbl_user where user_id =  #{userId};
+    </select>
+
+    <select id="getByName" parameterType="string" resultMap="userResultMap">
+      select * from tbl_user where user_name =  #{name};
+    </select>
+
+    <select id="getAll" resultMap="userResultMap">
+      select * from tbl_user;
+    </select>
+
+   <!-- <select id="countAll" resultType="int">
+        select count(*) from tbl_user;
+    </select>-->
+
+    <!-- insert : inline parameter -->
+    <insert id="saveUser" parameterType="User">
+        insert into tbl_user ( <include refid="userColumns"/> )
+        values (#{id},#{name},#{birthday})
+    </insert>
+
+    <!-- insert : external parameter
+    <parameterMap id="saveUserParam" type="cn.com.oceansoft.struts2.entity.User">
+        <parameter property="id"/>
+        <parameter property="name"/>
+        <parameter property="birthday"/>
+    </parameterMap>
+
+    <insert id="saveUser" parameterMap="userParam">
+        insert into tbl_user (user_id,user_name,birthday) values (?,?,?)
+    </insert>  -->
+
+    <!--update-->
+    <update id="updateUser" parameterType="User">
+        update tbl_user set
+        user_name = #{name},
+        birthday = #{birthday}
+        where user_id = #{id};
+    </update>
+
+    <!--delete -->
+    <delete id="deleteById" parameterType="string">
+        delete from tbl_user where user_id = #{userId}
+    </delete>
+
+
+</mapper>
