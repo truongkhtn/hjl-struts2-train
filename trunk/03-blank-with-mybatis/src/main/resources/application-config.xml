@@ -24,7 +24,9 @@
         <property name="dataSource" ref="dataSource"/>
         <!--在 myBatis xml 文件中使用 aliases 别名 -->
         <!--<property name="typeAliasesPackage" value="cn.com.oceansoft.struts2.entity"/>-->
-        <!-- 设置 myBatis xml 路径-->
+        <!--MyBatis主配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!-- 所有 mapper 文件的位置-->
         <property name="mapperLocations" value="classpath*:mybatisMapper/**.xml"/>
     </bean>
 
