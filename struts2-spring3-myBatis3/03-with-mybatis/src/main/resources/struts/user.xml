@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="user" namespace="/user" extends="default">
+
+        <action name="UserList"
+                class="userAction"
+                method="getAll">
+            <result>/jsp/user/userList.jsp</result>
+        </action>
+
+        <action name="InitCreateUser"
+                class="userAction"
+                method="initCreateUser">
+            <result>/jsp/user/createUser.jsp</result>
+        </action>
+
+        <action name="CreateUser"
+                class="userAction"
+                method="createUser">
+            <result name="input">/jsp/user/initCreateUser.jsp</result>
+            <result name="success" type="redirectAction">UserList.action</result>
+        </action>
+
+        <action name="ViewUser"
+                class="userAction"
+                method="viewUser">
+            <result name="success">/jsp/user/viewUser.jsp</result>
+        </action>
+
+         <action name="InitUpdateUser"
+                class="userAction"
+                method="initUpdateUser">
+            <result name="success">/jsp/user/updateUser.jsp</result>
+        </action>
+
+        <action name="UpdateUser"
+                class="userAction"
+                method="updateUser">
+            <result name="success" type="redirectAction">UserList.action</result>
+        </action>
+
+        <action name="DeleteUser"
+                class="userAction"
+                method="deleteUser">
+            <result name="success" type="redirectAction">UserList.action</result>
+        </action>
+
+    </package>
+</struts>
