@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间-->
+<mapper namespace="cn.com.oceansoft.struts2.dao.BlogDao">
+
+    <!--使用缓存-->
+    <cache/>
+
+    <!--resultMap：对象和数据库的映射表-->
+    <resultMap id="blogResultMap" type="cn.com.oceansoft.struts2.entity.Blog">
+        <id property="blogId" column="blog_id"/>
+        <result property="blogName" column="blog_name"/>
+        <result property="content" column="content"/>
+        <result property="createdDate" column="created"/>
+        <result property="lastModifyDate" column="last_modify"/>
+        <association property="author" column="author_id"
+                    javaType="cn.com.oceansoft.struts2.entity.Author" select="selectAuthor"/>
+    </resultMap>
+
+    <!--定义一个可以重用的 sql 语段-->
+    <sql id="blogColumns"> blog_id,blog_name,content,created,last_modify,author_id </sql>
+
+    <!--select 查询 -->
+    <select id="getById" parameterType="string" resultMap="blogResultMap">
+      select * from tbl_blog where blog_id =  #{id};
+    </select>
+
+    <!-- insert : inline parameter -->
+    <insert id="saveBlog" parameterType="cn.com.oceansoft.struts2.entity.Blog">
+        insert into tbl_blog ( <include refid="blogColumns"/> )
+        values (#{blogId},#{blogName},#{content},#{createdDate},#{lastModifyDate},#{author.authorId})
+    </insert>
+
+    <!--delete -->
+    <delete id="deleteById" parameterType="string">
+        delete from tbl_blog where blog_id = #{id}
+    </delete>
+
+</mapper>
