@@ -8,15 +8,14 @@
     <!--使用缓存-->
     <cache/>
 
-    <!--resultMap：对象和数据库的映射表-->
-    <resultMap id="authorResultMap" type="cn.com.oceansoft.struts2.entity.Author">
-        <id property="authorId" column="author_id"/>
-        <result property="authorName" column="author_name"/>
-        <result property="email" column="email"/>
-    </resultMap>
+    <!--定义一个可以重用的 sql 语段-->
+    <sql id="authorColumns"> author_id,author_name,email </sql>
 
-    <select id="selectAuthor" parameterType="string" resultMap="authorResultMap">
-      SELECT * FROM tbl_author WHERE author_id = #{id}
-    </select>
+    <!--select 查询 -->
+    <!--<select id="getById" parameterType="string" resultMap="authorResultMap">
+      select <include refid="authorColumns"/> from tbl_author where author_id =  #{id};
+    </select>-->
+
+
 
 </mapper>

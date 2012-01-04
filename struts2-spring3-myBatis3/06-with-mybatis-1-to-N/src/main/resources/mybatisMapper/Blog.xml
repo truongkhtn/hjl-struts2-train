@@ -16,7 +16,19 @@
         <result property="createdDate" column="created"/>
         <result property="lastModifyDate" column="last_modify"/>
         <association property="author" column="author_id"
-                    javaType="cn.com.oceansoft.struts2.entity.Author" select="selectAuthor"/>
+                    javaType="cn.com.oceansoft.struts2.entity.Author" select="selectAuthor">
+            <!--<id property="id" column="author_id"/>-->
+        </association>
+    </resultMap>
+
+    <!--resultMap：对象和数据库的映射表-->
+    <select id="selectAuthor" parameterType="string" resultMap="authorResultMap">
+      SELECT * FROM tbl_author WHERE author_id = #{id}
+    </select>
+     <resultMap id="authorResultMap" type="cn.com.oceansoft.struts2.entity.Author">
+        <id property="authorId" column="author_id"/>
+        <result property="authorName" column="author_name"/>
+        <result property="email" column="email"/>
     </resultMap>
 
     <!--定义一个可以重用的 sql 语段-->
@@ -24,7 +36,36 @@
 
     <!--select 查询 -->
     <select id="getById" parameterType="string" resultMap="blogResultMap">
-      select * from tbl_blog where blog_id =  #{id};
+      select <include refid="blogColumns"/> from tbl_blog where blog_id =  #{id};
+    </select>
+
+    <!--存在N+1问题-->
+    <!--<select id="getAll" resultMap="blogResultMap">
+        select <include refid="blogColumns"/> from tbl_blog;
+    </select>-->
+
+    <!--blogAuthorLinkResultMap-->
+    <resultMap id="blogAuthorLinkResultMap" type="cn.com.oceansoft.struts2.entity.Blog">
+        <id property="blogId" column="blog_id"/>
+        <result property="blogName" column="blog_name"/>
+        <result property="content" column="content"/>
+        <result property="createdDate" column="created"/>
+        <result property="lastModifyDate" column="last_modify"/>
+        <association property="author" column="author_id"
+                    javaType="cn.com.oceansoft.struts2.entity.Author" resultMap="authorResultMap">
+        </association>
+    </resultMap>
+
+    <!--解决N+1问题-->
+    <select id="getAll" resultMap="blogAuthorLinkResultMap">
+        SELECT
+            *
+        from
+            tbl_blog as b
+        LEFT JOIN
+            tbl_author as a
+        on
+            b.author_id = a.author_id;
     </select>
 
     <!-- insert : inline parameter -->

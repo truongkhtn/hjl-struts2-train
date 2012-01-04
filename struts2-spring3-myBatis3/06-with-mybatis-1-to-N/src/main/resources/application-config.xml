@@ -27,7 +27,7 @@
         <!--MyBatis主配置文件-->
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <!-- 所有 mapper 文件的位置-->
-        <property name="mapperLocations" value="classpath*:mybatisMapper/**.xml"/>
+        <property name="mapperLocations" value="classpath:mybatisMapper/**.xml"/>
     </bean>
 
     <!-- 使用 spring annotation -->
