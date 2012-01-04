@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 @ContextConfiguration({"classpath:application-config.xml"})
 public class TestBlog extends AbstractTransactionalJUnit4SpringContextTests {
@@ -41,10 +42,20 @@ public class TestBlog extends AbstractTransactionalJUnit4SpringContextTests {
         blogDao.delete("test1");
     }
 
+    //1对1
     @Test
     public void getById(){
-        Blog blog = blogDao.getById("test1");
+        Blog blog = blogDao.getById("blog1");
         System.out.println(blog.toString());
     }
+
+    //1对1, 可能存在N+1问题
+    @Test
+    public void getAll(){
+        List list = blogDao.getAll();
+        System.out.println(list.size());
+    }
+
+
 
 }
