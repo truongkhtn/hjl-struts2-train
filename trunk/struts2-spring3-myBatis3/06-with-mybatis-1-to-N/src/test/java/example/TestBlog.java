@@ -2,6 +2,7 @@ package example;
 
 import cn.com.oceansoft.struts2.dao.BlogDao;
 import cn.com.oceansoft.struts2.entity.Author;
+import cn.com.oceansoft.struts2.entity.AuthorBlogLinked;
 import cn.com.oceansoft.struts2.entity.Blog;
 import org.junit.Test;
 import org.springframework.test.annotation.Rollback;
@@ -55,7 +56,5 @@ public class TestBlog extends AbstractTransactionalJUnit4SpringContextTests {
         List list = blogDao.getAll();
         System.out.println(list.size());
     }
-
-
 
 }

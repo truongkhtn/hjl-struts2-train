@@ -17,7 +17,6 @@
         <result property="lastModifyDate" column="last_modify"/>
         <association property="author" column="author_id"
                     javaType="cn.com.oceansoft.struts2.entity.Author" select="selectAuthor">
-            <!--<id property="id" column="author_id"/>-->
         </association>
     </resultMap>
 
