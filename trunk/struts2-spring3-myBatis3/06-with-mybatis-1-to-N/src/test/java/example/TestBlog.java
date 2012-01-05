@@ -2,13 +2,11 @@ package example;
 
 import cn.com.oceansoft.struts2.dao.BlogDao;
 import cn.com.oceansoft.struts2.entity.Author;
-import cn.com.oceansoft.struts2.entity.AuthorBlogLinked;
 import cn.com.oceansoft.struts2.entity.Blog;
 import org.junit.Test;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
@@ -55,6 +53,14 @@ public class TestBlog extends AbstractTransactionalJUnit4SpringContextTests {
     public void getAll(){
         List list = blogDao.getAll();
         System.out.println(list.size());
+    }
+
+    @Test
+    public void testGetByIdLazy(){
+        Blog blog = blogDao.getById("blog1");
+        System.out.println("1111:"+blog.getBlogName());
+        System.out.println("=============");
+        System.out.println("2222:"+blog.getAuthor().getEmail());
     }
 
 }
