@@ -6,7 +6,16 @@
 <mapper namespace="cn.com.oceansoft.struts2.dao.Group">
 
     <!--使用缓存-->
-    <cache/>
+    <!--<cache/>-->
+    <!--LRU,FIFO,SOFT,WEAK-->
+    <!--flushInterval:刷新间隔,ms-->
+    <!--size:引用数目-->
+    <!--readOnly:只读, 需要对象可序列化-->
+    <cache
+            eviction="LRU"
+            flushInterval="60000"
+            size="512"
+            readOnly="false"/>
 
     <!-- 根据 group id 查询 组 和 用户列表 信息 -->
     <resultMap id="groupResultMapBase" type="cn.com.oceansoft.struts2.entity.Group">
@@ -16,7 +25,7 @@
     </resultMap>
 
     <resultMap id="groupResultMap" extends="groupResultMapBase"
-                type="cn.com.oceansoft.struts2.entity.Group">
+               type="cn.com.oceansoft.struts2.entity.Group">
         <collection property="userList"
                     ofType="cn.com.oceansoft.struts2.entity.User"
                     resultMap="cn.com.oceansoft.struts2.dao.User.userResultMapBase">
