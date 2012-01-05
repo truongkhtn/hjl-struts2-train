@@ -28,4 +28,8 @@ public class BlogDaoImpl extends SqlSessionDaoSupport implements BlogDao {
     public void delete(String id) {
         this.getSqlSession().delete(DELETE_BY_ID, id);
     }
+
+    public Blog getByIdLazy(String id) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

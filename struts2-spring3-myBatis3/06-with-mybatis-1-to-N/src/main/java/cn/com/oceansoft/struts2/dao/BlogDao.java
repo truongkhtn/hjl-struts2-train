@@ -15,4 +15,6 @@ public interface BlogDao {
 
     void delete(String id);
 
+    Blog getByIdLazy(String id);
+
 }
