@@ -9,20 +9,18 @@
     <cache/>
 
     <!-- 根据 user 表中的 id 查询 用户 和 组 信息 -->
-    <resultMap id="userResultMap" type="cn.com.oceansoft.struts2.entity.User">
+    <resultMap id="userResultMapBase" type="cn.com.oceansoft.struts2.entity.User">
         <id property="userId" column="user_id"/>
         <result property="name" column="user_name"/>
         <result property="gender" column="gender"/>
-        <collection property="groupList"
-                    ofType="cn.com.oceansoft.struts2.entity.Group"
-                    resultMap="groupResultMap">
-        </collection>
     </resultMap>
 
-    <resultMap id="groupResultMap" type="cn.com.oceansoft.struts2.entity.Group">
-        <id property="groupId" column="group_id"/>
-        <result property="name" column="name"/>
-        <result property="remark" column="remark"/>
+    <resultMap id="userResultMap"  extends="userResultMapBase"
+                type="cn.com.oceansoft.struts2.entity.User">
+        <collection property="groupList"
+                    ofType="cn.com.oceansoft.struts2.entity.Group"
+                    resultMap="cn.com.oceansoft.struts2.dao.Group.groupResultMapBase">
+        </collection>
     </resultMap>
 
     <select id="getById" parameterType="string" resultMap="userResultMap">
