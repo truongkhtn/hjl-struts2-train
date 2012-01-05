@@ -8,13 +8,35 @@
     <!--使用缓存-->
     <cache/>
 
-    <!-- 根据 user 表中的 id 查询 用户 和 组 信息 -->
+    <!--userResultMapBase-->
     <resultMap id="userResultMapBase" type="cn.com.oceansoft.struts2.entity.User">
         <id property="userId" column="user_id"/>
         <result property="name" column="user_name"/>
         <result property="gender" column="gender"/>
     </resultMap>
 
+    <select id="getByIdBase" parameterType="string" resultMap="userResultMapBase">
+        select * from tbl_user where user_id = #{id}
+    </select>
+
+    <select id="getByGroupId" parameterType="string" resultMap="userResultMapBase">
+        select
+          u.user_id, u.user_name,u.gender,g.group_id, g.name, g.remark
+        from
+          tbl_user as u
+        LEFT JOIN
+          tbl_user_group as u2g
+        ON
+          u.user_id = u2g.user_id
+        LEFT JOIN
+          tbl_group as g
+        ON
+          u2g.group_id = g.group_id
+        where
+          g.group_id = #{id}
+    </select>
+
+    <!-- 根据 user 表中的 id 查询 用户 和 组 信息 -->
     <resultMap id="userResultMap"  extends="userResultMapBase"
                 type="cn.com.oceansoft.struts2.entity.User">
         <collection property="groupList"

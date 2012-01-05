@@ -8,6 +8,8 @@ public interface GroupDao {
 
     Group getById(String id);
 
+    Group getByIdLazy(String id);
+
     List getAll();
 
 }

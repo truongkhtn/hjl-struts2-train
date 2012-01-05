@@ -56,5 +56,20 @@
             u2g.user_id = u.user_id
     </select>
 
+    <!-- 懒加载：根据 group id 查询 组 和 用户列表 信息 -->
+    <select id="getByIdLazy" parameterType="string" resultMap="getByIdLazyResult">
+        SELECT group_id, name, remark
+        FROM tbl_group
+        WHERE group_id = #{id}
+    </select>
+
+    <resultMap id="getByIdLazyResult"
+               extends="groupResultMapBase"
+               type="cn.com.oceansoft.struts2.entity.Group">
+        <collection property="userList"
+                    column="group_id"
+                    select="cn.com.oceansoft.struts2.dao.User.getByGroupId">
+        </collection>
+    </resultMap>
 
 </mapper>

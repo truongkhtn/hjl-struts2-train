@@ -31,4 +31,12 @@ public class TestGroup extends AbstractTransactionalJUnit4SpringContextTests {
         System.out.println(list.size());
     }
 
+    @Test
+    public void testGetByIdLazy(){
+        Group group = groupDao.getByIdLazy("group1");
+        System.out.println("1111111111111:"+group.getName());
+        System.out.println("================================");
+        System.out.println("2222222222222:"+group.getUserList().get(0).getName());
+    }
+
 }

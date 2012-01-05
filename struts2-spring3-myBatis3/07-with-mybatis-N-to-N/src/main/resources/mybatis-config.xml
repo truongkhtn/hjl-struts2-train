@@ -10,15 +10,14 @@
         <setting name="cacheEnabled" value="true"/>
         <!--全局性设置懒加载。如果设为‘false’，则所有相关联的都会被初始化加载。-->
         <setting name="lazyLoadingEnabled" value="true"/>
+        <!--有延迟加载属性的对象在被调用时将会完全加载所有属性。否则，每种属性将会按需要加载。-->
+        <setting name="aggressiveLazyLoading" value="false"/>
         <!--允许和不允许单条语句返回多个数据集（取决于驱动需求）-->
         <setting name="multipleResultSetsEnabled" value="true"/>
         <!--使用列标签代替列名称。不同的驱动器有不同的作法 -->
         <setting name="useColumnLabel" value="true"/>
         <!--强制使用JDBC自动生成的主键-->
         <setting name="useGeneratedKeys" value="false"/>
-        <!--是否需要POJO启动Java字节码增强功能,
-        可以提升getter/setter的调用效能避免Java反射所带来的性能开销。-->
-        <!--<setting name="enhancementEnabled" value="true"/>-->
         <!--配置和设定执行器-->
         <!--SIMPLE 执行器执行其它语句-->
         <!--REUSE 执行器可能重复使用prepared statements 语句-->

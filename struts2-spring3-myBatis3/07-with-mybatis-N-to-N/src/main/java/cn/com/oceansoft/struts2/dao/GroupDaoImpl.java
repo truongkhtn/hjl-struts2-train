@@ -12,6 +12,10 @@ public class GroupDaoImpl extends SqlSessionDaoSupport implements GroupDao{
         return (Group) this.getSqlSession().selectOne("cn.com.oceansoft.struts2.dao.Group.getById" , id);
     }
 
+    public Group getByIdLazy(String id) {
+        return (Group) this.getSqlSession().selectOne("cn.com.oceansoft.struts2.dao.Group.getByIdLazy" , id);
+    }
+
     public List getAll() {
         return this.getSqlSession().selectList("cn.com.oceansoft.struts2.dao.Group.getAll");
     }

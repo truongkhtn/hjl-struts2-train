@@ -35,7 +35,7 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao {
     }
 
     public List<User> getAll() {
-        return this.getSqlSession().selectList("cn.com.oceansoft.struts2.dao.User.getAll");
+        return this.getSqlSession().selectList("getAll");
     }
 
     public int countAll() {
