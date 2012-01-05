@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间-->
+<mapper namespace="cn.com.oceansoft.struts2.dao.Group">
+
+    <!--使用缓存-->
+    <cache/>
+
+    <!-- 根据 group id 查询 组 和 用户列表 信息 -->
+    <resultMap id="groupResultMap" type="cn.com.oceansoft.struts2.entity.Group">
+        <id property="groupId" column="group_id"/>
+        <result property="name" column="name"/>
+        <result property="remark" column="remark"/>
+        <collection property="userList"
+                    ofType="cn.com.oceansoft.struts2.entity.User"
+                    resultMap="userResultMap">
+        </collection>
+    </resultMap>
+
+    <resultMap id="userResultMap" type="cn.com.oceansoft.struts2.entity.User">
+        <id property="userId" column="user_id"/>
+        <result property="name" column="user_name"/>
+        <result property="gender" column="gender"/>
+    </resultMap>
+
+    <select id="getById" parameterType="string" resultMap="groupResultMap">
+        select
+            g.group_id, g.name, g.remark, u.user_id, u.user_name,u.gender
+        from
+            tbl_group as g
+        LEFT JOIN
+            tbl_user_group as u2g
+        ON
+            g.group_id = u2g.group_id
+        LEFT JOIN
+            tbl_user as u
+        ON
+            u2g.user_id = u.user_id
+        where
+            g.group_id = #{id}
+    </select>
+
+    <!-- 根据所有 group 组 和 用户列表 信息 -->
+    <select id="getAll" parameterType="string" resultMap="groupResultMap">
+        select
+            g.group_id, g.name, g.remark, u.user_id, u.user_name,u.gender
+        from
+            tbl_group as g
+        LEFT JOIN
+            tbl_user_group as u2g
+        ON
+            g.group_id = u2g.group_id
+        LEFT JOIN
+            tbl_user as u
+        ON
+            u2g.user_id = u.user_id
+    </select>
+
+
+</mapper>

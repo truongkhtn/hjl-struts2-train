@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间-->
+<mapper namespace="cn.com.oceansoft.struts2.dao.User">
+
+    <!--使用缓存-->
+    <cache/>
+
+    <!-- 根据 user 表中的 id 查询 用户 和 组 信息 -->
+    <resultMap id="userResultMap" type="cn.com.oceansoft.struts2.entity.User">
+        <id property="userId" column="user_id"/>
+        <result property="name" column="user_name"/>
+        <result property="gender" column="gender"/>
+        <collection property="groupList"
+                    ofType="cn.com.oceansoft.struts2.entity.Group"
+                    resultMap="groupResultMap">
+        </collection>
+    </resultMap>
+
+    <resultMap id="groupResultMap" type="cn.com.oceansoft.struts2.entity.Group">
+        <id property="groupId" column="group_id"/>
+        <result property="name" column="name"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <select id="getById" parameterType="string" resultMap="userResultMap">
+        select
+          u.user_id, u.user_name,u.gender,g.group_id, g.name, g.remark
+        from
+          tbl_user as u
+        LEFT JOIN
+          tbl_user_group as u2g
+        ON
+          u.user_id = u2g.user_id
+        LEFT JOIN
+          tbl_group as g
+        ON
+          u2g.group_id = g.group_id
+        where
+          u.user_id = #{id};
+    </select>
+
+    <!-- 根据所有 用户和对应的组信息 -->
+    <select id="getAll" resultMap="userResultMap">
+        select
+          u.user_id, u.user_name,u.gender,g.group_id, g.name, g.remark
+        from
+          tbl_user as u
+        LEFT JOIN
+          tbl_user_group as u2g
+        ON
+          u.user_id = u2g.user_id
+        LEFT JOIN
+          tbl_group as g
+        ON
+          u2g.group_id = g.group_id
+    </select>
+
+    <select id="getByName" parameterType="string" resultMap="userResultMap">
+      select * from tbl_user where user_name =  #{name};
+    </select>
+
+    <select id="countAll" resultType="int">
+        select count(*) from tbl_user;
+    </select>
+
+    <!-- insert : inline parameter -->
+    <insert id="saveUser" parameterType="cn.com.oceansoft.struts2.entity.User">
+        insert into tbl_user (user_id,user_name,birthday)
+        values (#{id},#{name},#{birthday})
+    </insert>
+
+    <!-- insert : external parameter
+    <parameterMap id="saveUserParam" type="cn.com.oceansoft.struts2.entity.User">
+        <parameter property="id"/>
+        <parameter property="name"/>
+        <parameter property="birthday"/>
+    </parameterMap>
+
+    <insert id="saveUser" parameterMap="userParam">
+        insert into tbl_user (user_id,user_name,birthday) values (?,?,?)
+    </insert>  -->
+
+    <!--update-->
+    <update id="updateUser" parameterType="cn.com.oceansoft.struts2.entity.User">
+        update tbl_user set
+        user_name = #{name},
+        birthday = #{birthday}
+        where user_id = #{id};
+    </update>
+
+    <!--delete -->
+    <delete id="deleteById" parameterType="string">
+        delete from tbl_user where user_id = #{userId}
+    </delete>
+
+
+</mapper>
