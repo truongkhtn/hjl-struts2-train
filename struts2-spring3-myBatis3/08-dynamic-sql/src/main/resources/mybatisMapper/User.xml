@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--命名空间-->
+<mapper namespace="cn.com.oceansoft.struts2.dao.UserDao">
+
+    <!--使用缓存-->
+    <cache/>
+
+    <!--resultMap：对象和数据库的映射表-->
+    <resultMap id="userResultMap" type="cn.com.oceansoft.struts2.entity.User">
+        <id property="userId" column="user_id"/>
+        <result property="name" column="name"/>
+        <result property="gender" column="gender"/>
+        <result property="state" column="state"/>
+        <result property="email" column="email"/>
+    </resultMap>
+
+    <!--select 查询 -->
+    <select id="getById" parameterType="string" resultMap="userResultMap">
+      select * from tbl_user where user_id =  #{userId};
+    </select>
+
+    <select id="getByName" parameterType="string" resultMap="userResultMap">
+      select * from tbl_user where name =  #{name};
+    </select>
+
+    <select id="getAll" resultMap="userResultMap">
+      select * from tbl_user;
+    </select>
+
+    <select id="countAll" resultType="int">
+        select count(*) from tbl_user;
+    </select>
+
+    <!-- insert : inline parameter -->
+    <insert id="saveUser" parameterType="cn.com.oceansoft.struts2.entity.User">
+        insert into tbl_user (user_id,name,gender,state,email)
+        values (#{userId},#{name},#{gender},#{state},#{email})
+    </insert>
+
+    <!--update-->
+    <update id="updateUser" parameterType="cn.com.oceansoft.struts2.entity.User">
+        update tbl_user as u
+        set
+        u.name = #{name},
+        u.gender = #{gender},
+        u.state = #{state},
+        u.email = #{email}
+        where user_id = #{userId};
+    </update>
+
+    <update id="updateIfNecessary" parameterType="cn.com.oceansoft.struts2.entity.User">
+        update tbl_user as u
+        <set>
+            <if test="name != null">u.name = #{name} ,</if>
+            <if test="gender != null">u.gender = #{gender} ,</if>
+            <if test="state != null">u.state = #{state} ,</if>
+            <if test="email != null">u.email = #{email} ,</if>
+        </set>
+        where u.user_id = #{userId}
+    </update>
+
+    <!--delete -->
+    <delete id="deleteById" parameterType="string">
+        delete from tbl_user where user_id = #{userId}
+    </delete>
+
+    <delete id="deleteAll">
+        delete from  tbl_user;
+    </delete>
+
+    <!--dynamic sql -->
+    <select id="getActiveUserByNameLike"
+            parameterType="cn.com.oceansoft.struts2.entity.User"
+            resultMap="userResultMap">
+        select * from tbl_user as u
+        where u.state = 'ACTIVE'
+        <if test="name != null">
+            and u.name like CONCAT('%','${name}','%' )
+        </if>
+    </select>
+
+    <select id="getActiveUserLike"
+            parameterType="cn.com.oceansoft.struts2.entity.User"
+            resultMap="userResultMap">
+        select * from tbl_user as u
+        where u.state = 'ACTIVE'
+        <choose>
+            <when test="name != null">
+                and u.name like CONCAT('%','${name}','%' )
+            </when>
+            <when test="email != null">
+                and u.email like CONCAT('%','${email}','%' )
+            </when>
+            <otherwise>
+                and u.gender = 1
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="getUserLike"
+            parameterType="cn.com.oceansoft.struts2.entity.User"
+            resultMap="userResultMap">
+        select * from tbl_user as u
+        <where>
+            <if test="name != null">
+                u.name like CONCAT('%','${name}','%' )
+            </if>
+            <if test="state != null">
+                and u.state like CONCAT('%','${state}','%' )
+            </if>
+            <if test="email != null">
+                and u.email like CONCAT('%','${email}','%' )
+            </if>
+        </where>
+    </select>
+
+    <select id="getByIds" parameterType="java.util.List" resultMap="userResultMap">
+        select * from tbl_user as u
+        <if test="list != null">
+            where u.user_id in
+            <foreach collection="list"
+                     item="id"
+                     open="("
+                     close=")"
+                     separator=",">
+                #{id}
+            </foreach>
+        </if>
+    </select>
+
+</mapper>
