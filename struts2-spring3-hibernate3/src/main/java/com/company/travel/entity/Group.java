@@ -15,6 +15,15 @@ public class Group extends BaseEntity {
     private String name;  //名称
     private String description;// 描述
     private Set<User> userSet;// 用户
+    private int seq; //排序
+
+    public Group() {
+    }
+
+    public Group(String name , int seq) {
+        this.name = name;
+        this.seq = seq;
+    }
 
     @Column(nullable = false)
     public String getName() {
@@ -41,5 +50,13 @@ public class Group extends BaseEntity {
 
     public void setUserSet(Set<User> userSet) {
         this.userSet = userSet;
+    }
+
+    public int getSeq() {
+        return seq;
+    }
+
+    public void setSeq(int seq) {
+        this.seq = seq;
     }
 }

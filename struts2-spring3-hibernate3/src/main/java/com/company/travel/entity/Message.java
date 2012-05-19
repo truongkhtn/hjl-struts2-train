@@ -13,12 +13,21 @@ public class Message extends BaseEntity{
 
     private String title; //主题
     private Date date; //日期
-    private String category; //分类
     private String content; //内容
 
+    private MessageCategory messageCategory;
     private Set<MessageLog> messageLogs;
 
     public Message() {
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    public MessageCategory getMessageCategory() {
+        return messageCategory;
+    }
+
+    public void setMessageCategory(MessageCategory messageCategory) {
+        this.messageCategory = messageCategory;
     }
 
     @OneToMany(fetch = FetchType.LAZY , mappedBy = "message")
@@ -47,15 +56,6 @@ public class Message extends BaseEntity{
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    @Column(nullable = false)
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     @Column(nullable = false)
