@@ -5,6 +5,10 @@
 <struts>
     <package name="common" namespace="/" extends="tiles-default">
 
+        <action name="login" class="userAction" method="login">
+             <result name="success" type="redirectAction">index.action</result>
+        </action>
+
         <action name="index" class="commonAction" method="index">
             <result name="success" type="tiles">index.tiles</result>
         </action>
