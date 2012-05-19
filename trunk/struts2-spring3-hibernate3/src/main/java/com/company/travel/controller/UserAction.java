@@ -1,18 +1,15 @@
 package com.company.travel.controller;
 
-import com.company.travel.entity.Area;
 import com.company.travel.entity.Role;
 import com.company.travel.entity.User;
 import com.company.travel.service.RoleService;
 import com.company.travel.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 import org.apache.log4j.Logger;
-import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -39,48 +36,8 @@ public class UserAction extends BaseAction{
     //action 属性
     private User user;
     private List userList;
-    private List areaList;
     private String oldPass;
     private String newPass;
-
-    private List getArea(){
-        if(areaList == null){
-            areaList = new ArrayList();
-            areaList.add(new Area("0" , "--请选择--"));
-            areaList.add(new Area("CS" , "长沙地区"));
-            areaList.add(new Area("TZ" , "台州地区"));
-        }
-        return areaList;
-    }
-
-    public String initRegister(){
-        log.debug("initRegisterUser run ...");
-        areaList = getArea();
-        getRequest().setAttribute("list" , areaList);
-        log.debug("initRegisterUser end ...");
-        return SUCCESS;
-    }
-
-    public String register(){
-        log.debug("registerUser run ...");
-        //step 1: check if there's same username
-        String username = user.getUsername();
-        User temp = userService.getUserByUsername(username);
-        if(temp!=null){
-            this.addFieldError("user.username", getText("error.username.used"));
-            areaList = getArea();
-            return INPUT;
-        }
-        //step 2: save the register user.
-        user.setIsAccountEnabled(false);//初始状态: 未开通
-        user.setIsAccountExpired(false);
-        user.setIsAccountLocked(false);
-        user.setIsCredentialsExpired(false);
-        user.setLoginFailureCount(0);
-        userService.save(user);
-        log.debug("registerUser end ...");
-        return SUCCESS;
-    }
 
     public String blank(){
         return SUCCESS;
@@ -151,7 +108,6 @@ public class UserAction extends BaseAction{
     }
 
     public String initUpdate(){
-        areaList = getArea();
         user = userService.get(id);
         return SUCCESS;
     }
@@ -175,14 +131,6 @@ public class UserAction extends BaseAction{
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public List getAreaList() {
-        return areaList;
-    }
-
-    public void setAreaList(List areaList) {
-        this.areaList = areaList;
     }
 
     public String getOldPass() {
