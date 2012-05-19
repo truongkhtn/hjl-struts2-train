@@ -39,6 +39,10 @@ public class UserAction extends BaseAction{
         return SUCCESS;
     }
 
+    public String login(){
+        return SUCCESS;
+    }
+
     public String changePass(){
         log.debug("changePass run ...");
         String tempPass = getLoginUser().getPassword();
