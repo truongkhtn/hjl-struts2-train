@@ -16,9 +16,6 @@
         <setting name="useColumnLabel" value="true"/>
         <!--强制使用JDBC自动生成的主键-->
         <setting name="useGeneratedKeys" value="false"/>
-        <!--是否需要POJO启动Java字节码增强功能,
-        可以提升getter/setter的调用效能避免Java反射所带来的性能开销。-->
-        <!--<setting name="enhancementEnabled" value="true"/>-->
         <!--配置和设定执行器-->
         <!--SIMPLE 执行器执行其它语句-->
         <!--REUSE 执行器可能重复使用prepared statements 语句-->
