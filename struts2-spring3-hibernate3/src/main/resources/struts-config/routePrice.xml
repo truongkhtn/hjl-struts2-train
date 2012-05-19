@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="routePrice" namespace="/routePrice" extends="tiles-default">
+
+        <action name="list" class="routePriceAction" method="list">
+            <result name="success" type="tiles">routePriceList.tiles</result>
+        </action>
+
+        <action name="view" class="routePriceAction" method="view">
+            <result name="success" type="tiles">routePriceView.tiles</result>
+        </action>
+
+        <action name="initPublishRoute" class="routePriceAction" method="initPublishRoute">
+            <result name="success" type="tiles">initPublishRoute.tiles</result>
+        </action>
+
+        <action name="publishRoute" class="routePriceAction" method="publishRoute">
+            <result name="success" type="redirectAction">list.action</result>
+        </action>
+
+        <action name="delete" class="routePriceAction" method="delete">
+            <result name="success" type="redirectAction">list.action</result>
+        </action>
+
+        <action name="initUpdateRoutePrice" class="routePriceAction" method="initUpdateRoutePrice">
+            <result name="success" type="tiles">initUpdateRoutePrice.tiles</result>
+        </action>
+
+        <action name="updateRoutePrice" class="routePriceAction" method="updateRoutePrice">
+            <result name="success" type="redirectAction">list.action</result>
+        </action>
+
+    </package>
+</struts>

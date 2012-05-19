@@ -1,0 +1,153 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="pragma" content="no-cache"/>
+    <link href="/styles/jquery-ui.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <style type="text/css">
+        #selectable .ui-selecting {
+            background: #FECA40;
+        }
+
+        #selectable .ui-selected {
+            background: #F39814;
+            color: white;
+        }
+
+        #selectable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+
+        #selectable li {
+            margin: 3px;
+            padding: 0.4em;
+            font-size: 12px;
+            height: 18px;
+        }
+
+        #demo div {
+            float: left;
+        }
+
+        #items {
+            font-size: 12px;
+            padding: 5px;
+            width: 200px;
+            text-align: center;
+            border-width: 2px;
+            border-color: #CCCCCC;
+            border-style: solid;
+        }
+
+        #selectable {
+            width: 100%;
+        }
+
+        .blank {
+            height: 300px;
+            width: 20px;
+            border-width: 0px;
+        }
+
+        #btnBar {
+            width: 30px;
+            height: 300px;
+            border-width: 0px;
+            border-color: #CCCCCC;
+            border-style: solid;
+            vertical-align: middle;
+        }
+
+
+
+    </style>
+    <script>
+        $(function() {
+            $("#selectable").selectable();
+            $("#btnDelete").click(function() {
+                $("#items li").each(function(index) {
+                    if ($(this).hasClass("ui-selected")) {
+                        $(this).remove();
+                    }
+                });
+            });
+            $("#btnUp").click(function($item) {
+                $("#items li").each(function(index) {
+                    if ($(this).hasClass("ui-selected")) {
+                        $before = $(this).prev();
+                        $(this).insertBefore($before);
+                    }
+                });
+            });
+            $("#btnUpFirst").click(function() {
+                $("#items li").each(function(index) {
+                    if ($(this).hasClass("ui-selected")) {
+                        if (index != 0) {
+                            $first = $("#selectable").children("li")[0];
+                            $(this).insertBefore($first);
+                        }
+                    }
+                });
+            });
+            $("#btnDown").click(function() {
+                $("#items li").each(function(index) {
+                    if ($(this).hasClass("ui-selected")) {
+                        $after = $(this).next();
+                        $(this).insertAfter($after);
+                    }
+                });
+            });
+            $("#btnDownLast").click(function() {
+                $("#items li").each(function(index) {
+                    if ($(this).hasClass("ui-selected")) {
+                        $last = $("#selectable li:last-child");
+                        if(index != $last.index()){
+                            $(this).insertAfter($last);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div id="demo">
+    <div id="items">
+        <ol id="selectable">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+            <li>Item 6</li>
+            <li>Item 7</li>
+            <li>Item 8</li>
+            <li>Item 9</li>
+            <li>Item 10</li>
+        </ol>
+    </div>
+
+    <div class="blank"></div>
+
+    <div id="btnBar">
+        <br>
+        <br>
+        <br>
+        <br>
+        <img id="btnUpFirst" src="images/up_first.png">
+        <img id="btnUp" src="images/up.png">
+        <img id="btnDown" src="images/down.png">
+        <img id="btnDownLast" src="images/down_last.png">
+        <img id="btnDelete" src="images/delete.png">
+    </div>
+
+</div>
+
+</body>
+</html>
+

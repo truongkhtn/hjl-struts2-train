@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="companyInfo" namespace="/companyInfo" extends="tiles-default">
+
+        <action name="view" class="companyInfoAction" method="view">
+            <result name="success" type="tiles">companyInfoView.tiles</result>
+        </action>
+
+        <action name="initCreateOrUpdate" class="companyInfoAction" method="initCreateOrUpdate">
+            <result name="success" type="tiles">companyInfoCreateOrUpdate.tiles</result>
+        </action>
+
+        <action name="create" class="companyInfoAction" method="create">
+            <result name="success" type="redirectAction">view.action</result>
+        </action>
+
+        <action name="update" class="companyInfoAction" method="update">
+            <result name="success" type="redirectAction">view.action</result>
+        </action>
+
+    </package>
+</struts>

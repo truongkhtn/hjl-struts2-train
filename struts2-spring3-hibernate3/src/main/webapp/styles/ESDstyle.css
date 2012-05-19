@@ -1,0 +1,599 @@
+@charset "gb2312";
+BODY {
+	font-family: "Arial" , "宋体", "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	margin:0px;
+}
+TD,INPUT,SELECT,TEXTAREA {
+	font-size: 12px;
+}
+FORM {
+	MARGIN: 0px
+}
+/*--------------------------页面容器表格---------------------------*/
+/*页面容器头部表格属性*/
+
+Table.all  	{
+	width:100%;
+	border-collapse:collapse;
+} 	
+/*页面容器头部表格行属性*/
+TR.allhead 	{
+	background:#EBF2F9;
+} 	
+/*页面容器头部表格栏属性*/
+TD.allhead 	{
+	border-bottom:1px solid #4B84B7;
+	font-size:14px;
+	font-weight:bold;
+	color:#336699;
+	line-height:14px;
+	padding:2px;
+	text-indent:1em;
+} 	
+/*页面容器中部的表格行属性*/
+TR.allcontent 	{
+
+} 	
+/*页面容器中部的表格栏属性*/
+TD.allcontent {
+	padding:5px;
+} 	
+/*页面容器底部的表格行属性*/	
+TR.allbottom 	{
+	background:#f1f1f1;
+} 	
+/*页面容器底部的表格行属性*/
+TD.allbottom 	{
+	border:1px solid #fff;
+	font-size:12px;
+	color:#333;
+	line-height:16px;
+	padding:2px;
+}
+TD.allbottom a, TD.allbottom a:visited{
+	color:#003399;
+}
+
+/*--------------------------头部窗口表格---------------------------*/
+/*头部窗口表格属性*/
+TABLE.TOP 	{
+	width:100%;
+	background:#4B84B7;
+	color:#FFFFFF;
+	border-collapse:collapse;
+}
+TABLE.TOP a,TABLE.TOP a:visited {
+	color:#FFFFFF;
+}
+
+/*头部窗口表格的标题行属性*/
+TR.toptitle 	{
+} 	
+/*头部窗口表格的标题栏靠左对齐属性*/
+TD.toptitleleft 	{
+	line-height:25px;
+	text-align:left;
+} 	
+/*头部窗口表格的标题栏靠中对齐属性*/
+TD.toptitlecenter 	{
+	text-align:center;
+} 
+/*头部窗口表格的标题栏靠右对齐属性*/
+TD.toptitleright {
+	text-align:right;
+	padding:2px;
+}
+/*头部窗口表格的标题栏属性*/
+TD.toptitle 	{
+} 	
+/*头部窗口表格的内容行属性*/
+TR.topcontent 	{
+} 	
+/*头部窗口表格的内容栏属性*/
+TD.topcontent 	 {
+	line-height:25px;
+	color:#fff;
+} 	
+
+
+/*--------------------------底部窗口表格---------------------------*/
+/*底部窗口表格属性*/
+TABLE.bottom 	{
+	width:100%;
+	background:#4B84B7;
+	border-top:1px solid #4B84B7;
+	color:#FFFFFF;
+	border-collapse:collapse;
+} 
+TABLE.bottom a,TABLE.bottom a:visited{
+	color:#FFFFFF;
+} 	
+/*底部窗口表格的头部行属性*/
+TR.bottomhead 	{
+} 	
+/*底部窗口表格的头部栏属性*/
+TD.bottomhead 	{
+} 	
+/*底部窗口表格的底部行属性*/
+TR.bottomcontent 	{
+} 	
+/*底部窗口表格的底部栏属性*/
+TD.bottomcontent 	{
+	padding:2px;
+	line-height:20px;
+	text-align:right;
+} 	
+
+/*--------------------------弹出窗口表格---------------------------*/
+/*弹出窗口表格属性*/
+TABLE.window 	{
+	width:100%;
+	border:1px solid #ccc;
+	border-collapse:collapse;
+}
+TABLE.window TD{
+	padding:2px;
+}
+/*弹出窗口表格的标题行属性*/
+TR.wintitle 	{
+	background:#ddd;
+} 	
+/*弹出窗口表格的标题栏属性*/
+TD.wintitle {
+	border:1px solid #fff;
+	font-size:12px;
+	font-weight:bold;
+	color:#336699;
+	line-height:16px;
+} 	
+/*弹出窗口表格的头部行属性*/	
+TR.winhead 	{
+} 	
+/*弹出窗口表格的头部栏属性*/
+TD.winhead 	{
+} 	
+/*弹出窗口表格的底部行属性*/
+TR.winbottom 	{
+	background:#f8f8f8;
+} 	
+/*弹出窗口表格的底部栏属性*/
+TD.winbottom 	{
+	text-align:right;
+	border-top:1px solid #eee;
+} 	
+/*弹出窗口表格中部内容区行属性*/
+TR.wincontent 	{
+} 	
+/*弹出窗口表格中部内容区栏属性*/
+TD.wincontent 	{
+} 	
+
+/*--------------------------增加或修改功能区表格---------------------------*/
+/*增加或修改功能区表格属性*/
+TABLE.add 	{
+	width:100%;
+	border:1px solid #ccc;
+	border-collapse:collapse;
+}
+TABLE.add TD{
+	padding:2px;
+}
+/*增加或修改表格标题行属性*/
+TR.add_title{
+	background:#ddd;
+} 	
+/*增加或修改表格标题栏属性*/
+Td.add_title 	{
+	border:1px solid #fff;
+	font-size:12px;
+	font-weight:bold;
+	color:#555;
+	line-height:16px;
+}
+/*增加或修改表格列标题行属性*/
+TR.add_head 	{
+}
+/*增加或修改表格列标题栏属性*/
+TD.add_head 	{
+
+}
+/*增加或修改表格底部行属性*/
+TR.add_bottom 	{
+	background:#f8f8f8;
+}
+/*增加或修改表格底部栏属性*/
+TD.add_bottom 	{
+	text-align:right;
+	border-top:1px solid #eee;
+}
+/*增加或修改表格内容行属性*/
+TR.add_content 	{
+}
+/*增加或修改表格内容栏属性*/
+TD.add_content 	{
+}
+
+/*--------------------------查询条件表格---------------------------*/
+/*查询条件表格属性*/
+TABLE.query{
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}
+TABLE.query TD{
+	padding:2px;
+}
+/*查询条件表格标题行属性*/
+TR.query_title 	{
+	background:#ddd;
+}
+/*查询条件表格标题栏属性*/
+Td.query_title 	{
+	border:1px solid #fff;
+	font-size:12px;
+	font-weight:bold;
+	color:#555;
+	line-height:16px;
+}
+/*查询条件表格头部行属性*/
+TR.query_head 	{
+}
+/*查询条件表格头部栏属性*/
+TD.query_head 	{
+	color:#333333;
+}
+/*查询条件表格底部行属性*/
+TR.query_bottom 	{
+	background:#f8f8f8;
+}
+/*查询条件表格底部栏属性*/
+TD.query_bottom 	{
+	text-align:right;
+	border-top:1px solid #eee;
+}
+/*查询条件表格内容行属性*/
+TR.query_content 	{
+}
+/*查询条件表格内容栏属性*/
+TD.query_content 	{
+	background-color: #e0e0e0;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+	}
+	
+TD.query_content_ 	{
+	background-color: #FFFFFF;
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}
+
+/*--------------------------分割线---------------------------*/
+/*查询结果表格属性*/
+TABLE.result 	{
+	border:1px solid #ccc;
+	border-collapse:collapse;
+}
+tr.result_head {
+}
+tr.result_head td {
+}
+TABLE.result TD	{
+	
+}
+/*查询结果表格属性2*/
+TABLE.result2 	{
+	background-color: #999999;
+	width:100%;
+	border-collapse:collapse;
+}
+TABLE.result2 TD	{
+	padding:2px;
+}
+/*查询结果表格属性1*/
+TABLE.result1 	{
+	background-color: #999999;
+	width:98%;
+	border-collapse:collapse;
+}
+TABLE.result1 TD	{
+	padding:2px;
+}
+/*查询结果表格的标题行属性*/
+TR.result_title 	{
+	background-color: #DDDDDD;
+	height: 20px;
+	text-align: center;
+}
+/*查询结果表格的标题栏属性*/
+TD.result_title {
+	font-size: 12px;
+	font-weight: bold;
+	border-top:1px solid #fff;
+	border-bottom-width:0px;
+	line-height:18px;
+	color:#555;
+}
+/*查询结果表格的头部行属性	*/
+TR.result_head 	{
+	background:#A3CFEE;
+}
+/*查询结果表格的头部栏属性*/
+TD.result_head 	{
+	text-align:center;
+	border-left:1px solid #fff;
+	border-top:1px solid #fff;
+	line-height:1.4em;
+}
+/*查询结果表格的底部行属性*/
+TR.result_bottom 	{
+	background:#eee;
+}
+/*查询结果表格的底部栏属性*/
+TD.result_bottom 	{
+	border-top:1px solid #fff;
+}
+/*查询结果表格中部内容行属性1*/
+TR.result_content 	{	
+    height: 25px;
+	border-top:1px solid #fff;
+	border-left:1px solid #fff;
+}
+/*查询结果表格中部内容栏属性1*/
+TD.result_content 	{
+	font-size: 12px;
+	background-color: #fff;
+	line-height:18px;
+	border-top:1px solid #fff;
+	border-left:1px solid #fff;
+}
+/*查询结果表格中部内容行属性2*/
+TR.result_content_ 	{
+	background-color: #F0F0FF;
+	height: 25px;
+	border-top:1px solid #fff;
+	border-left:1px solid #fff;
+}
+/*选中的查询结果表格中部内容栏的属性*/
+TR.result_selected_content 	{
+	background-color: #3692DA;
+	height: 25px;
+	border-top:1px solid #fff;
+	border-left:1px solid #fff;
+}
+/*查询结果表格中部内容栏属性2*/
+TD.result_content_{
+	font-size: 12px;
+	background-color: #E7F0FA;
+	line-height:13px;
+	border-top:1px solid #fff;
+	border-left:1px solid #fff;
+}
+/*查询结果表格的分割行属性 	*/
+TR.result_divide 	{
+
+}
+/*查询结果表格的分割栏属性*/
+TD.result_divide 	{
+
+}
+
+
+/*--------------------------分割线---------------------------*/
+/*放置功能按钮的表格属性*/
+table.resbutton {
+	width:100%;
+	background-color: #F8F8F8;
+	border: 1px solid #ccc;
+	margin-top:1px;
+	border-collapse:collapse;
+}
+table.resbutton TD{
+	padding:2px;
+}
+/*放置功能按钮的表格行属性*/
+tr.resbutton {
+
+}
+/*放置功能按钮的表格栏属性（按钮靠左）*/
+td.resbuttonleft{
+	text-align:left;
+}
+/*放置功能按钮的表格栏属性（按钮居中）*/
+td.resbuttoncenter{
+	text-align:center;
+} 
+/*放置功能按钮的表格栏属性（按钮靠右）*/
+td.resbuttonright{
+	text-align:right;
+}
+table.resbutton a.c,table.resbutton a.c:visited{
+	color:#CC0000;
+	font-weight:bold;
+	text-decoration:none;
+}
+/*--------------------------分割线---------------------------*/
+/*登录区表格属性*/
+table.login{
+	margin-top:120px;
+	text-align:left;
+	border-collapse:collapse;
+}
+/*登录区表格行属性*/
+tr.logintext{
+} 
+/*登录区表格列属性*/
+td.logintext{
+	color:#333;
+}
+/*登录区div*/
+div#wholelogin {
+	border:1px solid #D3D3D3;
+	border-bottom:2px solid #9B9B9B;
+	border-right:2px solid #9B9B9B;
+	width:300px;
+	height:200px;
+	margin:auto;
+	margin-top:15%;
+	padding:20px;
+	text-align:center;
+	background:#f8f8f8;
+}
+
+/*--------------------------分割线---------------------------*/
+/*超链接属性*/
+a:link {
+	text-decoration: underline;
+	color: #0000FF;
+}
+/*已访问过的链接状态*/
+a:visited {
+	color: #000000;
+	text-decoration: underline;
+}
+a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+a:active {
+	color: #000000;
+	text-decoration: underline;
+}
+/*--------------------------分割线---------------------------*/
+/*下拉框属性*/
+select.myselect{
+	FONT-SIZE: 12px; 
+	font-family: "Arial" , "宋体", "Arial", "Helvetica", "Helv"
+}
+/*下拉框选项属性*/
+select.myoption{
+	FONT-SIZE: 12px; 
+	font-family: "Arial" , "宋体", "Arial", "Helvetica", "Helv"
+}
+/*单选框属性*/
+input.myradio 	{
+}
+/*复选框属性*/
+input.mycheckbox 	{
+	background-color: #FFFFFF;
+}
+/*一般文本框属性*/
+input.mytext {
+	FONT-SIZE: 12px; 
+	font-family: "Arial" , "宋体", "Arial", "Helvetica", "Helv";
+	border:1px solid #aaa;
+}
+/*日期输入框属性*/
+input.mydatetext {
+	FONT-SIZE: 12px; 
+	font-family: "Arial" , "宋体", "Arial", "Helvetica", "Helv";
+	border:1px solid #aaa;
+}
+/*数字输入框属性*/
+input.mynumbertext {
+	FONT-SIZE: 12px; 
+	font-family: "Arial" , "宋体", "Arial", "Helvetica", "Helv";
+	border:1px solid #aaa;
+}
+
+/*文本域属性*/
+textarea.myarea {
+	border:1px solid #aaa;
+	width:99%;
+}
+
+/*通用按钮*/
+/*input.mybutton {*/
+	/*FONT-SIZE: 12px;*/
+	/*font-family: "Arial" , "宋体", "Arial", "Helvetica", "Helv";*/
+	/*border:1px outset #ccc;*/
+	/*background:#eee;*/
+	/*color: #666666;*/
+/*}*/
+
+
+/*--------------------------分割线---------------------------*/
+
+
+FIELDSET {
+	margin:0px;
+	padding:2px;
+	border: 1px solid #ccc;
+	height:auto!important;
+	height: 100%;
+}
+LEGEND {
+	color:#336699;
+}
+
+
+/*author: jianwu 处理表头固定效果最简单的办法*/
+.docktr {
+	border-right:1px solid #999999;
+	text-align: center;	
+	position:relative;
+	top: expression(document.getElementById("FixHeadContainer").scrollTop);
+	z-index: 20;
+}
+
+
+th{
+border-right: 1px solid #999999;
+border-bottom:1px solid #999999;
+position: relative;
+FONT-SIZE: 12px;
+}
+
+/*author: 框架所使用的样式*/
+.titleStyle{
+background-color:#e6b765;color:#333333;border-bottom:1px solid #FFFFFF;font-size:9pt;cursor:hand;
+}
+.contentStyle{
+background-color:#FFFFFF;color:#333333;font-size:9pt;
+}
+.pulltab{
+	cursor: hand;
+	font-family: Webdings;
+	font-size: 8px;
+}
+.button{
+BORDER-RIGHT: #002D96 1px solid; 
+PADDING-RIGHT: 2px; 
+BORDER-TOP: #002D96 1px solid; 
+PADDING-LEFT: 2px; 
+FONT-SIZE: 12px; 
+FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#9DBCEA); 
+BORDER-LEFT: #002D96 1px solid; 
+CURSOR: hand; COLOR: black; 
+PADDING-TOP: 2px; 
+BORDER-BOTTOM: #002D96 1px solid 
+}

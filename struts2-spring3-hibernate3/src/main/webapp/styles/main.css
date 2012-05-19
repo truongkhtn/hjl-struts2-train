@@ -1,0 +1,456 @@
+.main_right .search {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    height: 143px;
+    margin-left: 10px;
+    position: relative;
+    width: 98%;
+    z-index: 401;
+}
+.main_right .search .search_left {
+    float: left;
+    margin: 20px 0 0 10px;
+    width: 380px;
+}
+.main_right .search .search_left .fl li {
+    height: 16px;
+    line-height: 16px;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    width: 380px;
+}
+.search .search_left .fl .s_name, .trip_search .s_name {
+    background: url("../images/input.gif") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    height: 16px;
+    padding: 5px;
+    width: 206px;
+}
+.search .search_left .fl .s_data, .trip_search .s_data {
+    background: url("../images/data_input.gif") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 16px;
+    padding: 5px;
+    width: 206px;
+}
+.search .search_left .fr li {
+    margin: 10px 0;
+}
+.search .search_left .s_btn1, .trip_search .s_btn1 {
+    background: url("../images/search_btn.gif") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 27px;
+    width: 80px;
+}
+.search .center_news {
+    float: right;
+    height: 127px;
+    overflow: hidden;
+    padding-right: 10px;
+    padding-top: 10px;
+    width: 400px;
+}
+.search .center_news .tab_title {
+    background: url("../images/tab_bg.gif") repeat-x scroll 0 0 transparent;
+    height: 27px;
+}
+.search .center_news .tab_title li {
+    cursor: pointer;
+    float: left;
+    line-height: 27px;
+    margin: 0 10px;
+    text-align: center;
+    width: 70px;
+}
+.search .center_news .tab_title .tab_cur {
+    background: url("../images/tab_hover.gif") no-repeat scroll 0 0 transparent;
+}
+.search .center_news .tab_cotent {
+    height: 100px;
+    overflow-y: scroll;
+}
+.search .center_news .tab_cotent li {
+    background: url("../images/listyle1.gif") no-repeat scroll 3px 6px transparent;
+    border-bottom: 1px dotted #CCCCCC;
+    height: 24px;
+    line-height: 24px;
+    text-indent: 12px;
+}
+.search .center_news .tab_cotent li span {
+    color: #666666;
+    float: right;
+    width: 90px;
+}
+.search .center_news .tab_cotent li a {
+    display: block;
+    float: left;
+    height: 24px;
+    overflow: hidden;
+    width: 290px;
+}
+.result {
+    margin: 10px 0 10px 10px;
+}
+.result th {
+    background: url("../images/table_th1.gif") repeat-x scroll 0 0 transparent;
+    border: 1px solid #CCCCCC;
+    font-weight: normal;
+    height: 34px;
+    line-height: 34px;
+    text-indent: 15px;
+}
+.result th span {
+    padding: 0 10px;
+}
+.result th a {
+    display: block;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    height: 34px;
+    overflow: hidden;
+    text-align: left;
+    text-indent: 0;
+    width: 450px;
+}
+.result th a:hover {
+    text-decoration: none;
+}
+.result td {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    line-height: 20px;
+    padding: 5px 0 5px 10px;
+    vertical-align: middle;
+}
+#full td {
+    background: none repeat scroll 0 0 #FFFEEA;
+}
+#stop td {
+    background: none repeat scroll 0 0 #FFECEA;
+}
+.n_1 {
+    background: url("../images/1.gif") no-repeat scroll 5px 7px transparent;
+    display: block;
+    font-size: 13px;
+    text-indent: 45px;
+}
+.n_5 {
+    background: url("../images/5.gif") no-repeat scroll 5px 7px transparent;
+    display: block;
+    font-size: 13px;
+    text-indent: 45px;
+}
+.n_2 {
+    background: url("../images/2.gif") no-repeat scroll 5px 7px transparent;
+    display: block;
+    font-size: 13px;
+    text-indent: 45px;
+}
+.n_4 {
+    background: url("../images/4.gif") no-repeat scroll 5px 7px transparent;
+    display: block;
+    font-size: 13px;
+    text-indent: 45px;
+}
+.n_6 {
+    background: url("../images/6.gif") no-repeat scroll 5px 7px transparent;
+    display: block;
+    font-size: 13px;
+    text-indent: 45px;
+}
+.n_3 {
+    background: url("../images/3.gif") no-repeat scroll 5px 7px transparent;
+    display: block;
+    font-size: 13px;
+    text-indent: 45px;
+}
+.footer {
+    background: none repeat scroll 0 0 #DDDDDD;
+    height: 75px;
+    width: 100%;
+}
+.footer ul {
+    margin: 0 auto;
+    width: 500px;
+}
+.footer ul .fl {
+    margin-top: 5px;
+    width: 151px;
+}
+.footer ul .fr {
+    line-height: 18px;
+    margin-top: 15px;
+    width: 338px;
+}
+.trip_search {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    height: 80px;
+    margin-left: 10px;
+    padding: 6px 0;
+    position: relative;
+    width: 98%;
+    z-index: 401;
+}
+.plane_search {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    height: 30px;
+    margin-left: 10px;
+    padding: 6px 0;
+    width: 98%;
+}
+.hotel_search {
+    background: none repeat scroll 0 0 #EEEEEE;
+    height: 22px;
+    margin-left: 10px;
+    padding: 5px 0;
+    width: 98%;
+}
+.trip_search ul {
+    float: left;
+    height: 30px;
+    margin-top: 10px;
+    width: 98%;
+}
+.trip_search ul li, .hotel_search ul li, .plane_search ul li {
+    float: left;
+    line-height: 22px;
+    margin-left: 15px;
+}
+.trip_search ul li .line_input, .hotel_search .line_input, .plane_search .line_input {
+    background: url("../images/input2.gif") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    height: 13px;
+    line-height: 13px;
+    padding: 4px 0;
+    width: 146px;
+}
+.trip_search ul li .time_input, .hotel_search .time_input, .plane_search .time_input {
+    background: url("../images/input3.gif") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    height: 13px;
+    line-height: 13px;
+    padding: 4px 0;
+    width: 92px;
+}
+.trip_search ul li .data_input, .hotel_search .data_input, .plane_search .data_input, .data_input {
+    background: url("../images/time_input.gif") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    height: 13px;
+    line-height: 13px;
+    padding: 4px 0;
+    width: 92px;
+}
+.trip_search ul li .s_btn2, .hotel_search .s_btn2, .plane_search .s_btn2 {
+    background: url("../images/search_btn2.gif") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 21px;
+    width: 57px;
+}
+.trip_search .answer, .hotel_search .answer, .plane_search .answer {
+    background: url("../images/answer.gif") no-repeat scroll left center transparent;
+    text-indent: 18px;
+}
+.trip_search .gift, .hotel_search .gift, .plane_search .gift {
+    background: url("../images/gift.gif") no-repeat scroll left center transparent;
+    text-indent: 20px;
+}
+.trip_search .answer a, .trip_search .gift a {
+    color: #666666;
+}
+.trip_list {
+    margin: 10px 0 10px 10px;
+}
+.trip_list th {
+    background: url("../images/table_th2.gif") repeat-x scroll left 4px transparent;
+    border: 1px solid #CCCCCC;
+    height: 30px;
+    line-height: 30px;
+}
+.trip_list td {
+    border: 1px solid #CCCCCC;
+    height: 28px;
+    line-height: 21px;
+    padding-bottom: 5px;
+    padding-left: 4px;
+    padding-top: 5px;
+    vertical-align: top;
+}
+.trip_list td a {
+    color: #3366CC;
+}
+.trip_list td span {
+    font-size: 12px;
+}
+.trip_list p {
+    float: left;
+}
+.page {
+    float: right;
+    height: 24px;
+    line-height: 20px;
+    margin: 10px 0;
+    width: 605px;
+}
+.page span {
+    float: right;
+    line-height: 22px;
+    margin-right: 10px;
+    padding: 0 5px;
+}
+.page a {
+    background: none repeat scroll 0 0 #F6F6F6;
+    border: 1px solid #CCCCCC;
+    color: #3366CC;
+    float: right;
+    line-height: 22px;
+    margin-right: 10px;
+    padding: 0 10px;
+}
+.page a:hover {
+    background: none repeat scroll 0 0 #0366AD;
+    border: 1px solid #336699;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.order_tab {
+    border-bottom: 2px solid #3E86B9;
+    height: 25px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    width: 98%;
+}
+.order_tab ul li {
+    float: left;
+    margin-right: 10px;
+}
+.order_tab ul li a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("../images/order_title1.gif") repeat-x scroll 0 0 transparent;
+    border-color: #CCCCCC;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    display: block;
+    float: left;
+    height: 24px;
+    line-height: 25px;
+    padding: 0 10px;
+}
+.order_tab ul li a:hover, .order_tab ul li a.cur {
+    background: url("../images/order_title2.gif") repeat-x scroll 0 0 transparent;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.order_block h2 {
+    background: url("../images/calculator.png") no-repeat scroll left center transparent;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 34px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    text-indent: 20px;
+}
+.order_block h3 {
+    border-bottom: 1px dotted #CCCCCC;
+    color: #3366CC;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-left: 10px;
+    padding-bottom: 6px;
+}
+.fri_tips {
+    background: url("../images/tips.gif") no-repeat scroll left 1px transparent;
+    color: #CC0000;
+    line-height: 24px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    text-indent: 25px;
+}
+.sure {
+    background: url("../images/sure.gif") no-repeat scroll left center transparent;
+    line-height: 20px;
+    text-align: left;
+    text-indent: 20px;
+    width: 70px;
+}
+.wrong {
+    background: url("../images/wrong.gif") no-repeat scroll left center transparent;
+    line-height: 20px;
+    text-align: left;
+    text-indent: 20px;
+    width: 70px;
+}
+.wait {
+    background: url("../images/reg2.gif") no-repeat scroll left center transparent;
+    line-height: 20px;
+    text-align: left;
+    text-indent: 20px;
+    width: 70px;
+}
+.login_bg {
+    background: url("../images/login_bg.gif") repeat-x scroll left top transparent;
+    height: 580px;
+    margin: 0;
+    padding-top: 110px;
+    width: 100%;
+}
+.login {
+    background: url("../images/login.gif") no-repeat scroll left top transparent;
+    height: 338px;
+    margin: 0 auto;
+    position: relative;
+    width: 627px;
+}
+.login ul {
+    height: 155px;
+    position: absolute;
+    right: 60px;
+    top: 120px;
+    width: 245px;
+}
+.login li {
+    height: 22px;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+.login li .login_txt, .login li .login_pwd {
+    border: 1px solid #CCCCCC;
+    height: 12px;
+    padding: 4px;
+    width: 163px;
+}
+#price_ticket3, #price_ticket2, #price_ticket1 {
+    color: #FF6600;
+    display: block;
+    font-family: Arial;
+    font-size: 11px;
+    font-weight: bold;
+    height: 13px;
+    line-height: 12px;
+    margin: 2px;
+    text-align: left;
+    text-indent: 2px;
+}
+#price_ticket1 {
+    background: url("../images/price_ticket1.gif") no-repeat scroll 0 0 transparent;
+    padding-left: 3px;
+    width: 45px;
+}
+#price_ticket2 {
+    background: url("../images/price_ticket2.gif") no-repeat scroll 0 0 transparent;
+    width: 47px;
+}
+#price_ticket3 {
+    background: url("../images/price_ticket3.gif") no-repeat scroll 0 0 transparent;
+    width: 54px;
+}

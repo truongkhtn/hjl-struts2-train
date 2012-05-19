@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="routePriceList.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/routePrice/list.jsp" />
+    </definition>
+
+    <definition name="routePriceView.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/routePrice/view.jsp"/>
+    </definition>
+
+    <definition name="initPublishRoute.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/routePrice/publishRoute.jsp"/>
+    </definition>
+
+    <definition name="publishRoute.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/routePrice/list.jsp"/>
+    </definition>
+
+    <definition name="initUpdateRoutePrice.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/routePrice/edit.jsp"/>
+    </definition>
+
+</tiles-definitions>

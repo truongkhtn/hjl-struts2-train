@@ -1,0 +1,96 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="pragma" content="no-cache"/>
+    <link href="styles/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="styles/jquery.css" rel="stylesheet" type="text/css">
+    <link href="styles/addJourney.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#itemList1").accordion();
+            $("#itemList1 li").draggable({
+                appendTo: "body",
+                helper: "original",
+                cursor: "move", cursorAt: { top:8, right: 100},
+                revert:"invalid"
+            });
+            $("#itemList2 ol").droppable({
+                activeClass: "ui-state-default",
+                hoverClass: "ui-state-hover",
+                accept: ":not(.ui-sortable-helper)",
+                drop: function(event, ui) {
+//                    $(this).find(".placeholder").remove();
+                    $("<li class='ui-selectee'></li>").text(ui.draggable.text()).appendTo(this);
+                    $id =ui.draggable.attr("id");
+                    $(ui.helper).remove();
+                    var index = $("#itemList2 li:last-child").index();
+                    $name = 'journeyList['+index+'].id';
+                    $("#form1").append('<input type="hidden" name='+$name+' value='+$id+'>');
+                }
+            }).sortable({
+                        itemList1: "li:not(.placeholder)",
+                        placeholder: "ui-state-highlight",
+                        sort: function() {
+                            $(this).removeClass("ui-state-default");
+                        }
+                    });
+
+
+            $("#leftDiv ul").droppable({
+                drop: function(event, ui) {
+                    $("<li class='ui-draggable' style='position: relative;'></li>").text(ui.draggable.text()).appendTo(this);
+                    $(ui.helper).remove();
+                    $("#itemList1 li:last-child").draggable();//启用 drag
+//                    $last = $("#itemList2 li:last-child");
+//                    if($last.index() == 0){
+//                        //add tip info...
+//                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<form id="form1">
+    <!--<input id="hid1" type="hidden">-->
+<div class="mainBox">
+
+    <div id="leftDiv" class="listDiv">
+        <h1 class="ui-widget-header">可选行程列表</h1>
+
+        <div id="itemList1" class="list">
+            <ul>
+                <li id="11">AA</li>
+                <li id="22">BB</li>
+                <li id="33">CC</li>
+                <li id="44">DD</li>
+                <li id="55">EE</li>
+                <li id="66">aa</li>
+                <li id="77">bb</li>
+                <li id="88">cc</li>
+                <li id="99">dd</li>
+                <li id="123">ee</li>
+            </ul>
+        </div>
+        <div style="text-align: right;">
+            1/3
+            <a href="#"><img src="images/arrow_left.png"></a>
+            <a href="#"><img src="images/arrow_right.png"></a>
+        </div>
+    </div>
+
+    <div id="rightDiv" class="listDiv">
+        <h1 class="ui-widget-header">行程列表</h1>
+
+        <div id="itemList2" class="list">
+            <ol></ol>
+        </div>
+    </div>
+</div>
+<br>
+<input type="button" value="确认">
+</form>
+</body>
+</html>
