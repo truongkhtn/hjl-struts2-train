@@ -28,18 +28,6 @@ public class TestUser extends AbstractTransactionalJUnit4SpringContextTests {
         User user = new User();
         user.setUsername("test username");
         user.setPassword("test password");
-        user.setEmail("test email");
-        user.setIsAccountEnabled(false);
-        user.setIsAccountLocked(false);
-        user.setIsAccountExpired(false);
-        user.setIsCredentialsExpired(false);
-        user.setLoginFailureCount(0);
-        user.setArea("CS");
-        user.setCellPhone("13956895623");
-        user.setCompanyName("test company");
-        user.setFax("010-89565689");
-        user.setPhone("021-66668888");
-
         userService.save(user);
     }
 
@@ -47,7 +35,6 @@ public class TestUser extends AbstractTransactionalJUnit4SpringContextTests {
     @Rollback(value = false)
     public void updateUser(){
         User user = userService.get(TEST_ID);
-        user.setProjId("update project id");
         userService.update(user);
     }
 
@@ -56,13 +43,6 @@ public class TestUser extends AbstractTransactionalJUnit4SpringContextTests {
     public void deleteUser(){
         User user = userService.get(TEST_ID);
         userService.delete(user);
-    }
-
-    @Test
-    public void test1(){
-        List roleList = userService.getRoleListByUser("1");
-        int i = roleList.size();
-        Assert.assertEquals(2, i);
     }
 
 }

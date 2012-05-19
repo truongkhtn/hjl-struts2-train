@@ -7,7 +7,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
@@ -103,16 +102,6 @@ public class BaseAction extends ActionSupport {
         User loginUser = userService.getUserSessionInfo();
         Assert.notNull(loginUser);
         return loginUser;
-    }
-
-    // 获取当前登录会员，若未登录则返回null
-    public String getLoginUserAuthorities() {
-        String result = "";
-        Set<GrantedAuthority> set = getLoginUser().getAuthorities();
-        for (GrantedAuthority ga : set) {
-            result += ga.getAuthority() + ",";
-        }
-        return result;
     }
 
     // AJAX输出，返回null

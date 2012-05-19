@@ -1,8 +1,6 @@
 package com.company.travel.controller;
 
-import com.company.travel.entity.Role;
 import com.company.travel.entity.User;
-import com.company.travel.service.RoleService;
 import com.company.travel.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Scope;
@@ -30,8 +28,6 @@ public class UserAction extends BaseAction{
     //spring 注入
     @Resource
     private UserService userService;
-    @Resource
-    private RoleService roleService;
 
     //action 属性
     private User user;
@@ -71,13 +67,13 @@ public class UserAction extends BaseAction{
     }
 
     public String enable(){
-        User user = userService.get(id);
-        user.setIsAccountEnabled(true);
-        Set<Role> set = new HashSet<Role>();
-        Role role = roleService.get("roleUser");
-        set.add(role);
-        user.setRoleSet(set);
-        userService.update(user);
+//        User user = userService.get(id);
+//        user.setIsAccountEnabled(true);
+//        Set<Role> set = new HashSet<Role>();
+//        Role role = roleService.get("roleUser");
+//        set.add(role);
+//        user.setRoleSet(set);
+//        userService.update(user);
         return SUCCESS;
     }
 
@@ -113,14 +109,14 @@ public class UserAction extends BaseAction{
     }
 
     public String update(){
-        User oldUser = userService.get(user.getId());
-        oldUser.setCompanyName(user.getCompanyName());
-        oldUser.setCompanyAddress(user.getCompanyAddress());
-        oldUser.setName(user.getName());
-        oldUser.setPhone(user.getPhone());
-        oldUser.setFax(user.getFax());
-        oldUser.setCellPhone(user.getCellPhone());
-        userService.update(oldUser);
+//        User oldUser = userService.get(user.getId());
+//        oldUser.setCompanyName(user.getCompanyName());
+//        oldUser.setCompanyAddress(user.getCompanyAddress());
+//        oldUser.setName(user.getName());
+//        oldUser.setPhone(user.getPhone());
+//        oldUser.setFax(user.getFax());
+//        oldUser.setCellPhone(user.getCellPhone());
+//        userService.update(oldUser);
         return SUCCESS;
     }
 

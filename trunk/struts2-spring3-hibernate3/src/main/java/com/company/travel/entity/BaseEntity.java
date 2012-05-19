@@ -17,7 +17,6 @@ public class BaseEntity implements Serializable {
 
 	private String id;// ID
 	private Date createDate;// 创建日期
-	private Date modifyDate;// 修改日期
     private long version; //版本号
 
 	@Id
@@ -40,15 +39,6 @@ public class BaseEntity implements Serializable {
 
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
-	}
-
-    @Temporal(TemporalType.TIMESTAMP)
-	public Date getModifyDate() {
-		return modifyDate;
-	}
-
-	public void setModifyDate(Date modifyDate) {
-		this.modifyDate = modifyDate;
 	}
 
     @Version
