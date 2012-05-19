@@ -1,20 +1,5 @@
 package com.company.travel.controller;
 
-import com.company.travel.entity.User;
-import com.company.travel.service.UserService;
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.ServletActionContext;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.util.Assert;
-
-import javax.annotation.Resource;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Map;
-import java.util.Set;
-
 /**
  * BasePager 基类，具有分页功能
  *
