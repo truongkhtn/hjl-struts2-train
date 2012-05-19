@@ -40,9 +40,5 @@
     <!--<include file="struts-config/example.xml"/>-->
     <include file="struts-config/common.xml"/>
     <include file="struts-config/user.xml"/>
-    <include file="struts-config/route.xml"/>
-    <include file="struts-config/routePrice.xml"/>
-    <include file="struts-config/order.xml"/>
-    <include file="struts-config/companyInfo.xml"/>
 
 </struts>

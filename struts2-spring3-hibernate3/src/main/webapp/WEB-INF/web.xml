@@ -24,11 +24,7 @@
     <context-param>
         <param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
         <param-value>/WEB-INF/tiles/tiles-common.xml,
-            /WEB-INF/tiles/tiles-user.xml,
-            /WEB-INF/tiles/tiles-route.xml,
-            /WEB-INF/tiles/tiles-routePrice.xml,
-            /WEB-INF/tiles/tiles-order.xml,
-            /WEB-INF/tiles/tiles-companyInfo.xml
+            /WEB-INF/tiles/tiles-user.xml
         </param-value>
     </context-param>
 
