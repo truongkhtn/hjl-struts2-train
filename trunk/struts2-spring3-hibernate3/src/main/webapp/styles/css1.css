@@ -1,0 +1,31 @@
+/* CSS Document */
+body
+{	
+	margin:0px;
+}
+body,td
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+.border_01
+{
+	border:#C0C0C0 solid 1px;
+}
+.border_02
+{
+	border-left:#DCDCDC solid 1px;
+	border-right:#DCDCDC solid 1px;
+}
+.input_login
+{	
+	width:100px;
+}
+.select_login
+{	
+	width:120px;
+}
+.copyright
+{
+	color:#FFFFFF;
+}

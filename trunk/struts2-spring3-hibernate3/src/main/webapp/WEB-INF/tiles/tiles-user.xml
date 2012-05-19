@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="changePassword.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/user/changePassword.jsp" />
+    </definition>
+
+    <definition name="operationSuccess.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/html/operationSuccess.html" />
+    </definition>
+
+    <definition name="disabledUserList.tiles"  extends="baseLayout">
+        <put-attribute name="body" value="/jsp/user/disabledUserList.jsp"/>
+    </definition>
+
+    <definition name="enabledUserList.tiles"  extends="baseLayout">
+        <put-attribute name="body" value="/jsp/user/enabledUserList.jsp"/>
+    </definition>
+
+    <definition name="view.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/user/view.jsp"/>
+    </definition>
+
+    <definition name="update.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/user/update.jsp"/>
+    </definition>
+
+</tiles-definitions>

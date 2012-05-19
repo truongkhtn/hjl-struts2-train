@@ -1,0 +1,58 @@
+h1 {
+    font-size: 20px;
+    padding: 3px;
+    margin: 0;
+}
+
+li {
+    font-size: 12px;
+}
+
+.listDiv {
+    float: left;
+    width: 200px;
+    margin-right: 30px; /*leftDiv 和 rightDiv 之间距离*/
+}
+
+.list {
+    font-size: 12px;
+    border-color: #CCCCCC;
+    border-style: solid;
+    border-width: 1px;
+    /*height: 340px;*/
+    min-height: 200px;
+}
+
+.list ul {
+    /*height: 100%;*/
+    min-height: 200px;
+    max-height: 400px;
+
+}
+
+.list ol {
+    /*height: 100%;*/
+    min-height: 200px;
+    max-height: 400px;
+}
+
+.list li {
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    background-color: #ccffff;
+    height: 18px;
+}
+
+#itemList2 ol {
+    padding-left: 0px;
+    margin-top: 1px;
+    margin-bottom: 0px;
+}
+
+.ui-widget-header {
+    border: 1px solid #aaaaaa /*{borderColorHeader}*/;
+    background: #cccccc /*{bgColorHeader}*/ url(/images/ui-bg_highlight-soft_75_cccccc_1x100.png) /*{bgImgUrlHeader}*/ 50% /*{bgHeaderXPos}*/ 50% /*{bgHeaderYPos}*/ repeat-x /*{bgHeaderRepeat}*/;
+    color: #222222 /*{fcHeader}*/;
+    font-weight: bold;
+}
