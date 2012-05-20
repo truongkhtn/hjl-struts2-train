@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.Set;
  */
 @Controller
 @Scope("prototype")
-public class UserAction extends BaseAction{
+public class UserAction extends BaseAction {
 
     private static final Logger log = Logger.getLogger(UserAction.class);
 
@@ -35,27 +36,49 @@ public class UserAction extends BaseAction{
     private String oldPass;
     private String newPass;
 
-    public String blank(){
+    public String blank() {
         return SUCCESS;
     }
 
-    public String login(){
-        return SUCCESS;
-    }
-
-    public String changePass(){
-        log.debug("changePass run ...");
-        String tempPass = getLoginUser().getPassword();
-        if(!tempPass.equals(oldPass)){
-            addFieldError("oldPass" , "原密码不正确!");
-            oldPass="";
-            newPass="";
+    public String login() {
+        if (user == null) {
             return INPUT;
         }
-        if(StringUtils.isEmpty(newPass)){
-            addFieldError("newPass" , "新密码不能为空!");
-            oldPass="";
-            newPass="";
+        if (StringUtils.isEmpty(user.getUsername())) {
+            return INPUT;
+        }
+        User u = userService.getUserByUsername(user.getUsername());
+        if (u == null) {
+            return INPUT;
+        } else {
+            if (u.getPassword().toLowerCase().equals(user.getPassword().trim().toLowerCase())) {
+                this.setSession(LOGIN_USER, u);
+                return SUCCESS;
+            } else {
+                return INPUT;
+            }
+        }
+    }
+
+    public String logout(){
+        this.getSession().clear();
+//        this.getSession().remove(LOGIN_USER);
+        return SUCCESS;
+    }
+
+    public String changePass() {
+        log.debug("changePass run ...");
+        String tempPass = getLoginUser().getPassword();
+        if (!tempPass.equals(oldPass)) {
+            addFieldError("oldPass", "原密码不正确!");
+            oldPass = "";
+            newPass = "";
+            return INPUT;
+        }
+        if (StringUtils.isEmpty(newPass)) {
+            addFieldError("newPass", "新密码不能为空!");
+            oldPass = "";
+            newPass = "";
             return INPUT;
         }
         User user = getLoginUser();
@@ -65,12 +88,12 @@ public class UserAction extends BaseAction{
         return SUCCESS;
     }
 
-    public String disabledUserList(){
+    public String disabledUserList() {
         userList = userService.getDisabledUserList();
         return SUCCESS;
     }
 
-    public String enable(){
+    public String enable() {
 //        User user = userService.get(id);
 //        user.setIsAccountEnabled(true);
 //        Set<Role> set = new HashSet<Role>();
@@ -81,20 +104,20 @@ public class UserAction extends BaseAction{
         return SUCCESS;
     }
 
-    public String deleteDisabled(){
+    public String deleteDisabled() {
         userService.delete(id);
         return SUCCESS;
     }
 
-    public String enabledUserList(){
+    public String enabledUserList() {
         userList = userService.getEnabledUserList();
         return SUCCESS;
     }
 
-    public String deleteEnabled(){
-        try{
+    public String deleteEnabled() {
+        try {
             userService.delete(id);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             addActionError(getText("error.data.linked"));
             return INPUT;
@@ -102,17 +125,17 @@ public class UserAction extends BaseAction{
         return SUCCESS;
     }
 
-    public String view(){
+    public String view() {
         user = userService.get(id);
         return SUCCESS;
     }
 
-    public String initUpdate(){
+    public String initUpdate() {
         user = userService.get(id);
         return SUCCESS;
     }
 
-    public String update(){
+    public String update() {
 //        User oldUser = userService.get(user.getId());
 //        oldUser.setCompanyName(user.getCompanyName());
 //        oldUser.setCompanyAddress(user.getCompanyAddress());

@@ -65,4 +65,17 @@ public class UserServiceImpl extends BaseServiceImpl<User, String> implements Us
         return userDao.getEnabledUserList();
     }
 
+    public boolean login(User user) {
+        User u = getUserByUsername(user.getUsername());
+        if(u == null){
+                return false;
+        }else{
+            if(u.getPassword().toLowerCase().equals(user.getPassword().trim().toLowerCase())){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+
 }

@@ -16,4 +16,6 @@ public interface UserService extends BaseService<User, String> {
     public List<User> getDisabledUserList();
 
     public List getEnabledUserList();
+
+    public boolean login(User user);
 }

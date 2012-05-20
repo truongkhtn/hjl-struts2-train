@@ -25,6 +25,7 @@ import java.util.Set;
 public class BaseAction extends ActionSupport {
 
     public static final String LOGIN_USER_ID_SESSION_NAME = "loginUserId";// 保存登录用户ID的Session名称
+    public static final String LOGIN_USER = "loginUser";// 保存登录用户对象
     public static final String STATUS = "status";  //状态
     public static final String SUCCESS = "success";   //成功
 	public static final String ERROR = "error";   //失败
@@ -99,7 +100,7 @@ public class BaseAction extends ActionSupport {
 
     // 获取当前登录会员，若未登录则返回null
     public User getLoginUser() {
-        User loginUser = userService.getUserSessionInfo();
+        User loginUser = (User) getSession(LOGIN_USER);
         Assert.notNull(loginUser);
         return loginUser;
     }

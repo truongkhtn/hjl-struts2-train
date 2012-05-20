@@ -37,11 +37,15 @@ public class InitData extends AbstractTransactionalJUnit4SpringContextTests {
         User user1 = new User();
         user1.setUsername("admin");
         user1.setPassword("admin");
+        user1.setRealname("管理员");
+        user1.setAdmin(true);
         userService.save(user1);
 
         User user2 = new User();
         user2.setUsername("user");
         user2.setPassword("user");
+        user2.setRealname("普通用户");
+        user2.setAdmin(false);
         userService.save(user2);
     }
 
