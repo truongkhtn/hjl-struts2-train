@@ -14,7 +14,8 @@ public class User extends BaseEntity {
 
     private String username;// 用户名
     private String password;// 密码
-    private String realName;// 真实姓名
+    private String realname;// 真实姓名
+    private boolean isAdmin; //是否管理员
 
     //对象间关系
     private Set<Group> groupSet;//
@@ -44,15 +45,15 @@ public class User extends BaseEntity {
     }
 
     @Column(nullable = false)
-    public String getRealName() {
-        return realName;
+    public String getRealname() {
+        return realname;
     }
 
-    public void setRealName(String realName) {
-        this.realName = realName;
+    public void setRealname(String realname) {
+        this.realname = realname;
     }
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @OrderBy("name asc")
     public Set<Group> getGroupSet() {
         return groupSet;
@@ -70,5 +71,13 @@ public class User extends BaseEntity {
 
     public void setMessageLogs(Set<MessageLog> messageLogs) {
         this.messageLogs = messageLogs;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }

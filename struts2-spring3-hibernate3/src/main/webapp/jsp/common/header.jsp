@@ -1,16 +1,37 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
+<script type="text/javascript">
+
+    function logout_form() {
+//        alert("click");
+        $("#logoutForm").submit();
+        alert("The request has been submitted.");
+        window.close();
+        return false;
+    }
+
+    //    $(doucument).ready(function(){
+    //        $("#logout_href").click(function() {
+    //            alert("click");
+    //        });
+    //    });
+
+</script>
+
 <div class="top">
     <div class="top_left">
         <div class="user_ico">
-            <span class="fl tooltip">欢迎您： ${loginUser.companyName}</span>
+            <span class="fl tooltip">欢迎您： ${loginUser.realname}</span>
         </div>
     </div>
     <div class="top_right">
-        <a class="top_ico6" href="/j_spring_security_logout">退出</a>
+        <a class="top_ico6" id="logout_href" href="javascript:logout_form();">退出</a>
         <a class="top_ico5" href="javascript:location.reload();">刷新</a>
         <a class="top_ico4" href="/user/initChangePass.action">修改密码</a>
-        <%--<a class="top_ico1" href="/index.action">首页</a>--%>
+        <s:form id="logoutForm" action="logout" namespace="/" method="post">
+            <s:token/>
+        </s:form>
     </div>
 </div>
 <div class="nav">
