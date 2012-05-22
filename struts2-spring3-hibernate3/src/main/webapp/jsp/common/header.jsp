@@ -6,9 +6,9 @@
     function logout_form() {
 //        alert("click");
         $("#logoutForm").submit();
-        alert("The request has been submitted.");
-        window.close();
-        return false;
+//        alert("The request has been submitted.");
+//        window.close();
+//        return false;
     }
 
     //    $(doucument).ready(function(){
