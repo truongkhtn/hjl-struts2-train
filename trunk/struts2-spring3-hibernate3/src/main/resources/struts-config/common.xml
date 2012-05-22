@@ -5,27 +5,36 @@
 <struts>
     <package name="common" namespace="/" extends="tiles-default">
 
-        <!--<interceptors>-->
-            <!--<interceptor-stack name="myStack">-->
-                <!--<interceptor-ref name="token"/>-->
-                <!--<interceptor-ref name="token-session"/>-->
-                <!--<interceptor-ref name="defaultStack"/>-->
-            <!--</interceptor-stack>-->
-        <!--</interceptors>-->
-        <!--<default-interceptor-ref name="myStack" />-->
+        <interceptors>
+            <!-- 自定义拦截器 -->
+            <interceptor name="sessionInterceptor" class="com.company.travel.interceptor.SessionInterceptor">
+                   <param name="excludeMethods">login</param>
+            </interceptor>
+            <!-- 配制默许的拦截器到拦截器栈 -->
+            <interceptor-stack name="myStack">
+                <!-- 此处先后顺序没有影响 -->
+                <interceptor-ref name="sessionInterceptor">
+                </interceptor-ref>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <!-- 配置默认的拦截器 -->
+        <default-interceptor-ref name="myStack"/>
 
         <action name="login" class="userAction" method="login">
             <result name="success" type="redirectAction">index.action</result>
         </action>
 
         <action name="logout" class="userAction" method="logout">
-            <interceptor-ref name="token"/>
+            <!--<interceptor-ref name="token"/>-->
             <result name="success" type="redirect">login.html</result>
-            <result name="invalid.token">/jsp/error.jsp</result>
+            <!--<result name="invalid.token">/jsp/error.jsp</result>-->
         </action>
 
         <action name="index" class="commonAction" method="index">
+            <!--<interceptor-ref name="sessionInterceptor"/>-->
             <result name="success" type="tiles">index.tiles</result>
+            <result name="invalid" type="redirect">login.html</result>
         </action>
 
     </package>
