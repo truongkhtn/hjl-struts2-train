@@ -51,7 +51,8 @@ public class UserAction extends BaseAction {
         if (u == null) {
             return INPUT;
         } else {
-            if (u.getPassword().toLowerCase().equals(user.getPassword().trim().toLowerCase())) {
+            if (u.getPassword().toLowerCase().equals(user.getPassword().trim().toLowerCase())
+                    && u.isAdmin()) {
                 this.setSession(LOGIN_USER, u);
                 return SUCCESS;
             } else {
@@ -88,11 +89,6 @@ public class UserAction extends BaseAction {
         return SUCCESS;
     }
 
-    public String disabledUserList() {
-        userList = userService.getDisabledUserList();
-        return SUCCESS;
-    }
-
     public String enable() {
 //        User user = userService.get(id);
 //        user.setIsAccountEnabled(true);
@@ -109,8 +105,8 @@ public class UserAction extends BaseAction {
         return SUCCESS;
     }
 
-    public String enabledUserList() {
-        userList = userService.getEnabledUserList();
+    public String userList() {
+        userList = userService.getUserList();
         return SUCCESS;
     }
 

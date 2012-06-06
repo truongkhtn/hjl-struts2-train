@@ -2,12 +2,15 @@ package com.company.travel.service.impl;
 
 import com.company.travel.dao.BaseDao;
 import com.company.travel.dao.GroupDao;
+import com.company.travel.dao.MessageCategoryDao;
 import com.company.travel.entity.Group;
+import com.company.travel.entity.MessageCategory;
 import com.company.travel.service.GroupService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Author: Hu jing ling
@@ -21,5 +24,12 @@ public class GroupServiceImpl extends BaseServiceImpl<Group  , String> implement
     @Resource
     public void setBaseDao(GroupDao groupDao) {
         super.setBaseDao(groupDao);
+    }
+
+    @Resource
+    private GroupDao groupDao;
+
+    public List<MessageCategory> getAllBySeq() {
+       return groupDao.getAllBySeq();
     }
 }

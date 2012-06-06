@@ -1,6 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
+<style type="text/css">
+      .mygrid td{
+          text-align: center;
+      }
+</style>
+
 <script type="text/javascript">
     function deleteUser(id){
         if(confirm('确定删除此用户吗？'))
@@ -21,11 +27,9 @@
 <table class="mygrid">
     <tr class="myheader">
         <th width="50px"></th>
-        <th>公司名称</th>
-        <th>真实姓名</th>
-        <th>联系电话</th>
-        <th>手机号码</th>
         <th>用户名</th>
+        <th>真实姓名</th>
+        <th>是否管理员</th>
         <th>操作</th>
     </tr>
 
@@ -40,19 +44,18 @@
                 <s:property value='#st.index + 1'/>
             </td>
             <td>
-                <s:property value="#user.companyName"/>
-            </td>
-            <td>
-                <s:property value="#user.name"/>
-            </td>
-            <td>
-                <s:property value="#user.phone"/>
-            </td>
-            <td>
-                <s:property value="#user.cellPhone"/>
-            </td>
-            <td>
                 <s:property value="#user.username"/>
+            </td>
+            <td>
+                <s:property value="#user.realname"/>
+            </td>
+            <td>
+                <s:if test="#user.admin">
+                    是
+                </s:if>
+                <s:else>
+                    否
+                </s:else>
             </td>
             <td class="td-operation">
                 <a href="/user/view.action?id=<s:property value="#user.id"/>">查看</a>

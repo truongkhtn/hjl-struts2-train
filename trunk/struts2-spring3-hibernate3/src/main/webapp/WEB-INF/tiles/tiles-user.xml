@@ -13,12 +13,8 @@
         <put-attribute name="body" value="/html/operationSuccess.html" />
     </definition>
 
-    <definition name="disabledUserList.tiles"  extends="baseLayout">
-        <put-attribute name="body" value="/jsp/user/disabledUserList.jsp"/>
-    </definition>
-
-    <definition name="enabledUserList.tiles"  extends="baseLayout">
-        <put-attribute name="body" value="/jsp/user/enabledUserList.jsp"/>
+    <definition name="userList.tiles"  extends="baseLayout">
+        <put-attribute name="body" value="/jsp/user/userList.jsp"/>
     </definition>
 
     <definition name="view.tiles" extends="baseLayout">

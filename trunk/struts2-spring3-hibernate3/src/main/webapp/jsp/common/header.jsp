@@ -35,5 +35,7 @@
     </div>
 </div>
 <div class="nav">
-    <div class="nav logo fl"><img src="/images/logo.gif" alt="旅游产品预定平台" width="216" height="60"></div>
+    <div class="nav logo fl">
+        <%--<img src="/images/logo.gif" alt="旅游产品预定平台" width="216" height="60">--%>
+    </div>
 </div>

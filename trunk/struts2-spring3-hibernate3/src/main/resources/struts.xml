@@ -44,5 +44,6 @@
     <!--<include file="struts-config/example.xml"/>-->
     <include file="struts-config/common.xml"/>
     <include file="struts-config/user.xml"/>
+    <include file="struts-config/message.xml"/>
 
 </struts>

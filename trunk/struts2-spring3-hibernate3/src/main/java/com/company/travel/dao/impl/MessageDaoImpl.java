@@ -1,7 +1,7 @@
 package com.company.travel.dao.impl;
 
 import com.company.travel.dao.MessageDao;
-import com.sun.tools.internal.ws.processor.model.Message;
+import com.company.travel.entity.Message;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
  * Description: put description for the type here...
  */
 @Repository
-public class MessageDaoImpl extends BaseDaoImpl<Message , String> implements MessageDao {
+public class MessageDaoImpl extends BaseDaoImpl<Message, String> implements MessageDao {
 
 }

@@ -48,21 +48,8 @@ public class UserServiceImpl extends BaseServiceImpl<User, String> implements Us
         return flg;
     }
 
-    public void logoutPrincipal() {
-//        SecurityContextHolder.clearContext();
-    }
-
-    public User getUserSessionInfo() {
-//        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return null;
-    }
-
-    public List<User> getDisabledUserList() {
-        return userDao.getDisabledUserList();
-    }
-
-    public List getEnabledUserList() {
-        return userDao.getEnabledUserList();
+    public List getUserList() {
+        return userDao.getUserList();
     }
 
     public boolean login(User user) {

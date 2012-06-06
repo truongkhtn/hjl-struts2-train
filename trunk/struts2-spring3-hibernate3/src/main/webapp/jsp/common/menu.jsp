@@ -12,28 +12,22 @@
 </script>
 
 <s:if test="loginUser.admin == true">
-    <h2 id="menu1" class="title">线路管理</h2>
+    <h2 id="menu1" class="title">消息管理</h2>
     <ul id="menu1ul" style="display:block;">
-        <li><a href="/route/list.action" title="制定所有线路，供线路发布使用">线路列表</a></li>
-        <li><a href="/routePrice/list.action" title="制定所有线路，供线路发布使用">线路报价</a></li>
-        <li><a href="/companyInfo/view.action" title="联系我们">联系我们</a></li>
+        <li><a href="/message/initCreate.action">发布新消息</a></li>
+        <li><a href="/message/messageList.action">消息列表</a></li>
     </ul>
 
-    <h2 id="menu2" class="title">订单管理</h2>
+    <h2 id="menu2" class="title">用户管理</h2>
     <ul id="menu2ul" style="display:block;">
-        <li><a href="/order/list.action">订单查询</a></li>
-    </ul>
-
-    <h2 id="menu3" class="title">用户管理</h2>
-    <ul id="menu3ul" style="display:block;">
-        <li><a href="/user/disabledUserList.action">待开通用户</a></li>
-        <li><a href="/user/enabledUserList.action">已开通用户</a></li>
+        <%--<li><a href="/user/disabledUserList.action">待开通用户</a></li>--%>
+        <li><a href="/user/userList.action">用户列表</a></li>
     </ul>
 </s:if>
 <s:else>
-    <h2 id="menu2" class="title">订单管理 2222222222222</h2>
+    <h2 id="menu2" class="title">用户管理 222</h2>
     <ul id="menu2ul" style="display:block;">
-        <li><a href="#">订单查询</a></li>
+        <li><a href="#">修改密码</a></li>
     </ul>
 
 </s:else>
