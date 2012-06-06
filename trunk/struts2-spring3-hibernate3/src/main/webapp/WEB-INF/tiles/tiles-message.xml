@@ -13,4 +13,8 @@
         <put-attribute name="body" value="/jsp/message/messageList.jsp"/>
     </definition>
 
+    <definition name="messageView.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/message/view.jsp"/>
+    </definition>
+
 </tiles-definitions>

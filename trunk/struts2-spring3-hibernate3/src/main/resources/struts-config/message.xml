@@ -18,7 +18,7 @@
         </action>
 
         <action name="view" class="messageAction" method="view">
-            <result name="success" type="tiles">view.tiles</result>
+            <result name="success" type="tiles">messageView.tiles</result>
         </action>
 
     </package>

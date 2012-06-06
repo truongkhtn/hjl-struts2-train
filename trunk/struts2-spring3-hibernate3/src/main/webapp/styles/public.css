@@ -392,7 +392,7 @@ input, label, select, option, textarea, button, fieldset, legend {
     background: url("../images/arr4.gif") no-repeat scroll 30px center transparent;
     height: 28px;
     line-height: 28px;
-    text-align:center;
+    text-align: center;
 }
 
 .main .main_left ul li a {
@@ -659,7 +659,7 @@ input, label, select, option, textarea, button, fieldset, legend {
 
 .pro_color1 {
     background: none repeat scroll 0 0 #DEDEDE;
-    text-align:right;
+    text-align: right;
 }
 
 .pro_color2 {
@@ -676,20 +676,20 @@ input, label, select, option, textarea, button, fieldset, legend {
 
 .page_button {
     margin-bottom: 5px;
-    width:100%
+    width: 100%
 }
 
 .pro_table {
     border: 1px solid #CCCCCC;
     margin-bottom: 5px;
-    width:100%
+    width: 100%
 }
 
 .pro_table td {
     border: 1px solid #CCCCCC;
     line-height: 20px;
     padding: 4px 8px;
-    text-align:left;
+    text-align: left;
 }
 
 .pro_table th {
@@ -698,7 +698,7 @@ input, label, select, option, textarea, button, fieldset, legend {
     padding: 4px 8px;
     font-size: 12px;
     font-weight: normal;
-    text-align:center;
+    text-align: center;
 }
 
 .pro_table .hotel_left {
@@ -1900,7 +1900,6 @@ input, label, select, option, textarea, button, fieldset, legend {
     text-align: center;
 }
 
-
 .main_right .menu {
     margin-left: 5px;
 }
@@ -1946,6 +1945,7 @@ input, label, select, option, textarea, button, fieldset, legend {
     width: 24px;
     z-index: 100;
 }
+
 /*TODO...*/
 .myheader {
     background-color: #ECEDF2;
@@ -1990,8 +1990,8 @@ input, label, select, option, textarea, button, fieldset, legend {
     border-style: none none dotted;
     border-width: 0 0 1px;
     width: 100%;
-    margin-top:5px;
-    margin-bottom:5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .pageHead th {
@@ -2004,6 +2004,7 @@ input, label, select, option, textarea, button, fieldset, legend {
 .title_area {
     background-image: url("../images/pageHead1.gif");
 }
+
 /*******每个页面头部title的样式(end)*******/
 
 .tr-odd {
@@ -2022,4 +2023,8 @@ input, label, select, option, textarea, button, fieldset, legend {
     line-height: 13px;
     margin-bottom: 5px;
     padding: 3px 1px 2px;
+}
+
+.right_main {
+    margin: 10px;
 }

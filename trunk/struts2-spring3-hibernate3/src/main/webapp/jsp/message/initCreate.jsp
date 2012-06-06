@@ -1,12 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<style type="text/css">
-    .right_main {
-        margin: 20px;
-    }
-</style>
-
 <script type="text/javascript">
     $().ready(function() {
         //表单提交js验证

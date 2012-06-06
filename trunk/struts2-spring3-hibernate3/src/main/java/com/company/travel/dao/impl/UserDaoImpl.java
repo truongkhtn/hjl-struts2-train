@@ -27,7 +27,7 @@ public class UserDaoImpl extends BaseDaoImpl<User,String> implements UserDao {
     }
 
     public List getUserList() {
-        String hql = "from User user";
+        String hql = "from User user order by username asc";
         return getSession().createQuery(hql).list();
     }
 

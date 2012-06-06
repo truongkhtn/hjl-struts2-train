@@ -29,8 +29,9 @@
         <th width="50px"></th>
         <th>用户名</th>
         <th>真实姓名</th>
+        <th>组别</th>
         <th>是否管理员</th>
-        <th>操作</th>
+        <%--<th>操作</th>--%>
     </tr>
 
     <s:iterator value="userList" id="user" status="st" >
@@ -50,6 +51,9 @@
                 <s:property value="#user.realname"/>
             </td>
             <td>
+                <s:property value="#user.displayGroups"/>
+            </td>
+            <td>
                 <s:if test="#user.admin">
                     是
                 </s:if>
@@ -57,11 +61,11 @@
                     否
                 </s:else>
             </td>
-            <td class="td-operation">
-                <a href="/user/view.action?id=<s:property value="#user.id"/>">查看</a>
-                <a href="/user/initUpdate.action?id=<s:property value="#user.id"/>">修改</a>
-                <a href="javascript:deleteUser('<s:property value="#user.id"/>');">删除</a>
-            </td>
+                <%--<td class="td-operation">
+                    <a href="/user/view.action?id=<s:property value="#user.id"/>">查看</a>
+                    <a href="/user/initUpdate.action?id=<s:property value="#user.id"/>">修改</a>
+                    <a href="javascript:deleteUser('<s:property value="#user.id"/>');">删除</a>
+                </td>--%>
         </tr>
     </s:iterator>
 
