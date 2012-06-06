@@ -60,6 +60,7 @@ public class MessageAction extends BaseAction {
     }
 
     public String view() {
+        message = messageService.get(id);
         return SUCCESS;
     }
 

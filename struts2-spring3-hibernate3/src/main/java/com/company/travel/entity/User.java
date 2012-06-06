@@ -80,4 +80,15 @@ public class User extends BaseEntity {
     public void setAdmin(boolean admin) {
         isAdmin = admin;
     }
+
+    @Transient
+    public String getDisplayGroups() {
+        String result = "";
+        Set<Group> set = this.getGroupSet();
+        for(Group g : set){
+            result += g.getName() + ",";
+        }
+        result = result.substring(0, result.length() - 1);
+        return result;
+    }
 }

@@ -22,7 +22,7 @@ public class Message extends BaseEntity{
     public Message() {
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     public MessageCategory getMessageCategory() {
         return messageCategory;
     }
@@ -31,7 +31,7 @@ public class Message extends BaseEntity{
         this.messageCategory = messageCategory;
     }
 
-    @OneToMany(fetch = FetchType.LAZY , mappedBy = "message")
+    @OneToMany(fetch = FetchType.EAGER , mappedBy = "message")
     @OrderBy("seq asc")
     public Set<MessageLog> getMessageLogs() {
         return messageLogs;
