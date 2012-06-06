@@ -4,6 +4,7 @@ import com.company.travel.entity.User;
 import com.company.travel.service.GroupService;
 import com.company.travel.service.MessageCategoryService;
 import com.company.travel.service.UserService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,7 +17,7 @@ import javax.annotation.Resource;
  */
 
 @ContextConfiguration(value = {"classpath:application-config.xml"})
-//@Ignore
+@Ignore
 public class InitData extends AbstractTransactionalJUnit4SpringContextTests {
 
     @javax.annotation.Resource

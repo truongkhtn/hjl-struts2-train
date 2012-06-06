@@ -14,6 +14,7 @@ public class Message extends BaseEntity{
     private String title; //主题
     private Date date; //日期
     private String content; //内容
+    private String groups;//群组
 
     private MessageCategory messageCategory;
     private Set<MessageLog> messageLogs;
@@ -67,5 +68,11 @@ public class Message extends BaseEntity{
         this.content = content;
     }
 
+    public String getGroups() {
+        return groups;
+    }
 
+    public void setGroups(String groups) {
+        this.groups = groups;
+    }
 }

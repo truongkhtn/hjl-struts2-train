@@ -4,6 +4,8 @@ import com.company.travel.dao.MessageCategoryDao;
 import com.company.travel.entity.MessageCategory;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Author: Hu jing ling
  * Date: 12-5-19
@@ -11,4 +13,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class MessageCategoryDaoImpl extends BaseDaoImpl<MessageCategory, String> implements MessageCategoryDao {
+    public List<MessageCategory> getAllBySeq() {
+        String hql = "from MessageCategory mc order by seq asc";
+        return getSession().createQuery(hql).list();
+    }
 }

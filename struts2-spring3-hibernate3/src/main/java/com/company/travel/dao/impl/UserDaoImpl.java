@@ -11,7 +11,6 @@ import java.util.Set;
 @Repository
 public class UserDaoImpl extends BaseDaoImpl<User,String> implements UserDao {
 
-
     public boolean isExistByUsername(String username) {
         String hql = "from User user where lower(user.username) = lower(?)";
 		User user = (User) getSession().createQuery(hql).setParameter(0, username).uniqueResult();
@@ -27,18 +26,14 @@ public class UserDaoImpl extends BaseDaoImpl<User,String> implements UserDao {
         return (User)getSession().createQuery(hql).setParameter(0, username).uniqueResult();
     }
 
-    public User getUserByUsernameAndArea(String username, String area) {
-        String hql = "from User user where lower(user.username) = lower(?) and lower(user.area) = lower(?)";
-        return (User) getSession().createQuery(hql).setParameter(0,username).setParameter(1,area).uniqueResult();
+    public List getUserList() {
+        String hql = "from User user";
+        return getSession().createQuery(hql).list();
     }
 
-    public List<User> getDisabledUserList() {
-        String hql = "from User user where user.isAccountEnabled =?";
-        return getSession().createQuery(hql).setParameter(0 , false).list();
+    public List<User> getAllNotAdmin() {
+       String hql = "from User user where user.admin = false";
+        return getSession().createQuery(hql).list();
     }
 
-    public List getEnabledUserList() {
-        String hql = "from User user where user.isAccountEnabled =?";
-        return getSession().createQuery(hql).setParameter(0 , true).list();
-    }
 }

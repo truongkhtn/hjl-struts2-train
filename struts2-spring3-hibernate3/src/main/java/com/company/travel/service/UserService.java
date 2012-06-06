@@ -9,13 +9,7 @@ public interface UserService extends BaseService<User, String> {
 
     public String changePassword(String oldPassword, String newPassword);
 
-    public void logoutPrincipal();
-
-    public User getUserSessionInfo();
-
-    public List<User> getDisabledUserList();
-
-    public List getEnabledUserList();
+    public List getUserList();
 
     public boolean login(User user);
 }

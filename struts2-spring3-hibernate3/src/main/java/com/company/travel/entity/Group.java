@@ -16,6 +16,7 @@ public class Group extends BaseEntity {
     private String description;// 描述
     private Set<User> userSet;// 用户
     private int seq; //排序
+    private boolean selected;//默认选中
 
     public Group() {
     }
@@ -59,4 +60,13 @@ public class Group extends BaseEntity {
     public void setSeq(int seq) {
         this.seq = seq;
     }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
 }
+

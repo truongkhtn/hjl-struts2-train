@@ -30,8 +30,8 @@
             <result name="success" type="redirectAction">enabledUserList.action</result>
         </action>
 
-        <action name="enabledUserList" class="userAction" method="enabledUserList">
-            <result name="success" type="tiles">enabledUserList.tiles</result>
+        <action name="userList" class="userAction" method="userList">
+            <result name="success" type="tiles">userList.tiles</result>
         </action>
 
         <action name="view" class="userAction" method="view">

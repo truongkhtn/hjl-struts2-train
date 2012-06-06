@@ -17,7 +17,8 @@ public interface UserDao extends BaseDao<User, String> {
      */
     public User getUserByUsername(String username);
 
-    public List<User> getDisabledUserList();
+    public List getUserList();
 
-    public List getEnabledUserList();
+    List<User> getAllNotAdmin();
+
 }
