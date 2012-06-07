@@ -64,6 +64,11 @@ public class MessageAction extends BaseAction {
         return SUCCESS;
     }
 
+    public String delete(){
+        messageService.delete(id);
+        return SUCCESS;
+    }
+
     public String create() {
         //获取分类
         MessageCategory category = messageCategoryService.get(messageCategoryId);

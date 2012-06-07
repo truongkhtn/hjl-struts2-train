@@ -27,7 +27,7 @@ public class MessageLog extends BaseEntity {
         this.message = message;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     public User getUser() {
         return user;
     }
@@ -52,6 +52,11 @@ public class MessageLog extends BaseEntity {
 
     public void setReadStatus(String readStatus) {
         this.readStatus = readStatus;
+    }
+
+    @Transient
+    public boolean getUnRead(){
+        return this.readStatus.equals("Unread");
     }
 
 }

@@ -1953,6 +1953,10 @@ input, label, select, option, textarea, button, fieldset, legend {
     width: 100%;
 }
 
+.myheader th {
+    font-weight: bold;
+}
+
 .mygrid {
     border: 1px solid #CCCCCC;
     border-collapse: collapse;
@@ -2027,4 +2031,8 @@ input, label, select, option, textarea, button, fieldset, legend {
 
 .right_main {
     margin: 10px;
+}
+
+.mygrid td {
+    text-align: center;
 }

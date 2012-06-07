@@ -22,7 +22,8 @@
         <!--<default-interceptor-ref name="myStack"/>-->
 
         <action name="login" class="userAction" method="login">
-            <result name="success" type="redirectAction">index.action</result>
+            <!--<result name="success" type="redirectAction">index.action</result>-->
+            <result name="success" type="redirectAction">message/messageList.action</result>
             <result name="input" type="redirect">html/accessDenied.html</result>
         </action>
 

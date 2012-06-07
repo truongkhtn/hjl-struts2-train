@@ -1,12 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<style type="text/css">
-      .mygrid td{
-          text-align: center;
-      }
-</style>
-
 <script type="text/javascript">
     function deleteUser(id){
         if(confirm('确定删除此用户吗？'))
@@ -16,6 +10,7 @@
     }
 </script>
 
+<div class="right_main">
 <%--标题部分--%>
 <table class="pageHead">
     <tr>
@@ -70,3 +65,4 @@
     </s:iterator>
 
 </table>
+</div>
