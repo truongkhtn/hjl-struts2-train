@@ -22,7 +22,7 @@
     </definition>
 
     <definition name="update.tiles" extends="baseLayout">
-        <put-attribute name="body" value="/jsp/user/update.jsp"/>
+        <put-attribute name="body" value="/jsp/user/edit.jsp"/>
     </definition>
 
     <definition name="userCreate.tiles" extends="baseLayout">

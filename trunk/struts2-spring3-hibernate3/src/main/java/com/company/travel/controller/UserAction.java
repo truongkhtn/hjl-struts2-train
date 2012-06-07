@@ -118,13 +118,6 @@ public class UserAction extends BaseAction {
     }
 
     public String enable() {
-//        User user = userService.get(id);
-//        user.setIsAccountEnabled(true);
-//        Set<Role> set = new HashSet<Role>();
-//        Role role = roleService.get("roleUser");
-//        set.add(role);
-//        user.setRoleSet(set);
-//        userService.update(user);
         return SUCCESS;
     }
 
@@ -156,19 +149,26 @@ public class UserAction extends BaseAction {
 
     public String initUpdate() {
         user = userService.get(id);
+        groupList = groupService.getAllBySeq();
         return SUCCESS;
     }
 
     public String update() {
-//        User oldUser = userService.get(user.getId());
-//        oldUser.setCompanyName(user.getCompanyName());
-//        oldUser.setCompanyAddress(user.getCompanyAddress());
-//        oldUser.setName(user.getName());
-//        oldUser.setPhone(user.getPhone());
-//        oldUser.setFax(user.getFax());
-//        oldUser.setCellPhone(user.getCellPhone());
-//        userService.update(oldUser);
+        Group group = groupService.get(id);
+        Set<Group> set = new HashSet<Group>();
+        set.add(group);
+        user.setGroupSet(set);
+        userService.update(user);
         return SUCCESS;
+    }
+
+    public String getGroupIdDisplay(){
+        String groupId = "";
+        Set<Group> set = user.getGroupSet();
+        for(Group g : set){
+            groupId = g.getId();
+        }
+        return groupId;
     }
 
     //getter & setter
