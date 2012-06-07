@@ -357,7 +357,7 @@ input, label, select, option, textarea, button, fieldset, legend {
 }
 
 .main {
-    background: url("../images/left_bg.gif") repeat-y scroll left center transparent;
+    /*background: url("../images/left_bg.gif") repeat-y scroll left center transparent;*/
     width: 100%;
 }
 
