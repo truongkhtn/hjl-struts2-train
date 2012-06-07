@@ -1,17 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<style type="text/css">
-    .mygrid td {
-        text-align: center;
-    }
-
-</style>
-
 <script type="text/javascript">
-    function deleteUser(id) {
-        if (confirm('确定删除此用户吗？')) {
-            window.location.href = "/user/deleteEnabled.action?id=" + id;
+    function deleteRecord(id) {
+        if (confirm('确定删除此消息吗？')) {
+            window.location.href = "/message/delete.action?id=" + id;
         }
     }
 </script>
@@ -33,7 +26,7 @@
             <th width="40px">分类</th>
             <th width="120px">群组</th>
             <th>内容</th>
-            <th  width="60px">操作</th>
+            <th  width="90px">操作</th>
         </tr>
 
         <s:iterator value="messageList" id="message" status="st">
@@ -64,6 +57,7 @@
             <td class="td-operation">
                 <a href="/message/view.action?id=<s:property value="#message.id"/>">查看</a>
                     <%--<a href="/user/initUpdate.action?id=<s:property value="#user.id"/>">修改</a>--%>
+                <a href="javascript:deleteRecord('<s:property value="#message.id"/>');">删除</a>
             </td>
             </tr>
         </s:iterator>

@@ -21,5 +21,8 @@
             <result name="success" type="tiles">messageView.tiles</result>
         </action>
 
+        <action name="delete" class="messageAction" method="delete">
+            <result name="success" type="redirectAction">messageList.action</result>
+        </action>
     </package>
 </struts>

@@ -52,6 +52,15 @@
 </script>
 
 <div class="right_main">
+    <%--标题部分--%>
+    <table class="pageHead">
+        <tr>
+            <th width="8"><img src="/images/c_l.gif" height="31" width="8"/></th>
+            <th align="left" class="title_area">当前位置：发布新消息</th>
+            <th width="9"><img src="/images/c_r.gif" height="31" width="9"></th>
+        </tr>
+    </table>
+
     <s:form id="messageEditForm" action="create" namespace="/message" method="post">
         <table class="myTable01" widtd="100%" cellspacing="0" cellpadding="3">
             <tr>

@@ -31,7 +31,7 @@ public class Message extends BaseEntity{
         this.messageCategory = messageCategory;
     }
 
-    @OneToMany(fetch = FetchType.EAGER , mappedBy = "message")
+    @OneToMany(fetch = FetchType.EAGER , mappedBy = "message",cascade = CascadeType.REMOVE)
     @OrderBy("seq asc")
     public Set<MessageLog> getMessageLogs() {
         return messageLogs;
