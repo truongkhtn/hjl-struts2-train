@@ -22,12 +22,8 @@
             <result name="success" type="redirectAction">disabledUserList.action</result>
         </action>
 
-        <action name="deleteDisabled" class="userAction" method="deleteDisabled">
-            <result name="success" type="redirectAction">disabledUserList.action</result>
-        </action>
-
-        <action name="deleteEnabled" class="userAction" method="deleteEnabled">
-            <result name="success" type="redirectAction">enabledUserList.action</result>
+        <action name="delete" class="userAction" method="delete">
+            <result name="success" type="redirectAction">userList.action</result>
         </action>
 
         <action name="userList" class="userAction" method="userList">
@@ -45,5 +41,15 @@
         <action name="update" class="userAction" method="update">
             <result name="success" type="redirectAction">enabledUserList.action</result>
         </action>
+
+        <action name="initCreate" class="userAction" method="initCreate">
+            <result name="success" type="tiles">userCreate.tiles</result>
+        </action>
+
+        <action name="create" class="userAction" method="create">
+            <result name="input" type="tiles">userCreate.tiles</result>
+            <result name="success" type="redirectAction">userList.action</result>
+        </action>
+
     </package>
 </struts>

@@ -1,6 +1,8 @@
 package com.company.travel.controller;
 
+import com.company.travel.entity.Group;
 import com.company.travel.entity.User;
+import com.company.travel.service.GroupService;
 import com.company.travel.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Scope;
@@ -29,12 +31,16 @@ public class UserAction extends BaseAction {
     //spring 注入
     @Resource
     private UserService userService;
+    @Resource
+    private GroupService groupService;
 
     //action 属性
     private User user;
     private List userList;
     private String oldPass;
     private String newPass;
+
+    private List groupList;
 
     public String blank() {
         return SUCCESS;
@@ -59,6 +65,28 @@ public class UserAction extends BaseAction {
                 return INPUT;
             }
         }
+    }
+
+    public String initCreate(){
+        groupList = groupService.getAllBySeq();
+        return SUCCESS;
+    }
+
+    public String create(){
+        String username = user.getUsername();
+        User temp = userService.get("username" , username);
+        if(temp != null){
+            addFieldError("user.username", "用户名已被使用！");
+            groupList = groupService.getAllBySeq();
+            return INPUT;
+        }
+
+        Group group = groupService.get(id);
+        Set<Group> set = new HashSet<Group>();
+        set.add(group);
+        user.setGroupSet(set);
+        userService.save(user);
+        return SUCCESS;
     }
 
     public String logout(){
@@ -100,7 +128,7 @@ public class UserAction extends BaseAction {
         return SUCCESS;
     }
 
-    public String deleteDisabled() {
+    public String delete() {
         userService.delete(id);
         return SUCCESS;
     }
@@ -174,5 +202,13 @@ public class UserAction extends BaseAction {
 
     public void setUserList(List userList) {
         this.userList = userList;
+    }
+
+    public List getGroupList() {
+        return groupList;
+    }
+
+    public void setGroupList(List groupList) {
+        this.groupList = groupList;
     }
 }

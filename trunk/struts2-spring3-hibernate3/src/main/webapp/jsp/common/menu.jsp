@@ -20,7 +20,7 @@
 
     <h2 id="menu2" class="title">用户管理</h2>
     <ul id="menu2ul" style="display:block;">
-        <%--<li><a href="/user/disabledUserList.action">待开通用户</a></li>--%>
+        <li><a href="/user/initCreate.action">创建新用户</a></li>
         <li><a href="/user/userList.action">用户列表</a></li>
     </ul>
 </s:if>

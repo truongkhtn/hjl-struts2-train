@@ -5,7 +5,7 @@
     function deleteUser(id){
         if(confirm('确定删除此用户吗？'))
         {
-            window.location.href = "/user/deleteEnabled.action?id=" + id;
+            window.location.href = "/user/delete.action?id=" + id;
         }
     }
 </script>
@@ -23,10 +23,11 @@
     <tr class="myheader">
         <th width="50px"></th>
         <th>用户名</th>
+        <th>密码</th>
         <th>真实姓名</th>
         <th>组别</th>
         <th>是否管理员</th>
-        <%--<th>操作</th>--%>
+        <th>操作</th>
     </tr>
 
     <s:iterator value="userList" id="user" status="st" >
@@ -43,6 +44,9 @@
                 <s:property value="#user.username"/>
             </td>
             <td>
+                <s:property value="#user.password"/>
+            </td>
+            <td>
                 <s:property value="#user.realname"/>
             </td>
             <td>
@@ -56,11 +60,11 @@
                     否
                 </s:else>
             </td>
-                <%--<td class="td-operation">
-                    <a href="/user/view.action?id=<s:property value="#user.id"/>">查看</a>
-                    <a href="/user/initUpdate.action?id=<s:property value="#user.id"/>">修改</a>
+                <td class="td-operation">
+                    <%--<a href="/user/view.action?id=<s:property value="#user.id"/>">查看</a>--%>
+                    <%--<a href="/user/initUpdate.action?id=<s:property value="#user.id"/>">修改</a>--%>
                     <a href="javascript:deleteUser('<s:property value="#user.id"/>');">删除</a>
-                </td>--%>
+                </td>
         </tr>
     </s:iterator>
 
