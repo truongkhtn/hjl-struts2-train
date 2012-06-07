@@ -62,7 +62,7 @@
             </td>
                 <td class="td-operation">
                     <%--<a href="/user/view.action?id=<s:property value="#user.id"/>">查看</a>--%>
-                    <%--<a href="/user/initUpdate.action?id=<s:property value="#user.id"/>">修改</a>--%>
+                    <a href="/user/initUpdate.action?id=<s:property value="#user.id"/>">修改</a>
                     <a href="javascript:deleteUser('<s:property value="#user.id"/>');">删除</a>
                 </td>
         </tr>

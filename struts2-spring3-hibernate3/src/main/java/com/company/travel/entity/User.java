@@ -63,7 +63,7 @@ public class User extends BaseEntity {
         this.groupSet = groupSet;
     }
 
-    @OneToMany(fetch = FetchType.LAZY , mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY , mappedBy = "user",cascade = CascadeType.REMOVE)
     @OrderBy("seq asc")
     public Set<MessageLog> getMessageLogs() {
         return messageLogs;
