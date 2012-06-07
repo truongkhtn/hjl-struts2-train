@@ -78,7 +78,7 @@ public class User extends BaseEntity {
     }
 
     public void setAdmin(boolean admin) {
-        isAdmin = admin;
+        this.isAdmin = admin;
     }
 
     @Transient

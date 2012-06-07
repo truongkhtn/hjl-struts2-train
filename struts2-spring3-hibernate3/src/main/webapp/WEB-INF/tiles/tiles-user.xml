@@ -25,4 +25,8 @@
         <put-attribute name="body" value="/jsp/user/update.jsp"/>
     </definition>
 
+    <definition name="userCreate.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/user/edit.jsp"/>
+    </definition>
+
 </tiles-definitions>
