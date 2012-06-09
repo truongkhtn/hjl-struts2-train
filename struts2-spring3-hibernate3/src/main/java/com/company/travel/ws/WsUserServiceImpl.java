@@ -2,14 +2,12 @@ package com.company.travel.ws;
 
 import com.company.travel.entity.User;
 import com.company.travel.service.UserService;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.company.travel.ws.dto.UserLoginOutputType;
+import com.company.travel.ws.dto.UserLoginDTO;
+import org.springframework.stereotype.Service;
 
 @Service("wsUserService")
 public class WsUserServiceImpl implements WsUserService {
@@ -22,7 +20,7 @@ public class WsUserServiceImpl implements WsUserService {
         user.setUsername(username);
         user.setPassword(password);
         boolean result = userService.login(user);
-        UserLoginOutputType output = new UserLoginOutputType();
+        UserLoginDTO output = new UserLoginDTO();
         if (result) {
             user = userService.getUserByUsername(username);
             output.setSuccess(true);

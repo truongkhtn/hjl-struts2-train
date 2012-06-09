@@ -27,6 +27,7 @@
     <!-- Exposing service as a rest service -->
     <jaxrs:server id="restServer" address="/rest/">
         <jaxrs:serviceBeans>
+            <ref bean="wsMessageService"/>
             <ref bean="wsUserService"/>
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
@@ -35,5 +36,8 @@
             <!--<entry key="html" value="text/html"/>-->
         </jaxrs:extensionMappings>
     </jaxrs:server>
+
+    <!--<bean id="wsUserService" class="com.company.travel.ws.WsMessageServiceImpl" />-->
+    <!--<bean id="wsMessageService" class="com.company.travel.ws.WsMessageServiceImpl" />-->
 
 </beans>

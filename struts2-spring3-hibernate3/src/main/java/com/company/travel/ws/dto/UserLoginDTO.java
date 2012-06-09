@@ -17,17 +17,17 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = {
     "success","userId"
 })
-public class UserLoginOutputType {
+public class UserLoginDTO {
 
     private boolean success;   // 是否登陆成功
     private String userId;    //  用户 ID
 
-    public UserLoginOutputType() {
+    public UserLoginDTO() {
     }
 
     @Override
     public String toString() {
-        return "UserLoginOutputType{" +
+        return "UserLoginDTO{" +
                 "userId='" + userId + '\'' +
                 ", success=" + success +
                 '}';

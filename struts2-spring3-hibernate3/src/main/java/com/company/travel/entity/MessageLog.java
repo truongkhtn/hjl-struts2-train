@@ -1,5 +1,7 @@
 package com.company.travel.entity;
 
+import com.company.travel.utils.MyConstant;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -18,7 +20,7 @@ public class MessageLog extends BaseEntity {
     public MessageLog() {
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     public Message getMessage() {
         return message;
     }
@@ -56,7 +58,7 @@ public class MessageLog extends BaseEntity {
 
     @Transient
     public boolean getUnRead(){
-        return this.readStatus.equals("Unread");
+        return this.readStatus.equals(MyConstant.UNREAD);
     }
 
 }
