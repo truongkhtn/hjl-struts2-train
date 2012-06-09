@@ -32,12 +32,7 @@
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json"/>
-            <!--<entry key="xml" value="application/xml"/>-->
-            <!--<entry key="html" value="text/html"/>-->
         </jaxrs:extensionMappings>
     </jaxrs:server>
-
-    <!--<bean id="wsUserService" class="com.company.travel.ws.WsMessageServiceImpl" />-->
-    <!--<bean id="wsMessageService" class="com.company.travel.ws.WsMessageServiceImpl" />-->
 
 </beans>
