@@ -6,6 +6,7 @@ import javax.jws.WebService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import com.company.travel.ws.dto.UserLoginOutputType;
 
 /**
  * The interface exposed as soap and rest
@@ -22,10 +23,16 @@ import javax.ws.rs.core.Response;
 @Produces(MediaType.APPLICATION_JSON)
 public interface WsUserService {
 
+    /**
+     * 用户登陆验证方法
+     * @param username 用户名
+     * @param password 密码
+     * @return 是否登陆成功
+     */
     @GET
     @Path("/login/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean userLogin(
+    public Response userLogin(
             @FormParam("username")
             String username,
             @FormParam("password")

@@ -1,3 +1,4 @@
+import com.company.travel.ws.dto.UserLoginOutputType;
 import com.google.gson.Gson;
 
 /**
@@ -17,17 +18,11 @@ public class TestGson {
         System.out.println(gson.toJson(true));;//==>prints
         System.out.println(gson.toJson(new Boolean(false)));;//==>prints*/
 
-        String s = "false";
         Gson gson = new Gson();
-        Boolean b =  gson.fromJson(s,java.lang.Boolean.class);
-        //System.out.println(b);
-        if(b){
-            System.out.println("true !!!!");
-        }else{
-            System.out.println("false !!!!");
-        }
-
-
+//        String returnResult = "{\"userLoginOutputType\":{\"success\":true,\"userId\":\"e761b6af-8e8b-45f2-a30d-fa179e0e8732\"}}";
+        String returnResult = "{\"success\":true,\"userId\":\"e761b6af-8e8b-45f2-a30d-fa179e0e8732\"}";
+        UserLoginOutputType output =  gson.fromJson(returnResult,UserLoginOutputType.class);
+        System.out.println(output);
 
     }
 }
