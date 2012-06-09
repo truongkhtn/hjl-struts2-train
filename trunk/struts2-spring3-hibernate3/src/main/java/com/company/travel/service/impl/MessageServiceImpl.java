@@ -9,6 +9,7 @@ import com.company.travel.entity.Message;
 import com.company.travel.entity.MessageLog;
 import com.company.travel.entity.User;
 import com.company.travel.service.MessageService;
+import com.company.travel.utils.MyConstant;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,7 +56,7 @@ public class MessageServiceImpl extends BaseServiceImpl<Message, String> impleme
             MessageLog log = new MessageLog();
             log.setMessage(message);
             log.setUser(user);
-            log.setReadStatus("Unread");
+            log.setReadStatus(MyConstant.UNREAD);
             messageLogDao.save(log);
         }
     }

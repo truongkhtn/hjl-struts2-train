@@ -1,12 +1,8 @@
 package com.company.travel.ws;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import com.company.travel.ws.dto.UserLoginOutputType;
 
 /**
  * The interface exposed as soap and rest

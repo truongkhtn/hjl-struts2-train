@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Author: Hu jing ling
@@ -21,5 +22,12 @@ public class MessageLogServiceImpl extends BaseServiceImpl<MessageLog , String> 
     @Resource
     public void setBaseDao(MessageLogDao messageLogDao) {
         super.setBaseDao(messageLogDao);
+    }
+
+    @Resource
+    private MessageLogDao messageLogDao;
+
+    public List<MessageLog> getByUserId(String userId) {
+        return messageLogDao.getByUserId(userId);
     }
 }
