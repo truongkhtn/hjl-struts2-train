@@ -6,6 +6,13 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * 用户登陆验证返回对象
  */
+
+/*
+    @XmlRootElement: avoid to occur error below:
+    No message body writer has been found for response class
+    @XmlType : make the output order certain
+ */
+
 @XmlRootElement
 @XmlType(propOrder = {
     "success","userId"
