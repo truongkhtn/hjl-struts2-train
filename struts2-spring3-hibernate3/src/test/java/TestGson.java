@@ -1,5 +1,10 @@
 import com.company.travel.ws.dto.UserLoginOutputType;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.stream.JsonReader;
+import net.sf.json.processors.JsonBeanProcessor;
 
 /**
  * Author: Hu jing ling
@@ -18,11 +23,15 @@ public class TestGson {
         System.out.println(gson.toJson(true));;//==>prints
         System.out.println(gson.toJson(new Boolean(false)));;//==>prints*/
 
+        String returnResult = "{\"userLoginOutputType\":{\"success\":true,\"userId\":\"e761b6af-8e8b-45f2-a30d-fa179e0e8732\"}}";
+
+        JsonObject jsonObject = new JsonParser().parse(returnResult).getAsJsonObject();
+        String result = jsonObject.get("userLoginOutputType").toString();
+        System.out.println(result);
+
         Gson gson = new Gson();
-//        String returnResult = "{\"userLoginOutputType\":{\"success\":true,\"userId\":\"e761b6af-8e8b-45f2-a30d-fa179e0e8732\"}}";
-        String returnResult = "{\"success\":true,\"userId\":\"e761b6af-8e8b-45f2-a30d-fa179e0e8732\"}";
-        UserLoginOutputType output =  gson.fromJson(returnResult,UserLoginOutputType.class);
-        System.out.println(output);
+        UserLoginOutputType output = gson.fromJson(result, UserLoginOutputType.class);
+        System.out.println(output.getUserId());
 
     }
 }
