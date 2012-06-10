@@ -15,7 +15,9 @@ import java.util.List;
 @Repository
 public class MessageLogDaoImpl extends BaseDaoImpl<MessageLog, String> implements MessageLogDao {
     public List<MessageLog> getByUserId(String userId) {
-        String hql = "from MessageLog log where log.user.id=? and log.readStatus=? order by log.createDate desc";
-        return getSession().createQuery(hql).setParameter(0, userId).setParameter(1, MyConstant.UNREAD).list();
+//        String hql = "from MessageLog log where log.user.id=? and log.readStatus=? order by log.createDate desc";
+//        return getSession().createQuery(hql).setParameter(0, userId).setParameter(1, MyConstant.UNREAD).list();
+        String hql = "from MessageLog log where log.user.id=? order by log.createDate desc";
+        return getSession().createQuery(hql).setParameter(0, userId).list();
     }
 }
