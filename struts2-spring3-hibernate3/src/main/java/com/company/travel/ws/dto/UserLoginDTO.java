@@ -5,17 +5,14 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * 用户登陆验证返回对象
- */
-
-/*
-    @XmlRootElement: avoid to occur error below:
-    No message body writer has been found for response class
-    @XmlType : make the output order certain
+ * 1) 使用 @XmlRootElement: 避免以下异常
+ * No message body writer has been found for response class
+ * 2) 使用 @XmlType : 按指定顺序输出属性值
  */
 
 @XmlRootElement
 @XmlType(propOrder = {
-    "success","userId"
+        "success", "userId"
 })
 public class UserLoginDTO {
 
