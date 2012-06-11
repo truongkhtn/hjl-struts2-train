@@ -5,43 +5,49 @@
 
 <struts>
     <!--开发者模式 , 显示详细错误信息-->
-    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.devMode" value="true"/>
     <!-- 国际化资源文件名称 -->
     <constant name="struts.custom.i18n.resources" value="resources"/>
     <!-- 配置使用Spring管理Action -->
     <constant name="struts.objectFactory" value="spring"/>
-    <!--<constant name="struts.objectFactory.spring.autoWire" value="name" />-->
     <!--使用简单主题，即不添加额外html标签-->
     <constant name="struts.ui.theme" value="simple"/>
     <!-- 后缀 -->
     <constant name="struts.action.extension" value="action"/>
+    <!-- 编码 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+    <!-- convention类重新加载 -->
+	<constant name="struts.convention.classes.reload" value="false" />
 
-    <!-- 配置默认拦截器栈 -->
+    <package name="defaultPackage" namespace="/" extends="tiles-default">
+        <interceptors>
+            <!-- 自定义拦截器 -->
+            <interceptor name="sessionInterceptor" class="com.company.travel.interceptor.SessionInterceptor">
+            </interceptor>
+            <!-- 配制默许的拦截器到拦截器栈 -->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="sessionInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <!-- 配置默认的拦截器 -->
+        <default-interceptor-ref name="myStack"/>
 
-    <!--<default-interceptor-ref name="baseStack"/>-->
-
-    <package name="default" namespace="/" extends="struts-default">
-
+         <!-- 默认action -->
         <default-action-ref name="index"/>
 
         <global-results>
             <result name="error">/jsp/error.jsp</result>
+            <result name="tologin" type="redirect">/login.html</result>
         </global-results>
 
         <global-exception-mappings>
             <exception-mapping exception="java.lang.Exception" result="error"/>
         </global-exception-mappings>
 
-        <!--<action name="index">
-            <result type="redirectAction">
-                <param name="actionName">HelloWorld</param>
-                <param name="namespace">/example</param>
-            </result>
-        </action>-->
     </package>
 
     <!-- Add packages here -->
-    <!--<include file="struts-config/example.xml"/>-->
     <include file="struts-config/common.xml"/>
     <include file="struts-config/user.xml"/>
     <include file="struts-config/message.xml"/>
