@@ -33,6 +33,7 @@ public class WsMessageServiceImpl implements WsMessageService {
             dto.setLogId(log.getId());
             dto.setTitle(log.getMessage().getTitle());
             dto.setCategory(log.getMessage().getMessageCategory().getName());
+            dto.setCategorySeq(log.getMessage().getMessageCategory().getSeq());
             dto.setReadStatus(log.getReadStatus());
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             String sDate = df.format(log.getMessage().getDate());

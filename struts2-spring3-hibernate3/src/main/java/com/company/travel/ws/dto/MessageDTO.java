@@ -3,18 +3,32 @@ package com.company.travel.ws.dto;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(propOrder = {
-    "logId","title","category","readStatus","date","content"
+    "logId","title","category","categorySeq","readStatus","date","content"
 })
 public class MessageDTO {
 
     private String logId; //消息记录主键
     private String title; //主题
     private String category;//类别
+    private int categorySeq;//类别排序号
     private String readStatus; //是否已读
     private String date; //日期
     private String content; //内容
 
     public MessageDTO() {
+    }
+
+    @Override
+    public String toString() {
+        return "MessageDTO{" +
+                "logId='" + logId + '\'' +
+                ", title='" + title + '\'' +
+                ", category='" + category + '\'' +
+                ", categorySeq=" + categorySeq +
+                ", readStatus='" + readStatus + '\'' +
+                ", date='" + date + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 
     public String getLogId() {
@@ -63,5 +77,13 @@ public class MessageDTO {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public int getCategorySeq() {
+        return categorySeq;
+    }
+
+    public void setCategorySeq(int categorySeq) {
+        this.categorySeq = categorySeq;
     }
 }
