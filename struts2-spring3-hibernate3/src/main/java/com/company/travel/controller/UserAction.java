@@ -164,9 +164,11 @@ public class UserAction extends BaseAction {
 
     public String getGroupIdDisplay(){
         String groupId = "";
-        Set<Group> set = user.getGroupSet();
-        for(Group g : set){
-            groupId = g.getId();
+        if(user!=null){
+            Set<Group> set = user.getGroupSet();
+            for(Group g : set){
+                groupId = g.getId();
+            }
         }
         return groupId;
     }
