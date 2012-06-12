@@ -6,6 +6,7 @@ import com.company.travel.service.UserService;
 import javax.annotation.Resource;
 import javax.ws.rs.core.Response;
 
+import com.company.travel.utils.StringGenerator;
 import com.company.travel.ws.dto.UserLoginDTO;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +26,25 @@ public class WsUserServiceImpl implements WsUserService {
             user = userService.getUserByUsername(username);
             output.setSuccess(true);
             output.setUserId(user.getId());
+            output.setUsername(user.getUsername());
+            output.setPublicAccount(user.getUsername().indexOf("public") > -1);
         } else {
             output.setSuccess(false);
         }
         return Response.ok(output).build();
+    }
+
+    public Response register() {
+        User user = new User();
+        user.setUsername(StringGenerator.getRandomString("public", 6));
+        user.setPassword("");
+        user.setRealname("public");
+        userService.save(user);
+        UserLoginDTO dto = new UserLoginDTO();
+        dto.setSuccess(true);
+        dto.setUserId(user.getId());
+        dto.setPublicAccount(true);
+        dto.setUsername(user.getUsername());
+        return Response.ok(dto).build();
     }
 }

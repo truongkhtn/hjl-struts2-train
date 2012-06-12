@@ -33,4 +33,15 @@ public interface WsUserService {
             String username,
             @FormParam("password")
             String password);
+
+    /**
+     * 注册public账号
+     * @return 随机账号
+     */
+    @GET
+    @Path("/register/")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response register();
+
+
 }
