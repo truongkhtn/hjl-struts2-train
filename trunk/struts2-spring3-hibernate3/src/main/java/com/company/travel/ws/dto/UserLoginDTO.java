@@ -12,12 +12,14 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
 @XmlType(propOrder = {
-        "success", "userId"
+        "success", "userId" ,"username","publicAccount"
 })
 public class UserLoginDTO {
 
     private boolean success;   // 是否登陆成功
     private String userId;    //  用户 ID
+    private String username; //账户
+    private boolean publicAccount; //是否public账户
 
     public UserLoginDTO() {
     }
@@ -25,8 +27,10 @@ public class UserLoginDTO {
     @Override
     public String toString() {
         return "UserLoginDTO{" +
-                "userId='" + userId + '\'' +
-                ", success=" + success +
+                "success=" + success +
+                ", userId='" + userId + '\'' +
+                ", username='" + username + '\'' +
+                ", publicAccount=" + publicAccount +
                 '}';
     }
 
@@ -44,5 +48,21 @@ public class UserLoginDTO {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public boolean isPublicAccount() {
+        return publicAccount;
+    }
+
+    public void setPublicAccount(boolean publicAccount) {
+        this.publicAccount = publicAccount;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
