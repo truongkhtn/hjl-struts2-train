@@ -36,9 +36,10 @@ public class WsUserServiceImpl implements WsUserService {
 
     public Response register() {
         User user = new User();
-        user.setUsername(StringGenerator.getRandomString("public", 6));
+        String random = StringGenerator.getRandomString("public", 6);
+        user.setUsername(random);
         user.setPassword("");
-        user.setRealname("public");
+        user.setRealname(random);
         userService.save(user);
         UserLoginDTO dto = new UserLoginDTO();
         dto.setSuccess(true);

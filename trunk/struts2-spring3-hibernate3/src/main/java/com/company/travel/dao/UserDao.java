@@ -21,4 +21,5 @@ public interface UserDao extends BaseDao<User, String> {
 
     List<User> getAllNotAdmin();
 
+    List<User> getAllPublic();
 }
