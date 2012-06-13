@@ -36,4 +36,9 @@ public class UserDaoImpl extends BaseDaoImpl<User,String> implements UserDao {
         return getSession().createQuery(hql).list();
     }
 
+    public List<User> getAllPublic() {
+        String hql = "from User user where lower(user.username) like lower(?)";
+        return getSession().createQuery(hql).setParameter(0,"%public%").list();
+    }
+
 }

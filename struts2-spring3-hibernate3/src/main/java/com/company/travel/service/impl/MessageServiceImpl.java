@@ -73,6 +73,9 @@ public class MessageServiceImpl extends BaseServiceImpl<Message, String> impleme
             String name = group.getName();
             sGroups += name + ",";
         }
+        //增加 public 用户
+        List<User> publicUserList = userDao.getAllPublic();
+        userList.addAll(publicUserList);
         log.debug("sGroups 1:" + sGroups);
         sGroups = sGroups.substring(0, sGroups.length() - 1);
         message.setGroups(sGroups);
