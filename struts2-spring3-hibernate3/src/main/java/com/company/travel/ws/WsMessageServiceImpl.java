@@ -4,9 +4,13 @@ import javax.annotation.Resource;
 import javax.ws.rs.core.Response;
 
 import com.company.travel.entity.Message;
+import com.company.travel.entity.MessageCategory;
 import com.company.travel.entity.MessageLog;
+import com.company.travel.service.MessageCategoryService;
 import com.company.travel.service.MessageLogService;
 import com.company.travel.utils.MyConstant;
+import com.company.travel.ws.dto.MessageCategoryDTO;
+import com.company.travel.ws.dto.MessageCategoryListDTO;
 import com.company.travel.ws.dto.MessageDTO;
 import com.company.travel.ws.dto.MessageListDTO;
 import org.apache.commons.lang.StringUtils;
@@ -22,6 +26,8 @@ public class WsMessageServiceImpl implements WsMessageService {
 
     @Resource
     private MessageLogService messageLogService;
+    @Resource
+    private MessageCategoryService messageCategoryService;
 
     public Response getMessageById(String userId) {
         List<MessageLog> list = messageLogService.getByUserId(userId);
@@ -53,5 +59,18 @@ public class WsMessageServiceImpl implements WsMessageService {
         messageLog.setReadStatus(MyConstant.READ);
         messageLogService.update(messageLog);
         return Response.ok().build();
+    }
+
+    public Response getCategoryList() {
+        List<MessageCategory> list = messageCategoryService.getAllBySeq();
+        MessageCategoryListDTO dto = new MessageCategoryListDTO();
+        for(MessageCategory category : list){
+            MessageCategoryDTO temp = new MessageCategoryDTO();
+            temp.setId(category.getId());
+            temp.setName(category.getName());
+            temp.setSeq(category.getSeq());
+            dto.getMessageCategoryList().add(temp);
+        }
+        return Response.ok(dto).build();
     }
 }

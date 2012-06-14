@@ -28,4 +28,13 @@ public interface WsMessageService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response readMessage(@FormParam("id") String msgId);
 
+    /**
+     * 获取消息分类列表
+     * @return 消息分类列表
+     */
+    @GET
+    @Path("/category/list/")
+    @Consumes(MediaType.APPLICATION_JSON )
+    public Response getCategoryList();
+
 }
