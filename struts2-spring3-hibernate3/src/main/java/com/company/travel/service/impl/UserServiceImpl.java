@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * UserService 接口实现类
+ */
 @Service
 @Transactional
 public class UserServiceImpl extends BaseServiceImpl<User, String> implements UserService {

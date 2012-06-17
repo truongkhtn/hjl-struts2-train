@@ -19,8 +19,6 @@ import java.util.Set;
 
 /**
  * Action 基类，设置公共属性和公共方法,供子类使用
- *
- * @author 胡荆陵
  */
 public class BaseAction extends ActionSupport {
 

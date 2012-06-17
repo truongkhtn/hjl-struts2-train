@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
- * 用户登陆验证返回对象
+ * WebService 用户登陆验证返回对象
  * 1) 使用 @XmlRootElement: 避免以下异常
  * No message body writer has been found for response class
  * 2) 使用 @XmlType : 按指定顺序输出属性值

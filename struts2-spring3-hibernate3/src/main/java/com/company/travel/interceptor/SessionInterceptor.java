@@ -9,11 +9,7 @@ import org.apache.struts2.ServletActionContext;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by IntelliJ IDEA.
- * User: Administrator
- * Date: 12-5-22
- * Time: 下午12:49
- * To change this template use File | Settings | File Templates.
+ * 用户登陆验证拦截器
  */
 public class SessionInterceptor extends AbstractInterceptor {
     @Override

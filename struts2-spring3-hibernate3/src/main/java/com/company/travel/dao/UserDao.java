@@ -5,6 +5,9 @@ import com.company.travel.entity.User;
 
 import java.util.List;
 
+/**
+ * UserDao 接口类
+ */
 public interface UserDao extends BaseDao<User, String> {
 
     /**

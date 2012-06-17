@@ -11,11 +11,7 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * Created by IntelliJ IDEA.
- * User: Hu Jing Ling
- * Date: 2/10/11
- * Time: 5:35 PM
- * To change this template use File | Settings | File Templates.
+ * DefaultTypeConverter 日期转换器类
  */
 public class DateConverter extends DefaultTypeConverter {
 

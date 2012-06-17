@@ -20,9 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Author: Hu jing ling
- * Date: 12-5-19
- * Description: put description for the type here...
+ * MessageService 接口实现类
  */
 @Service
 @Transactional

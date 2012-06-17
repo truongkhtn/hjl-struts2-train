@@ -2,6 +2,9 @@ package com.company.travel.ws.dto;
 
 import javax.xml.bind.annotation.XmlType;
 
+/**
+ * WebService 消息返回对象
+ */
 @XmlType(propOrder = {
     "logId","title","category","categorySeq","readStatus","date","content"
 })

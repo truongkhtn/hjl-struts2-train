@@ -4,6 +4,9 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+/**
+ * WsMessageService 接口类
+ */
 @Path("/message/")
 @Produces(MediaType.APPLICATION_JSON)
 public interface WsMessageService {

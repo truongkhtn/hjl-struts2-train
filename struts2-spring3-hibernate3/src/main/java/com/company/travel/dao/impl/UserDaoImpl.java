@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * UserDao 实现类
+ */
 @Repository
 public class UserDaoImpl extends BaseDaoImpl<User,String> implements UserDao {
 

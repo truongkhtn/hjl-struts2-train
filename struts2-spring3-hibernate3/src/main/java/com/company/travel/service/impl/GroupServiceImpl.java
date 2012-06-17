@@ -1,8 +1,6 @@
 package com.company.travel.service.impl;
 
-import com.company.travel.dao.BaseDao;
 import com.company.travel.dao.GroupDao;
-import com.company.travel.dao.MessageCategoryDao;
 import com.company.travel.entity.Group;
 import com.company.travel.entity.MessageCategory;
 import com.company.travel.service.GroupService;
@@ -13,9 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Author: Hu jing ling
- * Date: 12-5-19
- * Description: put description for the type here...
+ * GroupService 接口实现类
  */
 @Service
 @Transactional

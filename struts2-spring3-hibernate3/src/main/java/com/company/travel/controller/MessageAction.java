@@ -15,8 +15,6 @@ import java.util.List;
 
 /**
  * Message Action 类，包含对于所有 Message 对象的操作
- *
- * @author 胡荆陵
  */
 @Controller
 @Scope("prototype")

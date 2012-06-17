@@ -4,8 +4,6 @@ import java.util.List;
 
 /**
  * 分页 类， 用于实现分页功能
- *
- * @author 胡荆陵
  */
 public class Pager {
 
@@ -23,7 +21,6 @@ public class Pager {
 	private Integer pageCount = 0;// 总页数， 初始值0
     private String property;// 查找属性名称
 	private String keyword;// 查找关键字
-//	private String orderBys = "createDate";// 排序字段，默认值：创建日期
 	private String[] orderBys = null;// 排序字段，默认值：创建日期
 	private OrderType[] orderTypes = null;// 排序方式，默认值：倒序
 	private List list;// 数据List，用于存放分页数据
