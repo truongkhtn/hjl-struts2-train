@@ -8,9 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Author: Hu jing ling
- * Date: 12-5-19
- * Description: put description for the type here...
+ * MessageLogDao 实现类
  */
 @Repository
 public class MessageLogDaoImpl extends BaseDaoImpl<MessageLog, String> implements MessageLogDao {

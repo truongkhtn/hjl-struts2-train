@@ -5,6 +5,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
+ * WsUserService 接口类
+ *
  * The interface exposed as soap and rest
  *
  * @ Path is for the rest top path, ,should be the same as cxf-config.xml

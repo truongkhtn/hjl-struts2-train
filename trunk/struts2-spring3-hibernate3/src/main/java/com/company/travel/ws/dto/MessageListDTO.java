@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
 /**
- * 消息列表返回对象
+ * WebService 消息列表返回对象
  */
 @XmlRootElement
 @XmlType(propOrder = { "unreadNum" , "totalNum" , "messageList" })

@@ -7,9 +7,7 @@ import com.company.travel.entity.User;
 import java.util.List;
 
 /**
- * Author: Hu jing ling
- * Date: 12-5-19
- * Description: put description for the type here...
+ * GroupDao 接口类
  */
 public interface GroupDao extends BaseDao<Group , String>{
     List<MessageCategory> getAllBySeq();

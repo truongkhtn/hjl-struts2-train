@@ -19,8 +19,6 @@ import java.util.Set;
 
 /**
  * User Action 类，包含对于所有 User 对象的操作
- *
- * @author 胡荆陵
  */
 @Controller
 @Scope("prototype")
@@ -91,7 +89,6 @@ public class UserAction extends BaseAction {
 
     public String logout(){
         this.getSession().clear();
-//        this.getSession().remove(LOGIN_USER);
         return SUCCESS;
     }
 

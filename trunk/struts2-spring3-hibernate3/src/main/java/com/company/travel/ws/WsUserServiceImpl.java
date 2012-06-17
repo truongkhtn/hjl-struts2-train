@@ -10,6 +10,9 @@ import com.company.travel.utils.StringGenerator;
 import com.company.travel.ws.dto.UserLoginDTO;
 import org.springframework.stereotype.Service;
 
+/**
+ * WsUserService 接口实现类
+ */
 @Service("wsUserService")
 public class WsUserServiceImpl implements WsUserService {
 

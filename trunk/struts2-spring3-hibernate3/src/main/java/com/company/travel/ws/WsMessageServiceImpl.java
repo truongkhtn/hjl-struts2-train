@@ -21,6 +21,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * WsMessageService 接口实现类
+ */
 @Service("wsMessageService")
 public class WsMessageServiceImpl implements WsMessageService {
 

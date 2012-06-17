@@ -12,9 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Author: Hu jing ling
- * Date: 12-5-19
- * Description: put description for the type here...
+ * GroupDao 实现类
  */
 @Repository
 public class GroupDaoImpl extends BaseDaoImpl<Group,String> implements GroupDao{

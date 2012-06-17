@@ -5,9 +5,7 @@ import com.company.travel.entity.Message;
 import org.springframework.stereotype.Repository;
 
 /**
- * Author: Hu jing ling
- * Date: 12-5-19
- * Description: put description for the type here...
+ * MessageDao 实现类
  */
 @Repository
 public class MessageDaoImpl extends BaseDaoImpl<Message, String> implements MessageDao {
