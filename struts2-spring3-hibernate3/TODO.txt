@@ -1,2 +1,0 @@
-http://www.cnblogs.com/liongname/articles/2381435.html
-C2DM需要依赖于Google官方提供的C2DM服务器，由于国内的网络环境，这个服务经常不可用，如果想要很好的使用，我们的App Server必须也在国外，这个恐怕不是每个开发者都能够实现的
