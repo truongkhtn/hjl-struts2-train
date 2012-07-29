@@ -71,13 +71,13 @@ public class MessageServiceImpl extends BaseServiceImpl<Message, String> impleme
             String name = group.getName();
             sGroups += name + ",";
         }
+        //需求更改 2012-7-22: public 账户已默认加入组别A,B,C
         //增加 public 用户
-        List<User> publicUserList = userDao.getAllPublic();
-        userList.addAll(publicUserList);
-        log.debug("sGroups 1:" + sGroups);
+        //List<User> publicUserList = userDao.getAllPublic();
+        //userList.addAll(publicUserList);
+
         sGroups = sGroups.substring(0, sGroups.length() - 1);
         message.setGroups(sGroups);
-        log.debug("sGroups 2:" + sGroups);
         log.info("sendToUsers:" + userList.size());
         saveMessageLogToUserList(message, userList);
     }
