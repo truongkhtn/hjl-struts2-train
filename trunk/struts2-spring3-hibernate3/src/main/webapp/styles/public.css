@@ -1851,6 +1851,7 @@ input, label, select, option, textarea, button, fieldset, legend {
     border-left: 1px solid #CCCCCC;
     color: #444444;
     padding: 3px;
+    text-align: left;
 }
 
 .myTable01 th {
@@ -1869,6 +1870,7 @@ input, label, select, option, textarea, button, fieldset, legend {
     color: #FFFFFF;
     font-weight: normal;
     outline: medium none;
+    width: 60px;
 }
 
 .required {
@@ -2034,5 +2036,9 @@ input, label, select, option, textarea, button, fieldset, legend {
 }
 
 .mygrid td {
+    text-align: center;
+}
+
+.myButtonRow{
     text-align: center;
 }
