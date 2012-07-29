@@ -104,9 +104,12 @@
                 </td>
             </tr>
             <tr>
-                <td align="center" colspan="2">
-                    <input class="myButton" type="submit" value="提交">
-                    <input class="myButton" type="button" onclick="history.go(-1)" value="返回">
+
+                <td align="center"  colspan="2">
+                    <p class="myButtonRow" >
+                        <input class="myButton" type="submit" value="提交">
+                        <input class="myButton" type="button" onclick="history.go(-1)" value="返回">
+                    </p>
                 </td>
             </tr>
         </table>

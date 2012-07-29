@@ -29,20 +29,22 @@
     </div>
 
     <!--主体-->
-    <table class="main" border="0" align="center" style="width:80%; background-color:#FFFFFF">
-        <tr>
-            <td width="140">
-                <div class="main_left">
-                    <tiles:insertAttribute name="menu"/>
-                </div>
-            </td>
-            <td>
-                <div class="main_right">
-                    <tiles:insertAttribute name="body"/>
-                </div>
-            </td>
-        </tr>
-    </table>
+    <div style="width: 80%;">
+        <table class="main" border="0" align="center" style="background-color:#FFFFFF">
+            <tr>
+                <td width="140">
+                    <div class="main_left">
+                        <tiles:insertAttribute name="menu"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="main_right">
+                        <tiles:insertAttribute name="body"/>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 
     <!--尾部-->
     <div class="footer" align="center" style="width:80%">

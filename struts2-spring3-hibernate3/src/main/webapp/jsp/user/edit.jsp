@@ -79,8 +79,10 @@
             </tr>
             <tr>
                 <td align="center" colspan="2">
-                    <input id="FORM_SUBMIT_BTN" class="myButton" type="button" value="确认">
-                    <input class="myButton" type="button" onclick="history.go(-1)" value="返回">
+                    <p class="myButtonRow" >
+                        <input id="FORM_SUBMIT_BTN" class="myButton" type="button" value="确认">
+                        <input class="myButton" type="button" onclick="history.go(-1)" value="返回">
+                    </p>
                 </td>
             </tr>
         </table>
