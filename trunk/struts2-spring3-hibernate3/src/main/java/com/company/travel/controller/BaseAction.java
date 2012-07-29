@@ -4,7 +4,6 @@ import com.company.travel.entity.User;
 import com.company.travel.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.util.Assert;
@@ -118,12 +117,6 @@ public class BaseAction extends ActionSupport {
 		}
 		return null;
 	}
-
-    // 根据Map输出JSON，返回null
-    public String ajaxJson(Map<String, String> jsonMap) {
-        JSONObject jsonObject = JSONObject.fromObject(jsonMap);
-        return ajax(jsonObject.toString(), "text/html");
-    }
 
     //getter & setter
     public String getId() {
