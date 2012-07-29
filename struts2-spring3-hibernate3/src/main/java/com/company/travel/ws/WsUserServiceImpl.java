@@ -1,6 +1,8 @@
 package com.company.travel.ws;
 
+import com.company.travel.entity.Group;
 import com.company.travel.entity.User;
+import com.company.travel.service.GroupService;
 import com.company.travel.service.UserService;
 
 import javax.annotation.Resource;
@@ -10,6 +12,9 @@ import com.company.travel.utils.StringGenerator;
 import com.company.travel.ws.dto.UserLoginDTO;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * WsUserService 接口实现类
  */
@@ -18,6 +23,8 @@ public class WsUserServiceImpl implements WsUserService {
 
     @Resource
     private UserService userService;
+    @Resource
+    private GroupService groupService;
 
     public Response userLogin(String username, String password) {
         User user = new User();
@@ -38,17 +45,28 @@ public class WsUserServiceImpl implements WsUserService {
     }
 
     public Response register() {
-        User user = new User();
+        //获得随机public账号
+        User publicUser = new User();
         String random = StringGenerator.getRandomString("public", 6);
-        user.setUsername(random);
-        user.setPassword("");
-        user.setRealname(random);
-        userService.save(user);
+        publicUser.setUsername(random);
+        publicUser.setPassword("");
+        publicUser.setRealname(random);
+        //public 账户默认加入 组别A，组别B，组别C
+        Group groupA = groupService.get("name" ,"组别A");
+        Group groupB = groupService.get("name" ,"组别B");
+        Group groupC = groupService.get("name" ,"组别C");
+        Set<Group> groupSet = new HashSet<Group>();
+        groupSet.add(groupA);
+        groupSet.add(groupB);
+        groupSet.add(groupC);
+        publicUser.setGroupSet(groupSet);
+        userService.save(publicUser);
+        //返回 dto
         UserLoginDTO dto = new UserLoginDTO();
         dto.setSuccess(true);
-        dto.setUserId(user.getId());
+        dto.setUserId(publicUser.getId());
         dto.setPublicAccount(true);
-        dto.setUsername(user.getUsername());
+        dto.setUsername(publicUser.getUsername());
         return Response.ok(dto).build();
     }
 }
