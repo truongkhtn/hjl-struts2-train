@@ -19,6 +19,8 @@ import org.springframework.stereotype.Service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,6 +36,10 @@ public class WsMessageServiceImpl implements WsMessageService {
 
     public Response getMessageById(String userId) {
         List<MessageLog> list = messageLogService.getByUserId(userId);
+
+        //需求变更:2012-7-22,仅显示最近一周的消息
+        list = excludeMessageByDays(list, 7);
+
         int unreadNum = 0;
         int totalNum = list.size();
         List<MessageDTO> messageList = new ArrayList<MessageDTO>();
@@ -55,6 +61,22 @@ public class WsMessageServiceImpl implements WsMessageService {
         }
         MessageListDTO messageListDTO = new MessageListDTO(unreadNum, totalNum, messageList);
         return Response.ok(messageListDTO).build();
+    }
+
+    private List<MessageLog> excludeMessageByDays(List<MessageLog> list , int days) {
+        List<MessageLog> result = new ArrayList<MessageLog>();
+        Calendar calendar = Calendar.getInstance();
+        calendar.roll(Calendar.DATE,-days);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE,0);
+        calendar.set(Calendar.SECOND,0);
+        Date markDate = calendar.getTime();
+        for(MessageLog messageLog : list){
+            if(messageLog.getCreateDate().after(markDate)){
+                result.add(messageLog);
+            }
+        }
+        return result;
     }
 
     public Response readMessage(String msgId) {
