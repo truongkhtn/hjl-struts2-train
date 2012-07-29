@@ -53,7 +53,7 @@ public class MessageAction extends BaseAction {
     }
 
     public String messageList() {
-        messageList = messageService.getAll();
+        messageList = messageService.getAllByOrder();
         return SUCCESS;
     }
 

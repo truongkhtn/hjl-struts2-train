@@ -43,6 +43,10 @@ public class MessageServiceImpl extends BaseServiceImpl<Message, String> impleme
     private GroupDao groupDao;
 
 
+    public List<Message> getAllByOrder() {
+        return messageDao.getAllByOrder();
+    }
+
     public void sendToAll(Message message) {
         List<User> userList = userDao.getAllNotAdmin();
         saveMessageLogToUserList(message, userList);
