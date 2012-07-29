@@ -22,8 +22,7 @@
     <package name="defaultPackage" namespace="/" extends="tiles-default">
         <interceptors>
             <!-- 自定义拦截器 -->
-            <interceptor name="sessionInterceptor" class="com.company.travel.interceptor.SessionInterceptor">
-            </interceptor>
+            <interceptor name="sessionInterceptor" class="com.company.travel.interceptor.SessionInterceptor"/>
             <!-- 配制默许的拦截器到拦截器栈 -->
             <interceptor-stack name="myStack">
                 <interceptor-ref name="sessionInterceptor"/>
