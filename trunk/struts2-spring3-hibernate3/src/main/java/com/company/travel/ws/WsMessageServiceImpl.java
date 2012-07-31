@@ -3,7 +3,6 @@ package com.company.travel.ws;
 import javax.annotation.Resource;
 import javax.ws.rs.core.Response;
 
-import com.company.travel.entity.Message;
 import com.company.travel.entity.MessageCategory;
 import com.company.travel.entity.MessageLog;
 import com.company.travel.service.MessageCategoryService;
@@ -13,7 +12,6 @@ import com.company.travel.ws.dto.MessageCategoryDTO;
 import com.company.travel.ws.dto.MessageCategoryListDTO;
 import com.company.travel.ws.dto.MessageDTO;
 import com.company.travel.ws.dto.MessageListDTO;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
@@ -65,8 +63,11 @@ public class WsMessageServiceImpl implements WsMessageService {
 
     private List<MessageLog> excludeMessageByDays(List<MessageLog> list , int days) {
         List<MessageLog> result = new ArrayList<MessageLog>();
+//        Date markDate = calendar.getTime();
+        long time = new Date().getTime();
+        long target = time - 1000*60*60*24*days;
         Calendar calendar = Calendar.getInstance();
-        calendar.roll(Calendar.DATE,-days);
+        calendar.setTimeInMillis(target);
         calendar.set(Calendar.HOUR_OF_DAY, 0);
         calendar.set(Calendar.MINUTE,0);
         calendar.set(Calendar.SECOND,0);
