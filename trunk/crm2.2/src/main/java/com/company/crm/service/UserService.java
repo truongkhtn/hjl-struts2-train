@@ -25,5 +25,5 @@ public interface UserService extends BaseService<User, String>{
 	 * @param name
 	 * @return
 	 */
-	List<User> getByDepsrtmentName(String name, Pager pager);
+	List<User> getByDepartmentName(String name, Pager pager);
 }

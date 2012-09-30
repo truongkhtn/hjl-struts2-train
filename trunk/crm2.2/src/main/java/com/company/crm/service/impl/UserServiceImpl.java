@@ -26,12 +26,12 @@ public class UserServiceImpl extends BaseServiceImpl<User, String> implements
 
 	
 	public User getByLogin(String username, String password) {
-		return userDao.getByLogin(username, password);
+		return userDao.login(username, password);
 	}
 
 	
-	public List<User> getByDepsrtmentName(String name, Pager pager) {
-		return userDao.getByDepsrtmentName(name, pager);
+	public List<User> getByDepartmentName(String name, Pager pager) {
+		return userDao.getByDepartmentName(name, pager);
 	}
 
 }

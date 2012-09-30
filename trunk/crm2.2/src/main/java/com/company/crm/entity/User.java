@@ -1,18 +1,10 @@
 package com.company.crm.entity;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
@@ -27,7 +19,7 @@ public class User extends BaseEntity{
 	private String empNo;//员工工号
 	private int maxCustomer;//最多客户
 	private Date birthDate;//员工生日
-	private String telphone;//联系电话
+	private String telephone;//联系电话
 	private Gender gender;//员工性别
 	private String username;//系统登录用户名
 	private String password;//系统用户的登录密码
@@ -37,6 +29,7 @@ public class User extends BaseEntity{
 	private Set<Role> roleSet;//一个用户可以拥有多个角色
 	private boolean status;//该用户账号的状态
 
+    @Column(unique = true, nullable = false)
 	public String getEmpNo() {
 		return empNo;
 	}
@@ -55,13 +48,13 @@ public class User extends BaseEntity{
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	public String getTelphone() {
-		return telphone;
-	}
-	public void setTelphone(String telphone) {
-		this.telphone = telphone;
-	}
-	@Enumerated(EnumType.STRING)
+    public String getTelephone() {
+        return telephone;
+    }
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+    @Enumerated(EnumType.STRING)
 	public Gender getGender() {
 		return gender;
 	}
@@ -94,8 +87,11 @@ public class User extends BaseEntity{
 		this.remarks = remarks;
 	}
 	@ManyToMany(cascade={CascadeType.ALL})
-	@JoinTable(name="user_to_role")
+	@JoinTable(name="tbl_user_to_role")
 	public Set<Role> getRoleSet() {
+        if(roleSet == null){
+            roleSet = new HashSet<Role>();
+        }
 		return roleSet;
 	}
 	public void setRoleSet(Set<Role> roleSet) {

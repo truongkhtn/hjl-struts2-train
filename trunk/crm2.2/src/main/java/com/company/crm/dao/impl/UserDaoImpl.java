@@ -22,7 +22,7 @@ public class UserDaoImpl extends BaseDaoImpl<User, String> implements UserDao {
 		return userList;
 	}
 
-	public User getByLogin(String username, String password) {
+	public User login(String username, String password) {
 		Criteria criteria = getSession().createCriteria(User.class);
 		criteria.add(Restrictions.eq("username", username));
 		criteria.add(Restrictions.eq("password", password));
@@ -31,7 +31,7 @@ public class UserDaoImpl extends BaseDaoImpl<User, String> implements UserDao {
 	}
  
 	@SuppressWarnings("unchecked")
-	public List<User> getByDepsrtmentName(String name, Pager pager) {
+	public List<User> getByDepartmentName(String name, Pager pager) {
 		Query query =null;
 		String hql=null;
 		if(name!=null){
