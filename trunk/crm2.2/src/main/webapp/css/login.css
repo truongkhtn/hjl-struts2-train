@@ -1,0 +1,31 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+.main{
+	width:100%;
+	height:100%;
+	background-color: #222222;	
+	margin: 0px;
+	text-align: center;		
+}
+.midTable{
+	width:600px;
+	height:100%;
+	margin: 0px auto;
+	text-align: center;
+	vertical-align: middle;
+}
+.midTable div{
+	background-color: white;
+	height: 490px;
+	padding: 0px;
+}
+.midTable img{
+	width: 600px;
+	height: 390px;
+	margin-bottom: 10px;
+}
+.midTable span{
+	font-size: 12px;
+}

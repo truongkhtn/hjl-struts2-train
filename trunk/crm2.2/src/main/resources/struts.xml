@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--开发者模式 -->
+    <constant name="struts.devMode" value="true"/>
+    <!-- 国际化资源文件名称 -->
+    <constant name="struts.custom.i18n.resources" value="resources"/>
+    <!-- 配置使用Spring管理Action -->
+    <constant name="struts.objectFactory" value="spring"/>
+    <!--使用简单主题，即不添加额外html标签-->
+    <constant name="struts.ui.theme" value="simple"/>
+    <!-- convention类重新加载 -->
+	<constant name="struts.convention.classes.reload" value="false" />
+    <!-- 设置 UTF-8 编码 -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+
+    <package name="defaultPackage" namespace="/" extends="tiles-default">
+        <interceptors>
+            <!-- 自定义拦截器 -->
+            <interceptor name="sessionInterceptor" class="com.company.crm.utils.SessionInterceptor"/>
+            <!-- 配制默许的拦截器到拦截器栈 -->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="sessionInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <!-- 配置默认的拦截器 -->
+        <default-interceptor-ref name="myStack"/>
+
+         <!-- 默认action -->
+        <default-action-ref name="index"/>
+
+        <global-results>
+            <result name="error">/jsp/error.jsp</result>
+            <result name="toLogin" type="redirect">/login.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+    </package>
+
+    <!-- Add packages here -->
+    <include file="struts-config/common.xml"/>
+    <include file="struts-config/customer.xml"/>
+    <include file="struts-config/user.xml"/>
+
+</struts>
