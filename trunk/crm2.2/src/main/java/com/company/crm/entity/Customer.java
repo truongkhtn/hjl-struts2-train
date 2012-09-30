@@ -2,13 +2,8 @@ package com.company.crm.entity;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 /**
  *   客户 实体类
  */
@@ -40,12 +35,12 @@ public class Customer extends BaseEntity{
 	private String business;//客户行业
 	private String remark;//客户描述
 	private Status status;//签约与否
-	private Set<Contact> contractorsSet;//联系人集合
 	private Set<VisitRecord> visitRecodeSet;//拜访记录
-	private Contact contact; //主联系人
 	private User user;//客户所属用户
-	
-	public String getName() {
+
+    private Contact majorContact; //主联系人
+
+    public String getName() {
 		return name;
 	}
 	public void setName(String name) {
@@ -105,13 +100,14 @@ public class Customer extends BaseEntity{
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	@OneToMany(mappedBy="customer",cascade={CascadeType.ALL})
-	public Set<Contact> getContractorsSet() {
-		return contractorsSet;
-	}
-	public void setContractorsSet(Set<Contact> contractorsSet) {
-		this.contractorsSet = contractorsSet;
-	}
+//	@OneToMany(mappedBy="customer",cascade={CascadeType.ALL})
+//    public Set<Contact> getContactSet() {
+//        return contactSet;
+//    }
+//    public void setContactSet(Set<Contact> contactSet) {
+//        this.contactSet = contactSet;
+//    }
+
 	@OneToMany(mappedBy="customer",cascade={CascadeType.ALL})
 	public Set<VisitRecord> getVisitRecodeSet() {
 		return visitRecodeSet;
@@ -119,14 +115,16 @@ public class Customer extends BaseEntity{
 	public void setVisitRecodeSet(Set<VisitRecord> visitRecodeSet) {
 		this.visitRecodeSet = visitRecodeSet;
 	}
-	@OneToOne
-	@JoinColumn(name="contract_id")
-	public Contact getContact() {
-		return contact;
-	}
-	public void setContact(Contact contact) {
-		this.contact = contact;
-	}
+//	@OneToOne
+//	@JoinColumn(name="major_contact")
+    @Transient
+     public Contact getMajorContact() {
+        return majorContact;
+    }
+    public void setMajorContact(Contact majorContact) {
+        this.majorContact = majorContact;
+    }
+
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	public User getUser() {

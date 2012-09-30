@@ -36,8 +36,7 @@ public class User extends BaseEntity{
 	private String remarks;//备注
 	private Set<Role> roleSet;//一个用户可以拥有多个角色
 	private boolean status;//该用户账号的状态
-	private Set<Customer> customerSet; //员工所有的客户
-	
+
 	public String getEmpNo() {
 		return empNo;
 	}
@@ -116,14 +115,5 @@ public class User extends BaseEntity{
 	public void setDept(Department dept) {
 		this.dept = dept;
 	}
-	@OneToMany(mappedBy="user",cascade={CascadeType.ALL})
-	public Set<Customer> getCustomerSet() {
-		return customerSet;
-	}
-	public void setCustomerSet(Set<Customer> customerSet) {
-		this.customerSet = customerSet;
-	}
-	
-	
-	
+
 }
