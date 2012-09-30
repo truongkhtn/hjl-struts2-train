@@ -1,0 +1,19 @@
+.customerDiv{
+	margin:0px auto;
+	width:90%;
+	height:260px;
+}
+.contactDiv{
+	margin:0px auto;
+	width:90%;
+	height:220px;
+}
+.content .pageBody img {
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+}
+.mytable select{
+	width: 100px;
+	text-align: center;
+}

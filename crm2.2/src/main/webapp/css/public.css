@@ -1,0 +1,115 @@
+.mygrid{
+	width: 100%;
+}
+.mygrid tr{
+	height: 25px;
+	text-align: center;
+}
+
+.required{
+	color: red;
+}
+
+.mytable {
+	margin:0px auto;
+    background-color: #FFFFFF;
+    border: 1px solid #7892AB;
+    padding: 0px;
+}
+
+.mytable caption{
+	color: blue;
+	font-weight: bolder;
+	font-size: 14px;
+	text-align: left;
+	margin: 5px;
+}
+
+.mytable th{
+    background-color: #F6F6F6;
+    border: 1px solid #E1E1E1;
+    color: #000000;
+    font-family: "ËÎÌו";
+    font-size: 12px;
+    font-weight: normal;
+    height: 30px;
+    width: 100px;
+    border-width: 0px;
+}
+
+.mytable td{
+    border-bottom: 1px solid #E1E1E1;
+    border-right: 1px solid #E1E1E1;
+    font: 12px "ËÎÌו";
+    padding: 3px;
+    text-align: left;
+    text-decoration: none;
+    border-width: 0px;
+}
+.buttonBar{
+	margin:5px auto;
+	width:90%;
+	text-align: center;
+}
+.buttonBar a{
+	text-decoration: none;
+}
+.mybutton{
+	width: 80px;
+	border-color: silver;
+	border-width: 1px;
+	border-style: solid;
+}
+.topRight{
+	text-align: right;
+}
+
+/* pagination */
+
+.pager {
+	float: right;
+}
+
+.pager li {
+	line-height: 18px;
+	display: block;
+	float: left;
+	padding: 0px 5px;
+	margin: 0px 3px;
+	font-size: 12px;
+	border: 1px solid #cccccc;
+}
+
+.pager li:hover {
+	color: #ff9900;
+	border: 1px solid #ff9900;
+}
+
+.pager li:hover a {
+	color: #ff9900;
+}
+
+.pager li a {
+	color: #464646;
+}
+
+.pager li span {
+	color: #cfcfcf;
+}
+
+.pager li.currentPage {
+	border: 1px solid #ff9900;
+	background-color: #ff9900;
+}
+
+.pager li.currentPage span {
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.pager li.pageInfo {
+	margin-right: 5px;
+	color: #464646;
+	border: none;
+	background: none;
+}
