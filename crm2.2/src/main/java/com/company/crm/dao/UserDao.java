@@ -19,11 +19,11 @@ public interface UserDao extends BaseDao<User, String>{
 	 * @param username,password
 	 * @return
 	 */
-	User getByLogin(String username, String password);
+	User login(String username, String password);
 	/**
 	 * 根据部门名称查找部门员工
 	 * @param name
 	 * @return
 	 */
-	List<User> getByDepsrtmentName(String name, Pager pager);
+	List<User> getByDepartmentName(String name, Pager pager);
 }
