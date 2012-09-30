@@ -28,20 +28,20 @@ public class CustomerDaoImpl extends BaseDaoImpl<Customer, String> implements
 				criteria.add(Restrictions.eq("address", customer.getAddress()));
 			}
 		}
-		if(customer.getContact().getName()!=null){
-			System.out.println("name:"+customer.getContact().getName());
-			if(!customer.getContact().getName().trim().equals("")){
-				criteria.add(Restrictions.eq("contractor.name", customer.getContact().getName()));
+		if(customer.getMajorContact().getName()!=null){
+			System.out.println("name:"+customer.getMajorContact().getName());
+			if(!customer.getMajorContact().getName().trim().equals("")){
+				criteria.add(Restrictions.eq("contractor.name", customer.getMajorContact().getName()));
 			}
 		}
-		if(customer.getContact().getMobilePhone()!=null){
-			if(!customer.getContact().getMobilePhone().trim().equals("")){
-				criteria.add(Restrictions.eq("contractor.mobilePhone", customer.getContact().getMobilePhone()));
+		if(customer.getMajorContact().getMobilePhone()!=null){
+			if(!customer.getMajorContact().getMobilePhone().trim().equals("")){
+				criteria.add(Restrictions.eq("contractor.mobilePhone", customer.getMajorContact().getMobilePhone()));
 			}
 		}
-		if(customer.getContact().getPhone()!=null){
-			if(!customer.getContact().getPhone().trim().equals("")){
-				criteria.add(Restrictions.eq("contractor.phone", customer.getContact().getPhone()));
+		if(customer.getMajorContact().getPhone()!=null){
+			if(!customer.getMajorContact().getPhone().trim().equals("")){
+				criteria.add(Restrictions.eq("contractor.phone", customer.getMajorContact().getPhone()));
 			}
 		}
 		if(customer.getSource()!=null || !"==请选择==".equals(customer.getSource())){
@@ -76,19 +76,19 @@ public class CustomerDaoImpl extends BaseDaoImpl<Customer, String> implements
 				criteria.add(Restrictions.eq("address", customer.getAddress()));
 			}
 		}
-		if(customer.getContact().getName()!=null){
-			if(!customer.getContact().getName().trim().equals("")){
-				criteria.add(Restrictions.eq("contractor.name", customer.getContact().getName()));
+		if(customer.getMajorContact().getName()!=null){
+			if(!customer.getMajorContact().getName().trim().equals("")){
+				criteria.add(Restrictions.eq("contractor.name", customer.getMajorContact().getName()));
 			}
 		}
-		if(customer.getContact().getMobilePhone()!=null){
-			if(!customer.getContact().getMobilePhone().trim().equals("")){
-				criteria.add(Restrictions.eq("contractor.mobilePhone", customer.getContact().getMobilePhone()));
+		if(customer.getMajorContact().getMobilePhone()!=null){
+			if(!customer.getMajorContact().getMobilePhone().trim().equals("")){
+				criteria.add(Restrictions.eq("contractor.mobilePhone", customer.getMajorContact().getMobilePhone()));
 			}
 		}
-		if(customer.getContact().getPhone()!=null){
-			if(!customer.getContact().getPhone().trim().equals("")){
-				criteria.add(Restrictions.eq("contractor.phone", customer.getContact().getPhone()));
+		if(customer.getMajorContact().getPhone()!=null){
+			if(!customer.getMajorContact().getPhone().trim().equals("")){
+				criteria.add(Restrictions.eq("contractor.phone", customer.getMajorContact().getPhone()));
 			}
 		}
 		if(customer.getSource()!=null || !"==请选择==".equals(customer.getSource())){
