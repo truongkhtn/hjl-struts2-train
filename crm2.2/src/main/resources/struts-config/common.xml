@@ -6,16 +6,16 @@
     <package name="common" namespace="/" extends="defaultPackage">
 
         <action name="login" class="commonAction" method="login">
-            <result name="success" type="redirectAction">index</result>
+            <result type="redirectAction">index</result>
             <result name="error">/failed.html</result>
         </action>
 
-        <action name="logout" class="userAction" method="logout">
-            <result name="success" type="redirect">login.html</result>
+        <action name="logout" class="commonAction" method="logout">
+            <result>login.jsp</result>
         </action>
 
         <action name="index" class="commonAction" method="index">
-            <result name="success" type="tiles">index.tiles</result>
+            <result type="tiles">index.tiles</result>
         </action>
 
     </package>

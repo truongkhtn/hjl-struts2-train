@@ -6,10 +6,10 @@
         <span class="f1">欢迎您：管理员</span>
     </div>
     <div class="top_right">
-        <a class="top_ico0" href="#">首页</a>
+        <s:a namespace="/" action="index" cssClass="top_ico0">首页</s:a>
         <a class="top_ico1" href="#">修改密码</a>
         <a class="top_ico2" href="#">个人信息</a>
-        <a class="top_ico3" href="login.jsp">退出</a>
+        <s:a namespace="/" action="logout" cssClass="top_ico3">退出</s:a>
     </div>
 </div>
 <div class="top2">
