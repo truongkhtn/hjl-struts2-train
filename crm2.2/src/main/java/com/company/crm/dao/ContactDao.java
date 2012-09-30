@@ -9,7 +9,7 @@ import com.company.crm.entity.Contact;
  * @author sheep
  *
  */
-public interface ContactorDao extends BaseDao<Contact, String>{
+public interface ContactDao extends BaseDao<Contact, String>{
 	
 	/**
 	 * 根据公司Id查找联系人

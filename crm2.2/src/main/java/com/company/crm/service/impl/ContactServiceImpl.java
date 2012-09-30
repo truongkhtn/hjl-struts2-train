@@ -1,21 +1,21 @@
 package com.company.crm.service.impl;
 
-import com.company.crm.dao.ContactorDao;
+import com.company.crm.dao.ContactDao;
 import com.company.crm.entity.Contact;
-import com.company.crm.service.ContactorService;
+import com.company.crm.service.ContactService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class ContactorServiceImpl extends BaseServiceImpl<Contact, String>
-		implements ContactorService {
+public class ContactServiceImpl extends BaseServiceImpl<Contact, String>
+		implements ContactService {
 	@Resource
-	private ContactorDao contractorDao;
+	private ContactDao contractorDao;
 	
 	@Resource
-	public void setBaseDao(ContactorDao contractorDao) {
+	public void setBaseDao(ContactDao contractorDao) {
 		super.setBaseDao(contractorDao);
 	}
 	

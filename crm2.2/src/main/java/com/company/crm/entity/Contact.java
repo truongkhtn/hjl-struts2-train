@@ -1,9 +1,8 @@
 package com.company.crm.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import com.company.crm.utils.Gender;
+
+import javax.persistence.*;
 
 /*
  * 联系人类
@@ -11,12 +10,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tbl_contact")
 public class Contact extends BaseEntity{
-	
 	private static final long serialVersionUID = -3949633801748450797L;
-	
+
+    public enum Title{
+        GENERAL, //总经理
+        MANAGER, //经理
+        ACCOUNT, //财务
+        ADMIN, //行政
+        SALESMAN, //销售
+        ASSISTANT //助理
+    }
+
 	private String name; // 客户方的联系人
-	private String gender; //性别
-	private String title; //职称
+	private Gender gender; //性别
+	private Title title; //职称
 	private String phone; //固定电话
 	private String mobilePhone;//移动电话
 	private String email;   //邮箱地址
@@ -29,19 +36,21 @@ public class Contact extends BaseEntity{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getPhone() {
+    @Enumerated(EnumType.STRING)
+    public Gender getGender() {
+        return gender;
+    }
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+    @Enumerated(EnumType.STRING)
+    public Title getTitle() {
+        return title;
+    }
+    public void setTitle(Title title) {
+        this.title = title;
+    }
+    public String getPhone() {
 		return phone;
 	}
 	public void setPhone(String phone) {

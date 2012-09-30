@@ -4,6 +4,7 @@ import com.company.crm.entity.User;
 import com.company.crm.service.DepartmentService;
 import com.company.crm.service.RoleService;
 import com.company.crm.service.UserService;
+import com.company.crm.utils.Gender;
 import org.fluttercode.datafactory.impl.DataFactory;
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
@@ -36,7 +37,7 @@ public class TestUser extends AbstractJUnit4SpringContextTests {
             user.getRoleSet().add(role);
             user.setBirthDate(dataFactory.getBirthDate());
             user.setEmpNo("EMP"+(i+1));
-            user.setGender(dataFactory.chance(70)? User.Gender.MALE:User.Gender.FEMALE);
+            user.setGender(dataFactory.chance(70)? Gender.MALE: Gender.FEMALE);
             user.setMaxCustomer(dataFactory.getNumberBetween(30,60));
             user.setUsername("user" + (i + 1));
             user.setPassword(dataFactory.getRandomWord().toLowerCase());
