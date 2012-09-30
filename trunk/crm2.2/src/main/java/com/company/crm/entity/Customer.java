@@ -13,22 +13,31 @@ public class Customer extends BaseEntity{
 	
 	private static final long serialVersionUID = -1634517509763085662L;
 	public enum Status{
-		SIGHED,
-		UNSIGHED,
+        UNSIGNED,
+        SIGNED,
+        SEA
 	}
 	
 	public enum Source{
-		VISIT,
-		WEB,
-		YELLOW_PAGES,
-		DROP_IN,
-		MEDIUM
+		VISIT, //上门拜访
+		WEB_SEARCH, //网络搜索
+		YELLOW_PAGE,  //企业黄页
+        INTRODUCE,  //转介绍
+		WALK_IN    //客户来访
 	}
+
+    public enum Level{
+        ONE,
+        TWO,
+        THREE,
+        FOUR,
+        FIVE
+    }
 
 	private String name;//客户名
 	private String address; //地址
 	private String address2; //其他地址
-	private String level;//信用等级
+	private Level level;//信用等级
 	private Source source;//客户来源
 	private String fax;//传真号
 	private String webSite;//网站
@@ -58,13 +67,15 @@ public class Customer extends BaseEntity{
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
-	public String getLevel() {
-		return level;
-	}
-	public void setLevel(String level) {
-		this.level = level;
-	}
-	public Source getSource() {
+    @Enumerated(EnumType.STRING)
+    public Level getLevel() {
+        return level;
+    }
+    public void setLevel(Level level) {
+        this.level = level;
+    }
+    @Enumerated(EnumType.STRING)
+    public Source getSource() {
 		return source;
 	}
 	public void setSource(Source source) {
@@ -94,20 +105,13 @@ public class Customer extends BaseEntity{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+    @Enumerated(EnumType.STRING)
 	public Status getStatus() {
 		return status;
 	}
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-//	@OneToMany(mappedBy="customer",cascade={CascadeType.ALL})
-//    public Set<Contact> getContactSet() {
-//        return contactSet;
-//    }
-//    public void setContactSet(Set<Contact> contactSet) {
-//        this.contactSet = contactSet;
-//    }
-
 	@OneToMany(mappedBy="customer",cascade={CascadeType.ALL})
 	public Set<VisitRecord> getVisitRecodeSet() {
 		return visitRecodeSet;
@@ -115,8 +119,6 @@ public class Customer extends BaseEntity{
 	public void setVisitRecodeSet(Set<VisitRecord> visitRecodeSet) {
 		this.visitRecodeSet = visitRecodeSet;
 	}
-//	@OneToOne
-//	@JoinColumn(name="major_contact")
     @Transient
      public Contact getMajorContact() {
         return majorContact;
@@ -124,7 +126,6 @@ public class Customer extends BaseEntity{
     public void setMajorContact(Contact majorContact) {
         this.majorContact = majorContact;
     }
-
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	public User getUser() {

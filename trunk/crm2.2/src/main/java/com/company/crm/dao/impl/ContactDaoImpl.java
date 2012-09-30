@@ -2,14 +2,14 @@ package com.company.crm.dao.impl;
 
 import java.util.List;
 
-import com.company.crm.dao.ContactorDao;
+import com.company.crm.dao.ContactDao;
 import com.company.crm.entity.Contact;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class ContractorDaoImpl extends BaseDaoImpl<Contact, String> implements ContactorDao {
+public class ContactDaoImpl extends BaseDaoImpl<Contact, String> implements ContactDao {
 
 	@SuppressWarnings("unchecked")
 	public List<Contact> getByCustomerId(String id) {

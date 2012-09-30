@@ -1,10 +1,11 @@
 package com.company.crm.entity;
 
+import com.company.crm.utils.Gender;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.persistence.*;
 
 
 @Entity
@@ -12,10 +13,7 @@ import javax.persistence.*;
 public class User extends BaseEntity{
 	
 	private static final long serialVersionUID = -4363594553250848418L;
-	public enum Gender{
-		MALE,
-		FEMALE
-	}
+
 	private String empNo;//员工工号
 	private int maxCustomer;//最多客户
 	private Date birthDate;//员工生日
