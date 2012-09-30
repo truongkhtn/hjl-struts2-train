@@ -28,6 +28,11 @@ public class CommonAction extends BaseAction {
         }
     }
 
+    public String logout(){
+        ServletActionContext.getRequest().getSession().invalidate();
+        return SUCCESS;
+    }
+
     //getter & setter
     public User getUser() {
         return user;
