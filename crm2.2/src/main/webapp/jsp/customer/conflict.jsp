@@ -77,7 +77,12 @@
                 <tr>
                     <td><s:property value="(pager.pageNumber-1)* (pager.pageSize) + #stat.getCount()"/></td>
                     <td><s:property value="#contact.customer.createDate"/> </td>
-                    <td><a href="info.jsp"><s:property value="#contact.customer.name"/> </a></td>
+                    <td>
+                        <s:a namespace="/customer" action="info">
+                            <s:param name="id" value="#contact.customer.id"/>
+                            <s:property value="#contact.customer.name"/>
+                        </s:a>
+                    </td>
                     <td><s:property value="#contact.name"/></td>
                     <td><s:property value="#contact.customer.address"/></td>
                     <td><s:property value="#contact.customer.owner.realName"/></td>

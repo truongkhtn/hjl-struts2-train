@@ -11,7 +11,10 @@
 			<action name="conflict" class="customerAction" method="conflict">
                 <result type="tiles">customer.conflict.tiles</result>
                 <result name="input" type="tiles">customer.conflict.tiles</result>
-			</action>
-	 </package>
+            </action>
+            <action name="info" class="customerAction" method="info">
+                <result type="tiles">customer.info.tiles</result>
+            </action>
+     </package>
 		 
 </struts>

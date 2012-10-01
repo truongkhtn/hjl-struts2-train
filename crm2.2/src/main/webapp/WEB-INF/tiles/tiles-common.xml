@@ -18,8 +18,4 @@
         <put-attribute name="body" value="/jsp/index.jsp"/>
     </definition>
 
-    <definition name="customer.conflict.tiles" extends="baseLayout">
-        <put-attribute name="body" value="/jsp/customer/conflict.jsp" />
-    </definition>
-
 </tiles-definitions>
