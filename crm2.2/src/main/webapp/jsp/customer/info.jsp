@@ -51,7 +51,9 @@
                 </tr>
                 <tr>
                     <th>客户等级</th>
-                    <td><s:property value="customer.level"/></td>
+                    <td>
+                        <s:property value="getText('Level.'+customer.level)"/>
+                    </td>
                 </tr>
                 <tr>
                     <th>客户来源</th>
