@@ -31,6 +31,7 @@ public class BaseAction extends ActionSupport {
     public static final String MESSAGE = "message";   //消息
 	public static final String CONTENT = "content";   //内容
 	public static final String LIST = "list";   //内容
+	public static final String DEBUG = "debug";   //内容
     protected Pager pager;
 
     protected String id; //对象的主键, 查看/修改/删除 时使用
