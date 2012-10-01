@@ -12,16 +12,20 @@ import java.util.List;
 public class ContactServiceImpl extends BaseServiceImpl<Contact, String>
 		implements ContactService {
 	@Resource
-	private ContactDao contractorDao;
+	private ContactDao contactDao;
 	
 	@Resource
-	public void setBaseDao(ContactDao contractorDao) {
-		super.setBaseDao(contractorDao);
+	public void setBaseDao(ContactDao contactDao) {
+		super.setBaseDao(contactDao);
 	}
 	
 	
 	public List<Contact> getByCustomerId(String id) {
-		return contractorDao.getByCustomerId(id);
+		return contactDao.getByCustomerId(id);
 	}
+
+    public Contact getMajorByCustomerId(String id) {
+        return contactDao.getMajorByCustomerId(id);
+    }
 
 }

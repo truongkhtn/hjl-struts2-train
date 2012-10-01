@@ -53,9 +53,9 @@ public class CustomerDaoImpl extends BaseDaoImpl<Customer, String> implements
 		if(customer.getStatus()!=null){
 			criteria.add(Restrictions.eq("status", customer.getStatus()));
 		}
-		if(customer.getUser()!=null){
-			if(customer.getUser().getRealName()!=null){
-				criteria.add(Restrictions.eq("user.realName", customer.getUser().getRealName()));
+		if(customer.getOwner()!=null){
+			if(customer.getOwner().getRealName()!=null){
+				criteria.add(Restrictions.eq("user.realName", customer.getOwner().getRealName()));
 			}
 		}
         criteria.setFirstResult((pager.getPageNumber() - 1) * pager.getPageSize());
@@ -100,9 +100,9 @@ public class CustomerDaoImpl extends BaseDaoImpl<Customer, String> implements
 		if(customer.getStatus()!=null){
 			criteria.add(Restrictions.eq("status", customer.getStatus()));
 		}
-		if(customer.getUser()!=null){
-			if(customer.getUser().getRealName()!=null){
-				criteria.add(Restrictions.eq("user.realName", customer.getUser().getRealName()));
+		if(customer.getOwner()!=null){
+			if(customer.getOwner().getRealName()!=null){
+				criteria.add(Restrictions.eq("user.realName", customer.getOwner().getRealName()));
 			}
 		}
 		criteria.setProjection(Projections.rowCount());

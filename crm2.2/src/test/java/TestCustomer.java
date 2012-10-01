@@ -44,7 +44,7 @@ public class TestCustomer extends AbstractJUnit4SpringContextTests{
             customer.setSource(sources[dataFactory.getNumberBetween(0,sources.length-1)]);
             customer.setStatus(statuses[dataFactory.getNumberBetween(0,statuses.length-1)]);
             User user = userList.get(dataFactory.getNumberBetween(0, userList.size() - 1));
-            customer.setUser(user);
+            customer.setOwner(user);
             customer.setWebSite("www."+dataFactory.getRandomWord().toLowerCase()+".com");
 
             customerService.save(customer);
@@ -61,20 +61,6 @@ public class TestCustomer extends AbstractJUnit4SpringContextTests{
                 contact.setPhone(String.valueOf(dataFactory.getNumberBetween(100000, 999999)));
                 contact.setTitle(titles[dataFactory.getNumberBetween(0,titles.length-1)]);
                 contactService.save(contact);
-            }
-            //init visitRecord
-            for (int j = 0; j < 4; j++) {
-                VisitRecord vr = new VisitRecord();
-                vr.setContact(contact);
-                vr.setCustomer(customer);
-                vr.setFirstVisit(j==0);
-                vr.setUser(user);
-                Date minDate = new Date();
-                minDate.setTime(new Long("1325383441272"));
-                vr.setVisitDate(dataFactory.getDateBetween(minDate, new Date()));
-                vr.setVisitType(new VisitType());
-
-
             }
         }
     }

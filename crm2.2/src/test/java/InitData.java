@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @ContextConfiguration("classpath:application-config.xml")
@@ -23,6 +24,8 @@ public class InitData extends AbstractJUnit4SpringContextTests {
     private ContactService contactService;
     @Resource
     private VisitTypeService visitTypeService;
+    @Resource
+    private VisitRecordService visitRecordService;
 
     @Test
     public void initDept() {
@@ -121,7 +124,7 @@ public class InitData extends AbstractJUnit4SpringContextTests {
             customer.setRemark(dataFactory.getRandomText(1,30));
             customer.setSource(sources[dataFactory.getNumberBetween(0,sources.length-1)]);
             customer.setStatus(statuses[dataFactory.getNumberBetween(0,statuses.length-1)]);
-            customer.setUser(userList.get(dataFactory.getNumberBetween(0,userList.size()-1)));
+            customer.setOwner(userList.get(dataFactory.getNumberBetween(0, userList.size() - 1)));
             customer.setWebSite("www."+dataFactory.getRandomWord().toLowerCase()+".com");
 
             customerService.save(customer);
@@ -183,6 +186,31 @@ public class InitData extends AbstractJUnit4SpringContextTests {
         vt6.setReq(6);
         vt6.setValid(true);
         visitTypeService.save(vt6);
+    }
+
+    @Test
+    public void initVisitRecord(){
+        DataFactory dataFactory = new DataFactory();
+        List<Customer> customerList = customerService.getAll();
+        List<VisitType> visitTypeList = visitTypeService.getAll();
+
+        for (int i = 0; i < customerList.size(); i++) {
+            Customer customer = customerList.get(i);
+            List<Contact> contactList = contactService.getByCustomerId(customer.getId());
+
+            for (int j = 0; j < 5; j++) {
+                VisitRecord vr = new VisitRecord();
+                vr.setContact(contactList.get(dataFactory.getNumberBetween(0,3)));
+                vr.setCustomer(customer);
+                vr.setFirstVisit(j==0);
+                vr.setOwner(customer.getOwner());
+                Date minDate = new Date();
+                minDate.setTime(new Long("1325383441272"));
+                vr.setVisitDate(dataFactory.getDateBetween(minDate, new Date()));
+                vr.setVisitType(visitTypeList.get(dataFactory.getNumberBetween(0,visitTypeList.size()-1)));
+                visitRecordService.save(vr);
+            }
+        }
     }
 
 }

@@ -13,10 +13,16 @@ public class ContactDaoImpl extends BaseDaoImpl<Contact, String> implements Cont
 
 	@SuppressWarnings("unchecked")
 	public List<Contact> getByCustomerId(String id) {
-		String hql="from Contractor c left join fetch c.customer where c.customer.id=:id";
+		String hql="from Contact c where c.customer.id=:id";
 		Query query=getSession().createQuery(hql).setParameter("id", id);
 		List<Contact> contractorList=query.list();
 		return contractorList;
 	}
+
+    public Contact getMajorByCustomerId(String id) {
+        String hql="from Contact c where c.customer.id=:id and c.major=true";
+		Query query=getSession().createQuery(hql).setParameter("id", id);
+        return (Contact) query.uniqueResult();
+    }
 
 }

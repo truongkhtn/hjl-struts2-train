@@ -24,8 +24,8 @@ public class VisitRecordDaoImpl extends BaseDaoImpl<VisitRecord, String> impleme
 		
 		criteria.add(Restrictions.eq("isFirstVisit",visitRecord.isFirstVisit()));
 		
-		if(visitRecord.getUser().getRealName()!=null){
-			criteria.add(Restrictions.eq("user.realName", visitRecord.getUser().getRealName()));
+		if(visitRecord.getOwner().getRealName()!=null){
+			criteria.add(Restrictions.eq("user.realName", visitRecord.getOwner().getRealName()));
 		}
 		if(visitRecord.getCustomer().getLevel()!=null || !"==请选择==".equals(visitRecord.getCustomer().getLevel())){
 			criteria.add(Restrictions.eq("customer.level",visitRecord.getCustomer().getLevel()));
@@ -45,8 +45,8 @@ public class VisitRecordDaoImpl extends BaseDaoImpl<VisitRecord, String> impleme
 		
 		criteria.add(Restrictions.eq("isFirstVisit",visitRecord.isFirstVisit()));
 		
-		if(visitRecord.getUser().getRealName()!=null){
-			criteria.add(Restrictions.eq("user.realName", visitRecord.getUser().getRealName()));
+		if(visitRecord.getOwner().getRealName()!=null){
+			criteria.add(Restrictions.eq("user.realName", visitRecord.getOwner().getRealName()));
 		}
 		if(visitRecord.getCustomer().getLevel()!=null || !"==请选择==".equals(visitRecord.getCustomer().getLevel())){
 			criteria.add(Restrictions.eq("customer.level",visitRecord.getCustomer().getLevel()));
