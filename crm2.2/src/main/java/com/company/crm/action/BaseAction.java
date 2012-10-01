@@ -100,6 +100,23 @@ public class BaseAction extends ActionSupport {
         return (User) getSession(LOGIN_USER);
     }
 
+     // 获取当前登录会员，若未登录则返回null
+    public String getLoginUserRoleRemark() {
+        String result = "";
+        Set<Role> set = getLoginUser().getRoleSet();
+        int index = 0;
+        for (Iterator<Role> iterator = set.iterator(); iterator.hasNext(); ) {
+            Role role =  iterator.next();
+            if(index == 0){
+               result = role.getRemark();
+            }else{
+                result += ", "+ role.getRemark();
+            }
+            index++;
+        }
+        return result;
+    }
+
     // 获取当前登录会员，若未登录则返回null
     public String getLoginUserAuthorities() {
         String result = "";
