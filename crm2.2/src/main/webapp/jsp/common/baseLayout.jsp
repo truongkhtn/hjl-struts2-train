@@ -7,7 +7,6 @@
     </title>
     <link rel="stylesheet" type="text/css" href="${path}/css/public.css"/>
     <link rel="stylesheet" type="text/css" href="${path}/css/index.css"/>
-    <link rel="stylesheet" type="text/css" href="${path}/css/dashboard.css"/>
     <script type="text/javascript" src="${path}/js/jquery-1.7.2.js"></script>
 </head>
 <body>

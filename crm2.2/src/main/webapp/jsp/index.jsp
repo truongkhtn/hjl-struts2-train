@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
+
+<link rel="stylesheet" type="text/css" href="${path}/css/dashboard.css"/>
+
 <!-- 中部DIV -->
 <div class="main">
     <div class="content">

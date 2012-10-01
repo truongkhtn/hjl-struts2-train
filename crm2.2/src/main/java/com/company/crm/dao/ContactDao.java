@@ -2,6 +2,7 @@ package com.company.crm.dao;
 
 import java.util.List;
 
+import com.company.crm.action.Pager;
 import com.company.crm.entity.Contact;
 
 /**
@@ -24,4 +25,6 @@ public interface ContactDao extends BaseDao<Contact, String>{
 	 * @return
 	 */
     Contact getMajorByCustomerId(String id);
+
+    Pager getByPager(Pager pager, Contact contact);
 }
