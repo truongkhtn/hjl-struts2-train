@@ -3,9 +3,12 @@
 
 <script type="text/javascript">
     function pager(num){
-//        alert("num:"+num);
-        document.getElementById("pageNumber").value = num;
-        document.myForm.submit();
+        var path = window.location.href;
+        if(path.indexOf("?")>0){
+            path = path.substring(0,path.indexOf("?"));
+        }
+        path = path + '?pager.pageNumber='+num;
+        window.location.href = path;
     }
 </script>
 

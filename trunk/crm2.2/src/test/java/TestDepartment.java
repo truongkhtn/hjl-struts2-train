@@ -14,24 +14,4 @@ public class TestDepartment extends AbstractJUnit4SpringContextTests {
     @Resource
     private DepartmentService departmentService;
 
-    @Test
-    @Ignore
-    public void testSave() {
-        DataFactory dataFactory = new DataFactory();
-        Department d1 = new Department();
-        d1.setDeptName(dataFactory.getRandomWord().toUpperCase());
-        departmentService.save(d1);
-        for (int i = 0; i < 2; i++) {
-            Department d2 = new Department();
-            d2.setDeptName(dataFactory.getRandomWord().toUpperCase());
-            d2.setParent(d1);
-            departmentService.save(d2);
-            for (int j = 0; j < 3; j++) {
-                Department d3 = new Department();
-                d3.setDeptName(dataFactory.getRandomWord().toUpperCase());
-                d3.setParent(d2);
-                departmentService.save(d3);
-            }
-        }
-    }
 }

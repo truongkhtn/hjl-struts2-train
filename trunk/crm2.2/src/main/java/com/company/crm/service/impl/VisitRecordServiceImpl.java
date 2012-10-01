@@ -29,4 +29,8 @@ public class VisitRecordServiceImpl extends
 		return visitRecordDao.getCount(visitRecord);
 	}
 
+    public Pager getByPager(String id, Pager pager) {
+        return  visitRecordDao.getByPager(id, pager);
+    }
+
 }

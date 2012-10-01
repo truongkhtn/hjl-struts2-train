@@ -1,5 +1,7 @@
 package com.company.crm.entity;
 
+import com.company.crm.utils.Level;
+
 import java.util.Set;
 
 import javax.persistence.*;
@@ -26,18 +28,10 @@ public class Customer extends BaseEntity{
 		WALK_IN    //客户来访
 	}
 
-    public enum Level{
-        ONE,
-        TWO,
-        THREE,
-        FOUR,
-        FIVE
-    }
-
 	private String name;//客户名
 	private String address; //地址
 	private String address2; //其他地址
-	private Level level;//信用等级
+	private Level level; //客户成熟度
 	private Source source;//客户来源
 	private String fax;//传真号
 	private String webSite;//网站

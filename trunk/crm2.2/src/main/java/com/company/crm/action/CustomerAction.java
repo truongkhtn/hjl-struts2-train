@@ -76,7 +76,7 @@ public class CustomerAction extends BaseAction {
     }
 
     public String visitRecordList(){
-        visitRecordList = visitRecordService.getList("customer.id", id);
+        pager = visitRecordService.getByPager(id, pager);
         return SUCCESS;
     }
 

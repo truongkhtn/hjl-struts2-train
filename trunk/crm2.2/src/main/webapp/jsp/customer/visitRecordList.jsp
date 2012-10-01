@@ -16,74 +16,49 @@
             </table>
         </div>
         <div class="pageBody">
-            <table class="mytable">
+            <table class="mytable resultTable">
                 <tr>
-                    <th>序号</th>
+                    <th style="width:50px">序号</th>
                     <th>拜访日期</th>
-                    <th>客户名称</th>
                     <th>成熟度</th>
+                    <th>拜访内容</th>
                     <th>客户专员</th>
                     <th>拜访方式</th>
                     <th>客户联系人</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2012-1-1</td>
-                    <td>xxx有限公司</td>
-                    <td>★</td>
-                    <td>业务员A</td>
-                    <td>上门拜访</td>
-                    <td>张三</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2012-2-1</td>
-                    <td>xxx有限公司</td>
-                    <td>★</td>
-                    <td>业务员A</td>
-                    <td>上门拜访</td>
-                    <td>张三</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>2012-3-1</td>
-                    <td>xxx有限公司</td>
-                    <td>★</td>
-                    <td>业务员A</td>
-                    <td>上门拜访</td>
-                    <td>张三</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>2012-4-1</td>
-                    <td>xxx有限公司</td>
-                    <td>★</td>
-                    <td>业务员A</td>
-                    <td>上门拜访</td>
-                    <td>张三</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>2012-5-1</td>
-                    <td>xxx有限公司</td>
-                    <td>★</td>
-                    <td>业务员A</td>
-                    <td>上门拜访</td>
-                    <td>张三</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>2012-6-1</td>
-                    <td>xxx有限公司</td>
-                    <td>★</td>
-                    <td>业务员A</td>
-                    <td>上门拜访</td>
-                    <td>张三</td>
-                </tr>
+                <s:if test="pager.list.size > 0">
+                    <s:iterator value="pager.list" var="record" status="stat">
+                        <tr>
+                            <td><s:property value="(pager.pageNumber-1)* (pager.pageSize) + #stat.getCount()"/></td>
+                            <td><s:property value="#record.createDate"/> </td>
+                            <td><s:property value="#record.customer.name"/></td>
+                            <td><s:property value="#contact.name"/></td>
+                            <td><s:property value="#contact.customer.address"/></td>
+                            <td><s:property value="#contact.customer.owner.realName"/></td>
+                            <td>
+                                <s:a namespace="/customer" action="visitRecordList">
+                                    <s:param name="id" value="#contact.customer.id"/>
+                                    拜访记录
+                                </s:a>
+                                <a href="contactList.jsp">联系人</a>
+                            </td>
+                        </tr>
+                    </s:iterator>
+                </s:if>
+                <s:else>
+                     <tr>
+                        <td colspan="7">暂无数据</td>
+                     </tr>
+                </s:else>
             </table>
+            <s:if test="pager.list.size > 0">
+                <div class="pager-container">
+                    <jsp:include page="/${path}/jsp/common/pager2.jsp"/>
+                </div>
+            </s:if>
             <div class="buttonBar">
-            <input class="mybutton" type="button" value="返回"
-                    onclick="javascript:history.back();"/>
+                <input class="mybutton" type="button" value="返回"
+                        onclick="javascript:history.back();"/>
             </div>
         </div>
     </div>

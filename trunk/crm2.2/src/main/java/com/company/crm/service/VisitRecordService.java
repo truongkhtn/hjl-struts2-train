@@ -18,4 +18,7 @@ public interface VisitRecordService extends BaseService<VisitRecord, String>{
 	 * @return
 	 */
 	int getCount(VisitRecord visitRecord);
+
+
+    Pager getByPager(String id, Pager pager);
 }

@@ -1,6 +1,7 @@
 import com.company.crm.entity.*;
 import com.company.crm.service.*;
 import com.company.crm.utils.Gender;
+import com.company.crm.utils.Level;
 import org.fluttercode.datafactory.impl.DataFactory;
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
@@ -107,7 +108,7 @@ public class InitData extends AbstractJUnit4SpringContextTests {
     @Test
     public void initCustomer(){
         DataFactory dataFactory = new DataFactory();
-        Customer.Level[] levels = Customer.Level.values();
+        Level[] levels = Level.values();
         Customer.Source[] sources = Customer.Source.values();
         Customer.Status[] statuses = Customer.Status.values();
         Contact.Title[] titles = Contact.Title.values();
@@ -193,6 +194,7 @@ public class InitData extends AbstractJUnit4SpringContextTests {
         DataFactory dataFactory = new DataFactory();
         List<Customer> customerList = customerService.getAll();
         List<VisitType> visitTypeList = visitTypeService.getAll();
+        Level[] levels = Level.values();
 
         for (int i = 0; i < customerList.size(); i++) {
             Customer customer = customerList.get(i);
@@ -208,6 +210,8 @@ public class InitData extends AbstractJUnit4SpringContextTests {
                 minDate.setTime(new Long("1325383441272"));
                 vr.setVisitDate(dataFactory.getDateBetween(minDate, new Date()));
                 vr.setVisitType(visitTypeList.get(dataFactory.getNumberBetween(0,visitTypeList.size()-1)));
+                vr.setContent(dataFactory.getRandomText(10,30));
+                vr.setLevel(levels[dataFactory.getNumberBetween(0,levels.length-1)]);
                 visitRecordService.save(vr);
             }
         }

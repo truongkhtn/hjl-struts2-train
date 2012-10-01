@@ -1,15 +1,14 @@
 package com.company.crm.entity;
 
+import com.company.crm.utils.Level;
+
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 /*
- * 拜访记录类
- */
+* 拜访记录类
+*/
 @Entity
 @Table(name="tbl_visit_record")
 public class VisitRecord extends BaseEntity {
@@ -20,6 +19,8 @@ public class VisitRecord extends BaseEntity {
 	private Customer customer; //客户
 	private VisitType visitType;//拜访方式
 	private Contact contact;//联系人
+    private Level level; //客户成熟度
+    private String content; //拜访内容
 	private boolean isFirstVisit; //是否是第一次拜访
 
     @ManyToOne
@@ -66,5 +67,17 @@ public class VisitRecord extends BaseEntity {
 	public void setFirstVisit(boolean isFirstVisit) {
 		this.isFirstVisit = isFirstVisit;
 	}
-	
+    public String getContent() {
+        return content;
+    }
+    public void setContent(String content) {
+        this.content = content;
+    }
+    @Enumerated(EnumType.STRING)
+    public Level getLevel() {
+        return level;
+    }
+    public void setLevel(Level level) {
+        this.level = level;
+    }
 }

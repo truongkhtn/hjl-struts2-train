@@ -73,7 +73,7 @@
                     <th style="width:70px">操作</th>
                 </tr>
                 <s:if test="pager.list.size > 0">
-                <s:iterator value="pager.list" var="contact" status="stat">
+                    <s:iterator value="pager.list" var="contact" status="stat">
                 <tr>
                     <td><s:property value="(pager.pageNumber-1)* (pager.pageSize) + #stat.getCount()"/></td>
                     <td><s:property value="#contact.customer.createDate"/> </td>
@@ -103,10 +103,10 @@
                 </s:else>
             </table>
             <s:if test="pager.list.size > 0">
-                    <div class="pager-container">
-                        <jsp:include page="/${path}/jsp/common/pager.jsp"/>
-                    </div>
-                </s:if>
+                <div class="pager-container">
+                    <jsp:include page="/${path}/jsp/common/pager.jsp"/>
+                </div>
+            </s:if>
         </div>
     </div>
 </div>
