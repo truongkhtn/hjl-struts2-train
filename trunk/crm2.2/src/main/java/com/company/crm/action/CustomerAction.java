@@ -1,6 +1,7 @@
 package com.company.crm.action;
 
 import com.company.crm.entity.Contact;
+import com.company.crm.entity.Customer;
 import com.company.crm.entity.User;
 import com.company.crm.service.ContactService;
 import com.company.crm.service.CustomerService;
@@ -26,6 +27,7 @@ public class CustomerAction extends BaseAction {
     @Resource
     private ContactService contactService;
 
+    private Customer customer;
     private Contact contact;
     private Pager pager;
 
@@ -56,12 +58,24 @@ public class CustomerAction extends BaseAction {
     }
 
     public String conflict() {
-        System.out.println("conflict run...");
         pager = contactService.getByPager(pager, contact);
         return SUCCESS;
     }
 
+    public String info(){
+        customer = customerService.get(id);
+        Contact contact = contactService.getMajorByCustomerId(id);
+        customer.setMajorContact(contact);
+        return SUCCESS;
+    }
+
     //getter & setter
+    public Customer getCustomer() {
+        return customer;
+    }
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
     public Contact getContact() {
         return contact;
     }

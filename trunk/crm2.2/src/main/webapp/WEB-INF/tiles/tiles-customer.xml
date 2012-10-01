@@ -5,8 +5,11 @@
 
 <tiles-definitions>
 
-    <definition name="customer.conflict2.tiles" extends="baseLayout">
+    <definition name="customer.conflict.tiles" extends="baseLayout">
         <put-attribute name="body" value="/jsp/customer/conflict.jsp" />
+    </definition>
+    <definition name="customer.info.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/customer/info.jsp" />
     </definition>
 
 </tiles-definitions>

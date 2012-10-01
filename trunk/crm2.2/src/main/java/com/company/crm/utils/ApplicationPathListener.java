@@ -10,7 +10,8 @@ public class ApplicationPathListener implements ServletContextListener {
 	}
 
 	public void contextInitialized(ServletContextEvent event) {
-		event.getServletContext().setAttribute("path", event.getServletContext().getContextPath());
+        String path = event.getServletContext().getContextPath();
+		event.getServletContext().setAttribute("path", path);
 	}
 
 }

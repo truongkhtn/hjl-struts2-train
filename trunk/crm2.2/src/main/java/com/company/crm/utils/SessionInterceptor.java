@@ -17,11 +17,11 @@ public class SessionInterceptor extends AbstractInterceptor {
     public String intercept(ActionInvocation actionInvocation) throws Exception {
         //取得请求的URL
         String url = ServletActionContext.getRequest().getRequestURL().toString();
-        HttpServletResponse response = ServletActionContext.getResponse();
-        response.setHeader("Pragma", "No-cache");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setHeader("Cache-Control", "no-store");
-        response.setDateHeader("Expires", 0);
+//        HttpServletResponse response = ServletActionContext.getResponse();
+//        response.setHeader("Pragma", "No-cache");
+//        response.setHeader("Cache-Control", "no-cache");
+//        response.setHeader("Cache-Control", "no-store");
+//        response.setDateHeader("Expires", 0);
 
         ActionContext ctx = actionInvocation.getInvocationContext();
         User u = (User) ctx.getSession().get(BaseAction.LOGIN_USER);
