@@ -16,7 +16,7 @@ public class Pager {
     public static final Integer MAX_PAGE_SIZE = 500;// 每页最大记录数限制
 
 	private Integer pageNumber = 1;// 当前页码，初始值1
-	private Integer pageSize = 15;// 每页记录数, 初始值15
+	private Integer pageSize = 10;// 每页记录数, 初始值10
 	private Integer totalCount = 0;// 总记录数，初始值0
 	private Integer pageCount = 0;// 总页数， 初始值0
     private String property;// 查找属性名称

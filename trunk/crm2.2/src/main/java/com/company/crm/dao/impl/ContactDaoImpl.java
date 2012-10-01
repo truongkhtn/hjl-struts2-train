@@ -8,6 +8,7 @@ import com.company.crm.entity.Contact;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -34,27 +35,35 @@ public class ContactDaoImpl extends BaseDaoImpl<Contact, String> implements Cont
             pager = new Pager();
         }
         Criteria criteria = getSession().createCriteria(Contact.class);
-        criteria.setFirstResult((pager.getPageNumber() - 1) * pager.getPageSize());
-		criteria.setMaxResults(pager.getPageSize());
+        criteria.add(Restrictions.eq("major" , true));
 
-        if(StringUtils.isNotEmpty(contact.getPhone())){
-            criteria.add(Restrictions.like("phone" , "%"+contact.getPhone()+"%"));
+        if(StringUtils.isNotEmpty(contact.getPhone().trim())){
+            criteria.add(Restrictions.like("phone" , "%"+contact.getPhone().trim()+"%"));
         }
-        if(StringUtils.isNotEmpty(contact.getMobilePhone())){
-            criteria.add(Restrictions.like("mobilePhone" , "%"+contact.getMobilePhone()+"%"));
+        if(StringUtils.isNotEmpty(contact.getMobilePhone().trim())){
+            criteria.add(Restrictions.like("mobilePhone" , "%"+contact.getMobilePhone().trim()+"%"));
         }
-        if(StringUtils.isNotEmpty(contact.getName())){
-            criteria.add(Restrictions.like("name" , "%"+contact.getName()+"%"));
+        if(StringUtils.isNotEmpty(contact.getName().trim())){
+            criteria.add(Restrictions.like("name" , "%"+contact.getName().trim()+"%"));
         }
         if(contact.getCustomer()!=null){
             Criteria criteriaCustomer = criteria.createCriteria("customer");
-            if(StringUtils.isNotEmpty(contact.getCustomer().getName())){
-                criteriaCustomer.add(Restrictions.like("name" , "%"+contact.getCustomer().getName()+"%"));
+            if(StringUtils.isNotEmpty(contact.getCustomer().getName().trim())){
+                criteriaCustomer.add(Restrictions.like("name" , "%"+contact.getCustomer().getName().trim()+"%"));
             }
-            if(StringUtils.isNotEmpty(contact.getCustomer().getAddress())){
-                criteriaCustomer.add(Restrictions.like("address" , "%"+contact.getCustomer().getAddress()+"%"));
+            if(StringUtils.isNotEmpty(contact.getCustomer().getAddress().trim())){
+                criteriaCustomer.add(Restrictions.like("address" , "%"+contact.getCustomer().getAddress().trim()+"%"));
             }
         }
+        //total
+        criteria.setProjection(Projections.rowCount());
+        long lTotal = (Long)criteria.uniqueResult();
+        pager.setTotalCount(Integer.valueOf(String.valueOf(lTotal)));
+
+        //pager
+        criteria.setProjection(null);
+        criteria.setFirstResult((pager.getPageNumber() - 1) * pager.getPageSize());
+		criteria.setMaxResults(pager.getPageSize());
         pager.setList(criteria.list());
         return pager;
     }

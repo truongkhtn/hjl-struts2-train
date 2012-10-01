@@ -4,20 +4,15 @@
 
 <script type="text/javascript">
     function pager(num){
-        var path = window.location.href;
-        if(path.indexOf("?")>0){
-            path = path.substring(0,path.indexOf("?"));
-        }
-        path = path + '?pager.pageNumber='+num;
-        window.location.href = path;
+//        alert("num:"+num);
+        document.getElementById("pageNumber").value = num;
+        document.myForm.submit();
     }
 </script>
 
 <ul class="pager">
-    <li class="pageInfo">
-        共${pager.pageCount}页，当前为第${pager.pageNumber}页
-    </li>
-    <%--首页--%>
+    <li class="pageInfo">共<s:property value="pager.pageCount"/>页，当前为第<s:property value="pager.pageNumber"/>页</li>
+    <!--首页-->
     <s:if test="pager.pageNumber > 1">
         <li class="firstPage">
             <a href='javascript:pager(1);'>首页</a>
@@ -28,7 +23,7 @@
             <span>首页</span>
         </li>
     </s:else>
-    <%--上一页--%>
+    <!--上一页-->
     <s:if test="pager.pageNumber > 1">
         <li class="prePage">
             <a href='javascript:pager(<s:property value="pager.pageNumber - 1"/>);'>上一页</a>
@@ -39,7 +34,7 @@
             <span>上一页</span>
         </li>
     </s:else>
-    <%--下一页--%>
+    <!--下一页-->
     <s:if test="pager.pageNumber < pager.pageCount">
         <li class="nextPage">
             <a href='javascript:pager(<s:property value="pager.pageNumber + 1"/>);'>下一页</a>
@@ -50,7 +45,7 @@
             <span>下一页</span>
         </li>
     </s:else>
-    <%--末页--%>
+    <!--末页-->
     <s:if test="pager.pageNumber < pager.pageCount">
         <li class="lastPage">
             <a href='javascript:pager(<s:property value="pager.pageCount"/>);'>末页</a>

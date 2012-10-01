@@ -3,6 +3,13 @@
 
 <link rel="stylesheet" type="text/css" href="${path}/css/customer.css"/>
 
+<script type="text/javascript">
+    function submitForm(){
+        document.getElementById("pageNumber").value = 1;
+        document.myForm.submit();
+    }
+</script>
+
 <div class="main">
     <div class="content">
         <div class="pageHead">
@@ -15,45 +22,46 @@
             </table>
         </div>
         <div class="pageBody">
-            <s:form namespace="/customer" action="conflict">
-            <table class="mytable">
-                <tr>
-                    <th>客户名称</th>
-                    <td>
-                        <s:textfield name="customer.name"/>
-                    </td>
-                    <th>客户地址</th>
-                    <td>
-                        <s:textfield name="customer.address"/>
-                    </td>
-                </tr>
-                <tr>
-                    <th>固定电话</th>
-                    <td>
-                        <s:textfield name="customer.contractor.phone"/>
-                    </td>
-                    <th>手机</th>
-                    <td>
-                        <s:textfield name="customer.contractor.mobilePhone" />
-                    </td>
-                </tr>
-                <tr>
-                    <th>主联系人</th>
-                    <td>
-                        <s:textfield name="customer.contractor.name"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <div class="buttonBar">
-                            <input id="btnSearch" type="submit" class="mybutton" value="查询">
-                            <input id="btnReset" type="button" class="mybutton" value="重置">
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </s:form>
-        <s:if test="pager.size > 0">
+            <s:actionerror />
+            <s:form namespace="/customer" action="conflict" name="myForm">
+                <s:hidden id="pageNumber" name="pager.pageNumber" value="%{pager.pageNumber}"/>
+                <table class="mytable">
+                    <tr>
+                        <th>客户名称</th>
+                        <td>
+                            <s:textfield name="contact.customer.name"/>
+                        </td>
+                        <th>客户地址</th>
+                        <td>
+                            <s:textfield name="contact.customer.address"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>固定电话</th>
+                        <td>
+                            <s:textfield name="contact.phone"/>
+                        </td>
+                        <th>手机</th>
+                        <td>
+                            <s:textfield name="contact.mobilePhone" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>主联系人</th>
+                        <td>
+                            <s:textfield name="contact.name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="buttonBar">
+                                <input id="btnSearch" type="button" class="mybutton" value="查询" onclick="submitForm()">
+                                <input id="btnReset" type="button" class="mybutton" value="重置">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </s:form>
             <table class="mytable resultTable">
                 <tr>
                     <th style="width:30px">序号</th>
@@ -64,31 +72,33 @@
                     <th style="width:70px">客户专员</th>
                     <th style="width:70px">操作</th>
                 </tr>
-                <s:iterator value="customerList" var="customer" status="stat">
+                <s:if test="pager.list.size > 0">
+                <s:iterator value="pager.list" var="contact" status="stat">
                 <tr>
-                    <td><s:property value="#stat.getCount()"/></td>
-                    <td><s:property value="#customer.createDate"/> </td>
-                    <td><a href="info.jsp"><s:property value="#customer.name"/> </a></td>
-                    <td><s:property value="#customer.contractor.name"/></td>
-                    <td><s:property value="#customer.contractor.address"/></td>
-                    <td><s:property value="#customer.user.realName"/></td>
+                    <td><s:property value="(pager.pageNumber-1)* (pager.pageSize) + #stat.getCount()"/></td>
+                    <td><s:property value="#contact.customer.createDate"/> </td>
+                    <td><a href="info.jsp"><s:property value="#contact.customer.name"/> </a></td>
+                    <td><s:property value="#contact.name"/></td>
+                    <td><s:property value="#contact.customer.address"/></td>
+                    <td><s:property value="#contact.customer.owner.realName"/></td>
                     <td>
                         <a href="history.jsp">拜访记录</a>
                         <a href="contactList.jsp">联系人</a>
                     </td>
                 </tr>
                 </s:iterator>
+                </s:if>
+                <s:else>
+                     <tr>
+                        <td colspan="7">暂无数据</td>
+                     </tr>
+                </s:else>
             </table>
-            <div class="pager-container">
-            <ul class="pager">
-                <li class="pageInfo">共<s:property value="page.pageCount"/>页，当前为第<s:property value="page.currentPage"/>页</li>
-                <li class="firstPage"><a href='#'>首页</a></li>
-                <li class="prePage"><a href='#'>上一页</a></li>
-                <li class="nextPage"><a href='#'>下一页</a></li>
-                <li class="lastPage"><a href='#'>末页</a></li>
-            </ul>
-        </div>
-        </s:if>
+            <s:if test="pager.list.size > 0">
+                    <div class="pager-container">
+                        <jsp:include page="/${path}/jsp/common/pager.jsp"/>
+                    </div>
+                </s:if>
         </div>
     </div>
 </div>

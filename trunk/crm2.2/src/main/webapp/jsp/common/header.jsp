@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <div class="top">
     <div class="top_left">
         <span class="f1">欢迎您：<s:property value="loginUserAuthorities"/></span>
