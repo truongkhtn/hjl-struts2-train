@@ -4,10 +4,13 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 
-	 <!--<package name="customer" namespace="/customer" extends="defaultPackage">
-			<action name="find" class="customerAction" method="find">
-			     <result name="success">/html/customer/conflict.jsp</result>
+	 <package name="customer" namespace="/customer" extends="defaultPackage">
+			<action name="initConflict" class="customerAction" method="blank">
+                <result type="tiles">customer.conflict.tiles</result>
 			</action>
-	 </package>-->
+			<action name="conflict" class="customerAction" method="conflict">
+                <result type="tiles">customer.conflict.tiles</result>
+			</action>
+	 </package>
 		 
 </struts>

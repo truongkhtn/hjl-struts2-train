@@ -16,7 +16,9 @@
     </context-param>
     <context-param>
         <param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
-        <param-value>/WEB-INF/tiles/tiles-common.xml</param-value>
+        <param-value>/WEB-INF/tiles/tiles-common.xml,
+                       /WEB-INF/tiles/tiles-customer.xml
+        </param-value>
     </context-param>
 
     <!-- 初始化 Spring 容器监听器 -->

@@ -13,9 +13,11 @@
 
 <div class="sidebar">
     <s:if test="loginUserRoleRemark.contains('客户管理')">
-        <h2 id="menu1" class="menuTitle">客户管理</h2>
+        <h2 id="menu1" class="menuTitle">客户管理222</h2>
         <ul id="menu1_ul">
-            <li class="menuItem"><a href="html/customer/conflict.jsp">客户冲突</a></li>
+            <li class="menuItem">
+                <s:a namespace="/customer" action="initConflict">客户冲突</s:a>
+            </li>
             <li class="menuItem"><a href="html/customer/add.jsp">添加客户</a></li>
             <li class="menuItem"><a href="html/customer/serve.jsp">服务中签约客户</a></li>
             <li class="menuItem"><a href="html/customer/noserve.jsp">未签约客户</a></li>

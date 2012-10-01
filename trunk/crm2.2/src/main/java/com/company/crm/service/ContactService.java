@@ -1,5 +1,6 @@
 package com.company.crm.service;
 
+import com.company.crm.action.Pager;
 import com.company.crm.entity.Contact;
 
 import java.util.List;
@@ -19,4 +20,7 @@ public interface ContactService extends BaseService<Contact, String>{
 	 * @return
 	 */
     Contact getMajorByCustomerId(String id);
+
+
+    Pager getByPager(Pager pager, Contact contact);
 }
