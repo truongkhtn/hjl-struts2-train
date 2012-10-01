@@ -25,7 +25,7 @@ public class User extends BaseEntity{
 	private Department dept;//用户所属部门
 	private String remarks;//备注
 	private Set<Role> roleSet;//一个用户可以拥有多个角色
-	private boolean status;//该用户账号的状态
+	private boolean valid;//该用户账号的状态
 
     @Column(unique = true, nullable = false)
 	public String getEmpNo() {
@@ -95,12 +95,12 @@ public class User extends BaseEntity{
 	public void setRoleSet(Set<Role> roleSet) {
 		this.roleSet = roleSet;
 	}
-	public boolean isStatus() {
-		return status;
-	}
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
+    public boolean isValid() {
+        return valid;
+    }
+    public void setValid(boolean valid) {
+        this.valid = valid;
+    }
 	@ManyToOne
 	@JoinColumn(name="dept_id")
 	public Department getDept() {

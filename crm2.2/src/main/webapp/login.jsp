@@ -15,10 +15,10 @@
 						<img src="${path}/images/login2.jpg" >
 						<form method="post" action="${path}/login.action">
 							<span>用戶名:</span>							
-							<s:textfield name="user.username" value="jack"/>
+							<s:textfield name="user.username"/>
 							&nbsp;&nbsp;
 							<span>密码:</span>
-							<s:textfield name="user.password" value="123"/>
+							<s:password name="user.password"/>
 							<input type="image" src="${path}/images/submit.jpg">							
 						</form>
 					</div>

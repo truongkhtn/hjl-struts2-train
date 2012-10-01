@@ -1,5 +1,6 @@
 package com.company.crm.action;
 
+import com.company.crm.entity.Role;
 import com.company.crm.entity.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -9,7 +10,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Action 基类，设置公共属性和公共方法,供子类使用
@@ -94,17 +97,23 @@ public class BaseAction extends ActionSupport {
 
     // 获取当前登录会员，若未登录则返回null
     public User getLoginUser() {
-        //todo
-        return null;
+        return (User) getSession(LOGIN_USER);
     }
 
     // 获取当前登录会员，若未登录则返回null
     public String getLoginUserAuthorities() {
         String result = "";
-//        Set<GrantedAuthority> set = getLoginUser().getAuthorities();
-//        for (GrantedAuthority ga : set) {
-//            result += ga.getAuthority() + ",";
-//        }
+        Set<Role> set = getLoginUser().getRoleSet();
+        int index = 0;
+        for (Iterator<Role> iterator = set.iterator(); iterator.hasNext(); ) {
+            Role role =  iterator.next();
+            if(index == 0){
+               result = role.getName();
+            }else{
+                result += ", "+ role.getName();
+            }
+            index++;
+        }
         return result;
     }
 

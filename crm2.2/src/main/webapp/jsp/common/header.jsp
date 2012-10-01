@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <div class="top">
     <div class="top_left">
-        <span class="f1">欢迎您：管理员</span>
+        <span class="f1">欢迎您：<s:property value="loginUserAuthorities"/></span>
     </div>
     <div class="top_right">
         <s:a namespace="/" action="index" cssClass="top_ico0">首页</s:a>
