@@ -65,7 +65,7 @@ public class InitData extends AbstractJUnit4SpringContextTests {
 
         Role r3 = new Role();
         r3.setValue("account");
-        r3.setName("财务人员");
+        r3.setName("财务");
         r3.setRemark("具有合同管理模块功能");
         r3.setSeq(3);
         roleService.save(r3);
@@ -98,7 +98,7 @@ public class InitData extends AbstractJUnit4SpringContextTests {
             user.setPassword(dataFactory.getRandomWord().toLowerCase());
             user.setRealName(dataFactory.getName());
             user.setRemarks(dataFactory.getRandomText(1, 30));
-            user.setStatus(dataFactory.chance(50));
+            user.setValid(dataFactory.chance(50));
             user.setTelephone(String.valueOf(dataFactory.getNumberBetween(100000, 999999)));
             userService.save(user);
         }
@@ -211,6 +211,41 @@ public class InitData extends AbstractJUnit4SpringContextTests {
                 visitRecordService.save(vr);
             }
         }
+    }
+
+    @Test
+    public void testSaveUserHardCode(){
+        Role admin = roleService.get("value" , "admin");
+        saveByNameAndRole("admin" , admin);
+
+        Role salesman = roleService.get("value" , "salesman");
+        saveByNameAndRole("sales" , salesman);
+
+        Role salesManager = roleService.get("value" , "salesManager");
+        saveByNameAndRole("manager" , salesManager);
+
+        Role account = roleService.get("value" , "account");
+        saveByNameAndRole("account" , account);
+    }
+
+    private void saveByNameAndRole(String name , Role role){
+         DataFactory dataFactory = new DataFactory();
+         List<Department> departmentList = departmentService.getAll();
+
+        User user = new User();
+        user.getRoleSet().add(role);
+        user.setEmpNo("EMP" + name.toUpperCase());
+        user.setUsername(name);
+        user.setPassword(name);
+        user.setRealName(name.toUpperCase());
+        user.setDept(departmentList.get(dataFactory.getNumberBetween(0, departmentList.size() - 1)));
+        user.setBirthDate(dataFactory.getBirthDate());
+        user.setGender(dataFactory.chance(70) ? Gender.MALE : Gender.FEMALE);
+        user.setMaxCustomer(dataFactory.getNumberBetween(30, 60));
+        user.setRemarks(dataFactory.getRandomText(1, 30));
+        user.setValid(true);
+        user.setTelephone(String.valueOf(dataFactory.getNumberBetween(100000, 999999)));
+        userService.save(user);
     }
 
 }

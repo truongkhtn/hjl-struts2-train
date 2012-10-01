@@ -37,7 +37,7 @@ public class TestRole extends AbstractJUnit4SpringContextTests {
 
         Role r3 = new Role();
         r3.setValue("account");
-        r3.setName("财务人员");
+        r3.setName("财务");
         r3.setRemark("具有合同管理模块功能");
         r3.setSeq(3);
         roleService.save(r3);

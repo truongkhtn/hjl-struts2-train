@@ -4,6 +4,7 @@ import com.company.crm.action.Pager;
 import com.company.crm.dao.UserDao;
 import com.company.crm.entity.User;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -24,8 +25,9 @@ public class UserDaoImpl extends BaseDaoImpl<User, String> implements UserDao {
 
 	public User login(String username, String password) {
 		Criteria criteria = getSession().createCriteria(User.class);
-		criteria.add(Restrictions.eq("username", username));
+		criteria.add(Restrictions.eq("username", username.toLowerCase()));
 		criteria.add(Restrictions.eq("password", password));
+        criteria.setFetchMode("roleSet" , FetchMode.JOIN);
 		User user=(User) criteria.uniqueResult();
 		return user;
 	}
