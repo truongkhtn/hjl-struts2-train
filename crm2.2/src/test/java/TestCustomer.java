@@ -1,6 +1,4 @@
-import com.company.crm.entity.Contact;
-import com.company.crm.entity.Customer;
-import com.company.crm.entity.User;
+import com.company.crm.entity.*;
 import com.company.crm.service.ContactService;
 import com.company.crm.service.CustomerService;
 import com.company.crm.service.UserService;
@@ -11,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @ContextConfiguration("classpath:application-config.xml")
@@ -33,6 +32,7 @@ public class TestCustomer extends AbstractJUnit4SpringContextTests{
         List<User> userList = userService.getAll();
 
         for (int i = 0; i < 20; i++) {
+            //init customer
             Customer customer = new Customer();
             customer.setAddress(dataFactory.getAddress());
             customer.setAddress2(dataFactory.getAddress());
@@ -43,12 +43,15 @@ public class TestCustomer extends AbstractJUnit4SpringContextTests{
             customer.setRemark(dataFactory.getRandomText(1,30));
             customer.setSource(sources[dataFactory.getNumberBetween(0,sources.length-1)]);
             customer.setStatus(statuses[dataFactory.getNumberBetween(0,statuses.length-1)]);
-            customer.setUser(userList.get(dataFactory.getNumberBetween(0,userList.size()-1)));
+            User user = userList.get(dataFactory.getNumberBetween(0, userList.size() - 1));
+            customer.setUser(user);
             customer.setWebSite("www."+dataFactory.getRandomWord().toLowerCase()+".com");
 
             customerService.save(customer);
+            //init contact
+            Contact contact = null;
             for (int j = 0; j < 4; j++) {
-                Contact contact = new Contact();
+                contact = new Contact();
                 contact.setCustomer(customer);
                 contact.setEmail(dataFactory.getEmailAddress());
                 contact.setGender(dataFactory.chance(70)? Gender.MALE:Gender.FEMALE);
@@ -58,6 +61,20 @@ public class TestCustomer extends AbstractJUnit4SpringContextTests{
                 contact.setPhone(String.valueOf(dataFactory.getNumberBetween(100000, 999999)));
                 contact.setTitle(titles[dataFactory.getNumberBetween(0,titles.length-1)]);
                 contactService.save(contact);
+            }
+            //init visitRecord
+            for (int j = 0; j < 4; j++) {
+                VisitRecord vr = new VisitRecord();
+                vr.setContact(contact);
+                vr.setCustomer(customer);
+                vr.setFirstVisit(j==0);
+                vr.setUser(user);
+                Date minDate = new Date();
+                minDate.setTime(new Long("1325383441272"));
+                vr.setVisitDate(dataFactory.getDateBetween(minDate, new Date()));
+                vr.setVisitType(new VisitType());
+
+
             }
         }
     }
