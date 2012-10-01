@@ -18,8 +18,8 @@ public class VisitRecordDaoImpl extends BaseDaoImpl<VisitRecord, String> impleme
 	@SuppressWarnings("unchecked")
 	public List<VisitRecord> get(VisitRecord visitRecord, Pager pager) {
 		Criteria criteria = getSession().createCriteria(VisitRecord.class).setFetchMode("visitType",FetchMode.JOIN).setFetchMode("customer",FetchMode.JOIN);
-		if(visitRecord.getVisitType().getName()!=null || !"==请选择==".equals(visitRecord.getVisitType().getName())){
-			criteria.add(Restrictions.eq("visitType.name", visitRecord.getVisitType().getName()));
+		if(visitRecord.getVisitType().getValue()!=null || !"==请选择==".equals(visitRecord.getVisitType().getValue())){
+			criteria.add(Restrictions.eq("visitType.name", visitRecord.getVisitType().getValue()));
 		}
 		
 		criteria.add(Restrictions.eq("isFirstVisit",visitRecord.isFirstVisit()));
@@ -39,8 +39,8 @@ public class VisitRecordDaoImpl extends BaseDaoImpl<VisitRecord, String> impleme
 
 	public int getCount(VisitRecord visitRecord) {
 		Criteria criteria = getSession().createCriteria(VisitRecord.class).setFetchMode("visitType",FetchMode.JOIN).setFetchMode("customer",FetchMode.JOIN);
-		if(visitRecord.getVisitType().getName()!=null || !"==请选择==".equals(visitRecord.getVisitType().getName())){
-			criteria.add(Restrictions.eq("visitType.name", visitRecord.getVisitType().getName()));
+		if(visitRecord.getVisitType().getValue()!=null || !"==请选择==".equals(visitRecord.getVisitType().getValue())){
+			criteria.add(Restrictions.eq("visitType.name", visitRecord.getVisitType().getValue()));
 		}
 		
 		criteria.add(Restrictions.eq("isFirstVisit",visitRecord.isFirstVisit()));

@@ -21,6 +21,8 @@ public class InitData extends AbstractJUnit4SpringContextTests {
     private CustomerService customerService;
     @Resource
     private ContactService contactService;
+    @Resource
+    private VisitTypeService visitTypeService;
 
     @Test
     public void initDept() {
@@ -45,29 +47,29 @@ public class InitData extends AbstractJUnit4SpringContextTests {
     @Test
     public void initRole() {
         Role r1 = new Role();
-        r1.setRoleKey("salesman");
-        r1.setRoleValue("业务员");
+        r1.setValue("salesman");
+        r1.setName("业务员");
         r1.setRemark("具有客户管理模块功能");
         r1.setSeq(1);
         roleService.save(r1);
 
         Role r2 = new Role();
-        r2.setRoleKey("salesManager");
-        r2.setRoleValue("业务经理");
+        r2.setValue("salesManager");
+        r2.setName("业务经理");
         r2.setRemark("具有客户管理模块,报表管理功能");
         r2.setSeq(2);
         roleService.save(r2);
 
         Role r3 = new Role();
-        r3.setRoleKey("account");
-        r3.setRoleValue("财务人员");
+        r3.setValue("account");
+        r3.setName("财务人员");
         r3.setRemark("具有合同管理模块功能");
         r3.setSeq(3);
         roleService.save(r3);
 
         Role r4 = new Role();
-        r4.setRoleKey("admin");
-        r4.setRoleValue("管理员");
+        r4.setValue("admin");
+        r4.setName("管理员");
         r4.setRemark("具有系统所有功能");
         r4.setSeq(4);
         roleService.save(r4);
@@ -136,6 +138,51 @@ public class InitData extends AbstractJUnit4SpringContextTests {
                 contactService.save(contact);
             }
         }
+    }
+
+    @Test
+    public void initVisitType(){
+        VisitType vt1 = new VisitType();
+        vt1.setValue("home");
+        vt1.setName("上门拜访");
+        vt1.setReq(1);
+        vt1.setValid(true);
+        visitTypeService.save(vt1);
+
+        VisitType vt2 = new VisitType();
+        vt2.setValue("telephone");
+        vt2.setName("电话拜访");
+        vt2.setReq(2);
+        vt2.setValid(true);
+        visitTypeService.save(vt2);
+
+        VisitType vt3 = new VisitType();
+        vt3.setValue("email");
+        vt3.setName("邮件拜访");
+        vt3.setReq(3);
+        vt3.setValid(true);
+        visitTypeService.save(vt3);
+
+        VisitType vt4 = new VisitType();
+        vt4.setValue("fax");
+        vt4.setName("传真");
+        vt4.setReq(4);
+        vt4.setValid(true);
+        visitTypeService.save(vt4);
+
+        VisitType vt5 = new VisitType();
+        vt5.setValue("message");
+        vt5.setName("短信");
+        vt5.setReq(5);
+        vt5.setValid(true);
+        visitTypeService.save(vt5);
+
+        VisitType vt6 = new VisitType();
+        vt6.setValue("walk_in");
+        vt6.setName("客户上门");
+        vt6.setReq(6);
+        vt6.setValid(true);
+        visitTypeService.save(vt6);
     }
 
 }
