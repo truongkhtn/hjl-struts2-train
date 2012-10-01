@@ -11,5 +11,8 @@
     <definition name="customer.info.tiles" extends="baseLayout">
         <put-attribute name="body" value="/jsp/customer/info.jsp" />
     </definition>
+    <definition name="customer.visitRecordList.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/customer/visitRecordList.jsp" />
+    </definition>
 
 </tiles-definitions>

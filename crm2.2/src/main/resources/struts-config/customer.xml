@@ -15,6 +15,9 @@
             <action name="info" class="customerAction" method="info">
                 <result type="tiles">customer.info.tiles</result>
             </action>
+            <action name="visitRecordList" class="customerAction" method="visitRecordList">
+                <result type="tiles">customer.visitRecordList.tiles</result>
+            </action>
      </package>
 		 
 </struts>

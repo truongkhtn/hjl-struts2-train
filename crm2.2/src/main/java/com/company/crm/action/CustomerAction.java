@@ -3,15 +3,18 @@ package com.company.crm.action;
 import com.company.crm.entity.Contact;
 import com.company.crm.entity.Customer;
 import com.company.crm.entity.User;
+import com.company.crm.entity.VisitRecord;
 import com.company.crm.service.ContactService;
 import com.company.crm.service.CustomerService;
 import com.company.crm.service.UserService;
+import com.company.crm.service.VisitRecordService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Common Action 类，包含系统普通操作
@@ -26,10 +29,13 @@ public class CustomerAction extends BaseAction {
     private CustomerService customerService;
     @Resource
     private ContactService contactService;
+    @Resource
+    private VisitRecordService visitRecordService;
 
     private Customer customer;
     private Contact contact;
     private Pager pager;
+    private List<VisitRecord> visitRecordList;
 
     public String blank() {
         return SUCCESS;
@@ -69,6 +75,11 @@ public class CustomerAction extends BaseAction {
         return SUCCESS;
     }
 
+    public String visitRecordList(){
+        visitRecordList = visitRecordService.getList("customer.id", id);
+        return SUCCESS;
+    }
+
     //getter & setter
     public Customer getCustomer() {
         return customer;
@@ -87,5 +98,11 @@ public class CustomerAction extends BaseAction {
     }
     public void setPager(Pager pager) {
         this.pager = pager;
+    }
+    public List<VisitRecord> getVisitRecordList() {
+        return visitRecordList;
+    }
+    public void setVisitRecordList(List<VisitRecord> visitRecordList) {
+        this.visitRecordList = visitRecordList;
     }
 }

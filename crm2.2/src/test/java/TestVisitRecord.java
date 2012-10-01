@@ -48,4 +48,11 @@ public class TestVisitRecord extends AbstractJUnit4SpringContextTests{
         }
     }
 
+    @Test
+    public void testGetByCustomerId(){
+        String id = "1d7f92d3-a88b-4b17-956b-7cdb06f43b4b";
+        List<VisitRecord> list = visitRecordService.getList("customer.id", id);
+        System.out.println(list.size());
+    }
+
 }

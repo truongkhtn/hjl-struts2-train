@@ -87,7 +87,10 @@
                     <td><s:property value="#contact.customer.address"/></td>
                     <td><s:property value="#contact.customer.owner.realName"/></td>
                     <td>
-                        <a href="history.jsp">拜访记录</a>
+                        <s:a namespace="/customer" action="visitRecordList">
+                            <s:param name="id" value="#contact.customer.id"/>
+                            拜访记录
+                        </s:a>
                         <a href="contactList.jsp">联系人</a>
                     </td>
                 </tr>
