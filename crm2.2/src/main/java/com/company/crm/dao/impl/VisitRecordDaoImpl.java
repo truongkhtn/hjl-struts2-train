@@ -7,8 +7,11 @@ import com.company.crm.dao.VisitRecordDao;
 import com.company.crm.entity.VisitRecord;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
+import org.hibernate.Query;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.expression.spel.ast.Projection;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -55,5 +58,25 @@ public class VisitRecordDaoImpl extends BaseDaoImpl<VisitRecord, String> impleme
 		int totle=Integer.valueOf(String.valueOf(criteria.uniqueResult()));
 		return totle;
 	}
+
+    public Pager getByPager(String id, Pager pager) {
+        if(pager == null){
+            pager = new Pager();
+        }
+        Criteria criteria = getSession().createCriteria(VisitRecord.class);
+        Criteria customerCriteria = criteria.createCriteria("customer");
+        customerCriteria.add(Restrictions.eq("id", id));
+        criteria.addOrder(Order.desc("createDate"));
+        //total
+        criteria.setProjection(Projections.rowCount());
+        long lTotal = (Long)criteria.uniqueResult();
+        //page
+        criteria.setProjection(null);
+        criteria.setFirstResult((pager.getPageNumber() - 1) * pager.getPageSize());
+        criteria.setMaxResults(pager.getPageSize());
+        pager.setList(criteria.list());
+        pager.setTotalCount(Integer.valueOf(String.valueOf(lTotal)));
+        return pager;
+    }
 
 }

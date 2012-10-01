@@ -263,8 +263,8 @@
                 <configuration>
                     <webAppConfig>
                         <defaultsDescriptor>${project.basedir}/webdefault.xml</defaultsDescriptor>
-                        <!--<contextPath>/</contextPath>-->
-                        <contextPath>/crm2</contextPath>
+                        <contextPath>/</contextPath>
+                        <!--<contextPath>/crm2</contextPath>-->
                     </webAppConfig>
                     <connectors>
                         <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
