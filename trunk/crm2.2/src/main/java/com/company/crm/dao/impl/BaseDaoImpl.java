@@ -57,15 +57,15 @@ public class BaseDaoImpl<T, PK extends Serializable> implements BaseDao<T, PK> {
     public T get(String propertyName, Object value) {
         Assert.hasText(propertyName, "propertyName must not be empty");
         Assert.notNull(value, "value is required");
-        String hql = "from " + entityClass.getName() + " as model where model." + propertyName + " = ?";
-        return (T) getSession().createQuery(hql).setParameter(0, value).uniqueResult();
+        String hql = "from " + entityClass.getName() + " as model where model." + propertyName + " = :propertyValue";
+        return (T) getSession().createQuery(hql).setParameter("propertyValue", value).uniqueResult();
     }
 
     public List<T> getList(String propertyName, Object value) {
         Assert.hasText(propertyName, "propertyName must not be empty");
         Assert.notNull(value, "value is required");
-        String hql = "from " + entityClass.getName() + " as model where model." + propertyName + " = ?";
-        return getSession().createQuery(hql).setParameter(0, value).list();
+        String hql = "from " + entityClass.getName() + " as model where model." + propertyName + " = :propertyValue";
+        return getSession().createQuery(hql).setParameter("propertyValue", value).list();
     }
 
     public List<T> getAll() {
