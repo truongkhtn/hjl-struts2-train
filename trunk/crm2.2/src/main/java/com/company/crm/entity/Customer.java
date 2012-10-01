@@ -45,7 +45,7 @@ public class Customer extends BaseEntity{
 	private String remark;//客户描述
 	private Status status;//签约与否
 	private Set<VisitRecord> visitRecodeSet;//拜访记录
-	private User user;//客户所属用户
+	private User owner;//客户所属客户专员
 
     private Contact majorContact; //主联系人
 
@@ -126,14 +126,14 @@ public class Customer extends BaseEntity{
     public void setMajorContact(Contact majorContact) {
         this.majorContact = majorContact;
     }
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-	
+
+    @ManyToOne
+	@JoinColumn(name="owner_id")
+    public User getOwner() {
+        return owner;
+    }
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
 }

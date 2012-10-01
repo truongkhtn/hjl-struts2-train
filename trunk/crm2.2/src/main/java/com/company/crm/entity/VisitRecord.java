@@ -15,19 +15,21 @@ import javax.persistence.Table;
 public class VisitRecord extends BaseEntity {
 	
 	private static final long serialVersionUID = 8890362439270172552L;
-	private User user;//客户专员名
+	private User owner;//客户专员名
 	private Date visitDate;//拜访日期
 	private Customer customer; //客户
 	private VisitType visitType;//拜访方式
 	private Contact contact;//联系人
 	private boolean isFirstVisit; //是否是第一次拜访
-	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    public User getOwner() {
+        return owner;
+    }
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 	public Date getVisitDate() {
 		return visitDate;
 	}
@@ -51,7 +53,7 @@ public class VisitRecord extends BaseEntity {
 		this.visitType = visitType;
 	}
 	@ManyToOne
-	@JoinColumn(name="contractor_id")
+	@JoinColumn(name="contact_id")
 	public Contact getContact() {
 		return contact;
 	}

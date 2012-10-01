@@ -12,5 +12,11 @@ public interface ContactService extends BaseService<Contact, String>{
 	 * @return
 	 */
 	List<Contact> getByCustomerId(String id);
-	
+
+    /**
+	 * 根据公司id查找主联系人
+	 * @param id
+	 * @return
+	 */
+    Contact getMajorByCustomerId(String id);
 }
