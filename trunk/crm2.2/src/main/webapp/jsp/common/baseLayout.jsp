@@ -17,9 +17,9 @@
 </div>
 
 <!--主体-->
-<table class="main" border="0" align="center" style="width:80%; background-color:#FFFFFF">
+<table class="main" border="0" style="width:100%; background-color:#FFFFFF">
     <tr>
-        <td width="140">
+        <td width="140" style="vertical-align: top;">
             <div class="main_left">
                 <tiles:insertAttribute name="menu"/>
             </div>

@@ -7,8 +7,8 @@
     </div>
     <div class="top_right">
         <s:a namespace="/" action="index" cssClass="top_ico0">首页</s:a>
-        <a class="top_ico1" href="#">修改密码</a>
-        <a class="top_ico2" href="#">个人信息</a>
+        <%--<a class="top_ico1" href="#">修改密码</a>--%>
+        <%--<a class="top_ico2" href="#">个人信息</a>--%>
         <s:a namespace="/" action="logout" cssClass="top_ico3">退出</s:a>
     </div>
 </div>

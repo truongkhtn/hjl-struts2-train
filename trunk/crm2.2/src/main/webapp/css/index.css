@@ -6,7 +6,7 @@
 
 body { 
 	height: 100%;
-	/*²»ÏÔÊ¾Òç³öÄÚÈÝ
+	/*ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	overflow: hidden;*/
 }
 
@@ -19,7 +19,7 @@ body {
 .main {
 	height: 550px;
 	/* overflow: hidden; */
-	/*ÄÚ±ß¾àÉÏÎªheader¸ß¶È£¬ÏÂÎªfooter¸ß¶È£¬ÒÔÊµÏÖ×ÔÊÊÓ¦¸ß¶È
+	/*ï¿½Ú±ß¾ï¿½ï¿½ï¿½Îªheaderï¿½ß¶È£ï¿½ï¿½ï¿½Îªfooterï¿½ß¶È£ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ß¶ï¿½
 	padding-top:100px;
 	padding-bottom:30px;*/
 }
@@ -29,12 +29,12 @@ body {
 	text-align: center;
 	margin-left: 10px;
 	margin-right: 10px;
+    vertical-align: top;
 }
 .content {
 	height:100%;
-	margin-left: 160px;
-	/*TODO
-	background-color: yellow;*/
+	margin-left: 10px;
+	/*background-color: red;*/
 }
 
 .footer {
@@ -50,7 +50,7 @@ div[class="footer"] {
 	width: 100%;
 }*/
 
-/*Í·²¿ÑùÊ½*/
+/*Í·ï¿½ï¿½ï¿½ï¿½Ê½*/
 .top {
     height: 30px;
     line-height:30px;
@@ -110,7 +110,7 @@ div[class="footer"] {
 	color:white;
 	padding: 10px 10px 10px 30px;
 }
-/*×ó²à²Ëµ¥ÑùÊ½*/
+/*ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ê½*/
 .menuTitle {
     background: url("../images/left_title.gif") no-repeat scroll 0px center transparent;
     color: #1F8FE1;
