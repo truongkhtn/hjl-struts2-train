@@ -5,10 +5,10 @@ package com.company.crm.utils;
  */
 public enum Level {
 
-    FIVE, //★★★★★
-    FOUR,  //★★★★
-    THREE, //★★★
+    ONE,      //★
     TWO,    //★★
-    ONE      //★
+    THREE, //★★★
+    FOUR,  //★★★★
+    FIVE, //★★★★★
 
 }

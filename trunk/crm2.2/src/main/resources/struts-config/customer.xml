@@ -21,6 +21,11 @@
             <action name="contactList" class="customerAction" method="contactList">
                 <result type="tiles">customer.contactList.tiles</result>
             </action>
+
+            <action name="initAddCustomer" class="customerAction" method="initAddCustomer">
+                <result type="tiles">customer.add.tiles</result>
+            </action>
+
      </package>
 		 
 </struts>
