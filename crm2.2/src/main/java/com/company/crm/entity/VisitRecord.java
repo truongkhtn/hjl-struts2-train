@@ -14,9 +14,9 @@ import javax.persistence.*;
 public class VisitRecord extends BaseEntity {
 	
 	private static final long serialVersionUID = 8890362439270172552L;
-	private User owner;//客户专员名
 	private Date visitDate;//拜访日期
-	private Customer customer; //客户
+    private User owner;//客户专员名
+    private Customer customer; //客户
 	private VisitType visitType;//拜访方式
 	private Contact contact;//联系人
     private Level level; //客户成熟度
