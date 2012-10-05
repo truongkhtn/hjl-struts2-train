@@ -91,7 +91,10 @@
                             <s:param name="id" value="#contact.customer.id"/>
                             拜访记录
                         </s:a>
-                        <a href="contactList.jsp">联系人</a>
+                        <s:a namespace="/customer" action="contactList">
+                            <s:param name="id" value="#contact.customer.id"/>
+                            联系人
+                        </s:a>
                     </td>
                 </tr>
                 </s:iterator>

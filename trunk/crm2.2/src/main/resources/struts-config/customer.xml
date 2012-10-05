@@ -18,6 +18,9 @@
             <action name="visitRecordList" class="customerAction" method="visitRecordList">
                 <result type="tiles">customer.visitRecordList.tiles</result>
             </action>
+            <action name="contactList" class="customerAction" method="contactList">
+                <result type="tiles">customer.contactList.tiles</result>
+            </action>
      </package>
 		 
 </struts>

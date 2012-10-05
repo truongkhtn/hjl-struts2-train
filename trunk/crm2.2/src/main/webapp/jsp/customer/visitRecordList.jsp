@@ -31,17 +31,11 @@
                         <tr>
                             <td><s:property value="(pager.pageNumber-1)* (pager.pageSize) + #stat.getCount()"/></td>
                             <td><s:property value="#record.createDate"/> </td>
-                            <td><s:property value="#record.customer.name"/></td>
-                            <td><s:property value="#contact.name"/></td>
-                            <td><s:property value="#contact.customer.address"/></td>
-                            <td><s:property value="#contact.customer.owner.realName"/></td>
-                            <td>
-                                <s:a namespace="/customer" action="visitRecordList">
-                                    <s:param name="id" value="#contact.customer.id"/>
-                                    拜访记录
-                                </s:a>
-                                <a href="contactList.jsp">联系人</a>
-                            </td>
+                            <td><s:property value="#record.level"/></td>
+                            <td><s:property value="#record.content"/></td>
+                            <td><s:property value="#record.owner.realName"/></td>
+                            <td><s:property value="#record.visitType.name"/></td>
+                            <td><s:property value="#record.contact.name"/></td>
                         </tr>
                     </s:iterator>
                 </s:if>

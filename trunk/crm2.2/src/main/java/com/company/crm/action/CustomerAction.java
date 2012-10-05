@@ -36,6 +36,7 @@ public class CustomerAction extends BaseAction {
     private Contact contact;
     private Pager pager;
     private List<VisitRecord> visitRecordList;
+    private List<Contact> contactList;
 
     public String blank() {
         return SUCCESS;
@@ -80,7 +81,20 @@ public class CustomerAction extends BaseAction {
         return SUCCESS;
     }
 
+    public String contactList(){
+        contactList = contactService.getByCustomerId(id);
+        return SUCCESS;
+    }
+
     //getter & setter
+    public List<Contact> getContactList() {
+        return contactList;
+    }
+
+    public void setContactList(List<Contact> contactList) {
+        this.contactList = contactList;
+    }
+
     public Customer getCustomer() {
         return customer;
     }

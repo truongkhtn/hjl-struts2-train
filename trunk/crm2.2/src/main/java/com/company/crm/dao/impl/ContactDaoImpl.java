@@ -16,9 +16,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ContactDaoImpl extends BaseDaoImpl<Contact, String> implements ContactDao {
 
-	@SuppressWarnings("unchecked")
 	public List<Contact> getByCustomerId(String id) {
-		String hql="from Contact c where c.customer.id=:id";
+		String hql="from Contact c where c.customer.id=:id order by c.major desc";
 		Query query=getSession().createQuery(hql).setParameter("id", id);
 		List<Contact> contractorList=query.list();
 		return contractorList;

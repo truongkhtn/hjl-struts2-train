@@ -3,6 +3,7 @@ import com.company.crm.service.*;
 import com.company.crm.utils.Gender;
 import com.company.crm.utils.Level;
 import org.fluttercode.datafactory.impl.DataFactory;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
@@ -11,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 @ContextConfiguration("classpath:application-config.xml")
+//@Ignore
 public class InitData extends AbstractJUnit4SpringContextTests {
 
     @Resource
@@ -53,28 +55,28 @@ public class InitData extends AbstractJUnit4SpringContextTests {
         Role r1 = new Role();
         r1.setValue("salesman");
         r1.setName("业务员");
-        r1.setRemark("具有客户管理模块功能");
+        r1.setRemark("客户管理");
         r1.setSeq(1);
         roleService.save(r1);
 
         Role r2 = new Role();
         r2.setValue("salesManager");
         r2.setName("业务经理");
-        r2.setRemark("具有客户管理模块,报表管理功能");
+        r2.setRemark("客户管理,报表管理");
         r2.setSeq(2);
         roleService.save(r2);
 
         Role r3 = new Role();
         r3.setValue("account");
         r3.setName("财务");
-        r3.setRemark("具有合同管理模块功能");
+        r3.setRemark("合同管理");
         r3.setSeq(3);
         roleService.save(r3);
 
         Role r4 = new Role();
         r4.setValue("admin");
         r4.setName("管理员");
-        r4.setRemark("具有系统所有功能");
+        r4.setRemark("客户管理,报表管理,合同管理,系统设置");
         r4.setSeq(4);
         roleService.save(r4);
     }
