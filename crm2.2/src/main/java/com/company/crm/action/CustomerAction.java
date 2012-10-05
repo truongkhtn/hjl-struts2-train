@@ -2,19 +2,20 @@ package com.company.crm.action;
 
 import com.company.crm.entity.Contact;
 import com.company.crm.entity.Customer;
-import com.company.crm.entity.User;
 import com.company.crm.entity.VisitRecord;
 import com.company.crm.service.ContactService;
 import com.company.crm.service.CustomerService;
-import com.company.crm.service.UserService;
 import com.company.crm.service.VisitRecordService;
+import com.company.crm.utils.Level;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Common Action 类，包含系统普通操作
@@ -37,6 +38,9 @@ public class CustomerAction extends BaseAction {
     private Pager pager;
     private List<VisitRecord> visitRecordList;
     private List<Contact> contactList;
+    private Map<String,String> sourceMap;
+    private Map<String,String> levelMap;
+    private Map<String,String> titleMap;
 
     public String blank() {
         return SUCCESS;
@@ -86,7 +90,52 @@ public class CustomerAction extends BaseAction {
         return SUCCESS;
     }
 
+    public String initAddCustomer(){
+        Customer.Source[] sources = Customer.Source.values();
+        Level[] levels = Level.values();
+        Contact.Title[] titles = Contact.Title.values();
+        //init data
+        sourceMap = new LinkedHashMap<String,String>();
+        for(Customer.Source s : sources){
+            sourceMap.put(s.toString(), getText("Source." + s.toString()));
+        }
+        levelMap = new LinkedHashMap<String,String>();
+        for(Level l : levels){
+            levelMap.put(l.toString(), getText("Level." + l.toString()));
+        }
+        titleMap = new LinkedHashMap<String,String>();
+        for(Contact.Title t : titles){
+            titleMap.put(t.toString(), getText("Title." + t.toString()));
+        }
+
+        return SUCCESS;
+    }
+
     //getter & setter
+    public Map<String, String> getTitleMap() {
+        return titleMap;
+    }
+
+    public void setTitleMap(Map<String, String> titleMap) {
+        this.titleMap = titleMap;
+    }
+
+    public Map<String, String> getLevelMap() {
+        return levelMap;
+    }
+
+    public void setLevelMap(Map<String, String> levelMap) {
+        this.levelMap = levelMap;
+    }
+
+    public Map<String, String> getSourceMap() {
+        return sourceMap;
+    }
+
+    public void setSourceMap(Map<String, String> sourceMap) {
+        this.sourceMap = sourceMap;
+    }
+
     public List<Contact> getContactList() {
         return contactList;
     }

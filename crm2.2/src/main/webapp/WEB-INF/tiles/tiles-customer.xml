@@ -17,5 +17,8 @@
     <definition name="customer.contactList.tiles" extends="baseLayout">
         <put-attribute name="body" value="/jsp/customer/contactList.jsp" />
     </definition>
+    <definition name="customer.add.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/customer/add.jsp" />
+    </definition>
 
 </tiles-definitions>
