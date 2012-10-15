@@ -6,8 +6,10 @@ import com.company.crm.entity.VisitRecord;
 import com.company.crm.service.ContactService;
 import com.company.crm.service.CustomerService;
 import com.company.crm.service.VisitRecordService;
+import com.company.crm.utils.Gender;
 import com.company.crm.utils.Level;
 import org.apache.commons.lang3.StringUtils;
+import org.fluttercode.datafactory.impl.DataFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -107,12 +109,38 @@ public class CustomerAction extends BaseAction {
         for(Contact.Title t : titles){
             titleMap.put(t.toString(), getText("Title." + t.toString()));
         }
+
+        //init test data
+        DataFactory dataFactory = new DataFactory();
+        customer = new Customer();
+        customer.setAddress(dataFactory.getAddress());
+        customer.setAddress2(dataFactory.getAddress());
+        customer.setBusiness(dataFactory.getRandomWord().toUpperCase());
+        customer.setFax(String.valueOf(dataFactory.getNumberBetween(100000, 999999)));
+        customer.setLevel(levels[dataFactory.getNumberBetween(0, levels.length - 1)]);
+        customer.setName("CUSTOMER_" + dataFactory.getRandomWord().toUpperCase());
+        customer.setRemark(dataFactory.getRandomText(20, 30));
+        customer.setSource(sources[dataFactory.getNumberBetween(0, sources.length - 1)]);
+        customer.setWebSite("www."+dataFactory.getRandomWord().toLowerCase()+".com");
+
+        contact = new Contact();
+        contact.setCustomer(customer);
+        contact.setEmail(dataFactory.getEmailAddress());
+        contact.setGender(dataFactory.chance(70) ? Gender.MALE : Gender.FEMALE);
+        contact.setMobilePhone(String.valueOf(dataFactory.getNumberBetween(100000, 999999)));
+        contact.setName(dataFactory.getName());
+        contact.setPhone(String.valueOf(dataFactory.getNumberBetween(100000, 999999)));
+        contact.setTitle(titles[dataFactory.getNumberBetween(0,titles.length-1)]);
+        contact.setQq(String.valueOf(dataFactory.getNumberBetween(100000,999999)));
+        contact.setRemark(dataFactory.getRandomText(10, 30));
+
         return SUCCESS;
     }
 
     public String add(){
-        System.out.println(customer);
-
+        customer.setOwner(getLoginUser());
+        customer.setMajorContact(contact);
+        customerService.saveLinkedContact(customer);
         return SUCCESS;
     }
 
