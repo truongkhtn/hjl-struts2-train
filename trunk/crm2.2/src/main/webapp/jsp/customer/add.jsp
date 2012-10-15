@@ -103,59 +103,59 @@
                                 <tr>
                                     <th>联系人</th>
                                     <td >
-                                        <input type="text" size="20">
+                                        <s:textfield name="contact.name" size="20"/>
                                         <span class="required">*</span>
                                     </td>
                                     <th>
                                         职位
                                     </th>
                                     <td>
-                                        <s:select list="titleMap" headerKey="NA" headerValue="%{getText('select.header.value')}"/>
+                                        <s:select list="titleMap" name="contact.title"
+                                                  headerKey="NA" headerValue="%{getText('select.header.value')}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>手机</th>
                                     <td>
-                                        <input type="text" size="20">
+                                        <s:textfield name="contact.mobilePhone" size="20"/>
                                     </td>
                                     <th>
                                         性别
                                     </th>
                                     <td>
-                                        男&nbsp;<input type="radio" name="gender" checked="checked">
-                                        女&nbsp;<input type="radio" name="gender">
+                                        <s:radio name="contact.gender" list="#{'MALE':'男', 'FEMALE':'女'}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>固定电话</th>
                                     <td>
-                                        <input type="text" size="20">
+                                        <s:textfield name="contact.phone" size="20"/>
                                     </td>
                                     <th>
                                         电子邮件
                                     </th>
                                     <td>
-                                        <input type="text" size="30">
+                                        <s:textfield name="contact.email" size="30"/>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>QQ</th>
-                                    <td>
-                                        <input type="text" size="20">
-                                    </td>
-                                    <th>
-                                        备注
-                                    </th>
-                                    <td>
-                                        <textarea rows="3" cols="18"></textarea>
-                                    </td>
+                            <tr>
+                                <th>QQ</th>
+                                <td>
+                                    <s:textfield name="contact.qq" size="20"/>
+                                </td>
+                                <th>
+                                    备注
+                                </th>
+                                <td>
+                                    <s:textarea rows="3" cols="18" name="contact.remark"/>
+                                </td>
                                 </tr>
                             </table>
                     </div>
                     <div class="buttonBar">
+                        <input id="btnSave" type="button" class="mybutton" value="保存">
                         <input id="btnReset" type="button" class="mybutton" value="重置">
                         <input type="button" class="mybutton" value="返回" onclick="javascript:history.back();">
-                        <input id="btnSave" type="button" class="mybutton" value="保存">
                     </div>
                 </div>
             </s:form>

@@ -101,6 +101,7 @@ public class Customer extends BaseEntity{
 		this.remark = remark;
 	}
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false,length = 20)
 	public Status getStatus() {
 		return status;
 	}

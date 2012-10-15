@@ -141,6 +141,8 @@ public class InitData extends AbstractJUnit4SpringContextTests {
                 contact.setName(dataFactory.getName());
                 contact.setPhone(String.valueOf(dataFactory.getNumberBetween(100000, 999999)));
                 contact.setTitle(titles[dataFactory.getNumberBetween(0,titles.length-1)]);
+                contact.setQq(String.valueOf(dataFactory.getNumberBetween(100000,999999)));
+                contact.setRemark(dataFactory.getRandomText(10, 30));
                 contactService.save(contact);
             }
         }

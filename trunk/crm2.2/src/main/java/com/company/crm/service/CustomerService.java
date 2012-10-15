@@ -20,4 +20,6 @@ public interface CustomerService extends BaseService<Customer, String>{
 	 * @return
 	 */
 	int getCount(Customer customer);
+
+    public void saveLinkedContact(Customer customer);
 }

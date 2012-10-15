@@ -21,13 +21,15 @@ public class Contact extends BaseEntity{
         ASSISTANT //助理
     }
 
-	private String name; // 客户方的联系人
+	private String name; // 联系人姓名
 	private Gender gender; //性别
 	private Title title; //职称
 	private String phone; //固定电话
 	private String mobilePhone;//移动电话
 	private String email;   //邮箱地址
 	private Customer customer;//客户
+    private String qq;//QQ号
+    private String remark;//备注
 	private boolean major;   //是否为主联系人
 
 	public String getName() {
@@ -81,5 +83,17 @@ public class Contact extends BaseEntity{
     }
     public void setMajor(boolean major) {
         this.major = major;
+    }
+    public String getQq() {
+        return qq;
+    }
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+    public String getRemark() {
+        return remark;
+    }
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }
