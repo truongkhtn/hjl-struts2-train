@@ -32,6 +32,7 @@ public class Contact extends BaseEntity{
     private String remark;//备注
 	private boolean major;   //是否为主联系人
 
+    @Column(nullable = false, length = 100)
 	public String getName() {
 		return name;
 	}

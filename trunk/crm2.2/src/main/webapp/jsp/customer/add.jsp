@@ -31,7 +31,9 @@
                     </tr>
                 </table>
             </div>
+           <s:actionerror/>
            <s:form id="customerAddForm" namespace="/customer" action="add">
+               <s:hidden name="customer.status" value="%{'UNSIGNED'}"/>
                 <div class="pageBody">
                     <div class="customerDiv">
                         <table class="mytable" border="0">
@@ -53,8 +55,7 @@
                                 <tr>
                                     <th>客户来源</th>
                                     <td>
-                                        <s:select name="customer.source" list="sourceMap"
-                                                   headerKey="NA" headerValue="%{getText('select.header.value')}"/>
+                                        <s:select name="customer.source" list="sourceMap"/>
                                         <span class="required">*</span>
                                     </td>
                                     <th>

@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,24 +92,11 @@ public class CustomerAction extends BaseAction {
     }
 
     public String initAdd(){
+        initData();
+        //init test data
         Customer.Source[] sources = Customer.Source.values();
         Level[] levels = Level.values();
         Contact.Title[] titles = Contact.Title.values();
-        //init data
-        sourceMap = new LinkedHashMap<String,String>();
-        for(Customer.Source s : sources){
-            sourceMap.put(s.toString(), getText("Source." + s.toString()));
-        }
-        levelMap = new LinkedHashMap<String,String>();
-        for(Level l : levels){
-            levelMap.put(l.toString(), getText("Level." + l.toString()));
-        }
-        titleMap = new LinkedHashMap<String,String>();
-        for(Contact.Title t : titles){
-            titleMap.put(t.toString(), getText("Title." + t.toString()));
-        }
-
-        //init test data
         DataFactory dataFactory = new DataFactory();
         customer = new Customer();
         customer.setAddress(dataFactory.getAddress());
@@ -133,8 +119,50 @@ public class CustomerAction extends BaseAction {
         contact.setTitle(titles[dataFactory.getNumberBetween(0,titles.length-1)]);
         contact.setQq(String.valueOf(dataFactory.getNumberBetween(100000,999999)));
         contact.setRemark(dataFactory.getRandomText(10, 30));
-
         return SUCCESS;
+    }
+
+    private void initData() {
+         Customer.Source[] sources = Customer.Source.values();
+        Level[] levels = Level.values();
+        Contact.Title[] titles = Contact.Title.values();
+        //init data
+        sourceMap = new LinkedHashMap<String,String>();
+        for(Customer.Source s : sources){
+            sourceMap.put(s.toString(), getText("Source." + s.toString()));
+        }
+        levelMap = new LinkedHashMap<String,String>();
+        for(Level l : levels){
+            levelMap.put(l.toString(), getText("Level." + l.toString()));
+        }
+        titleMap = new LinkedHashMap<String,String>();
+        for(Contact.Title t : titles){
+            titleMap.put(t.toString(), getText("Title." + t.toString()));
+        }
+    }
+
+    public void validateAdd(){
+        if(StringUtils.isEmpty(customer.getName())) {
+            addActionError("客户名称不能为空!");
+        }
+        if(StringUtils.isEmpty(customer.getAddress())) {
+            addActionError("客户地址不能为空!");
+        }
+        if(customer.getStatus() == null){
+            addActionError("客户来源不能为空!");
+        }
+        Customer temp = customerService.get("name",customer.getName());
+        if(temp != null){
+            addActionError("客户名称已存在!");
+        }
+        if(StringUtils.isEmpty(contact.getName())) {
+            addActionError("联系人姓名不能为空!");
+        }
+        if(StringUtils.isEmpty(contact.getMobilePhone())
+                && StringUtils.isEmpty(contact.getPhone())){
+            addActionError("联系人至少需要填写一个手机或固定电话!");
+        }
+        initData();
     }
 
     public String add(){
