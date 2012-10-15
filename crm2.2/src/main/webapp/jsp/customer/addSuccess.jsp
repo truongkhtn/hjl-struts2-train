@@ -29,7 +29,7 @@
           <table class="resultTable">
             <tr>
               <td>
-                 <img src="../../images/success.jpg" width="200" height="150">
+                 <img src="${path}/images/success.jpg" width="200" height="150">
               </td>
             </tr>
             <tr>
@@ -38,7 +38,7 @@
           </table>
           <div class="buttonBar">
             <input class="mybutton" type="button" value="返回"
-              onclick="javascript:history.back();"/>
+              onclick="javascript:location='${path}/customer/initAdd.action'"/>
           </div>
         </div>
     </div>
