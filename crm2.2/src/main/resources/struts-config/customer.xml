@@ -22,8 +22,12 @@
                 <result type="tiles">customer.contactList.tiles</result>
             </action>
 
-            <action name="initAddCustomer" class="customerAction" method="initAddCustomer">
+            <action name="initAdd" class="customerAction" method="initAdd">
                 <result type="tiles">customer.add.tiles</result>
+            </action>
+            <action name="add" class="customerAction" method="add">
+                <result type="tiles">customer.add.success.tiles</result>
+                <result name="input" type="tiles">customer.add.tiles</result>
             </action>
 
      </package>

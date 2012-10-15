@@ -90,7 +90,7 @@ public class CustomerAction extends BaseAction {
         return SUCCESS;
     }
 
-    public String initAddCustomer(){
+    public String initAdd(){
         Customer.Source[] sources = Customer.Source.values();
         Level[] levels = Level.values();
         Contact.Title[] titles = Contact.Title.values();
@@ -107,6 +107,11 @@ public class CustomerAction extends BaseAction {
         for(Contact.Title t : titles){
             titleMap.put(t.toString(), getText("Title." + t.toString()));
         }
+        return SUCCESS;
+    }
+
+    public String add(){
+        System.out.println(customer);
 
         return SUCCESS;
     }
