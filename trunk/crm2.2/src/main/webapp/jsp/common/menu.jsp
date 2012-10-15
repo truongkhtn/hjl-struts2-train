@@ -19,7 +19,7 @@
                 <s:a namespace="/customer" action="initConflict">客户冲突</s:a>
             </li>
             <li class="menuItem">
-                <s:a namespace="/customer" action="initAddCustomer">添加客户</s:a>
+                <s:a namespace="/customer" action="initAdd">添加客户</s:a>
             </li>
             <li class="menuItem"><a href="html/customer/serve.jsp">服务中签约客户</a></li>
             <li class="menuItem"><a href="html/customer/noserve.jsp">未签约客户</a></li>

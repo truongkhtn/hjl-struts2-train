@@ -37,6 +37,7 @@ public class Customer extends BaseEntity{
 	private String webSite;//网站
 	private String business;//客户行业
 	private String remark;//客户描述
+
 	private Status status;//签约与否
 	private Set<VisitRecord> visitRecodeSet;//拜访记录
 	private User owner;//客户所属客户专员

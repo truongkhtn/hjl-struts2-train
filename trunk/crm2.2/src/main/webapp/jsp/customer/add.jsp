@@ -1,10 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 
-<link rel="stylesheet" type="text/css" href="${path}/css/index.css"/>
-<link rel="stylesheet" type="text/css" href="${path}/css/public.css"/>
 <link rel="stylesheet" type="text/css" href="${path}/css/customerAdd.css"/>
-<script type="text/javascript" src="${path}/js/jquery-1.7.2.js"></script>
+
 <script type="text/javascript">
 	$(function(){
 		$("#btnReset").click(function(){
@@ -15,7 +13,7 @@
 		
 		$("#btnSave").click(function(){
 			//check form items...
-			$('#customerSaveForm').submit();
+			$('#customerAddForm').submit();
 		});
 	});
 	
@@ -33,7 +31,7 @@
                     </tr>
                 </table>
             </div>
-            <form id="customerSaveForm" method="post" action="addSuccess.html">
+           <s:form id="customerAddForm" namespace="/customer" action="add">
                 <div class="pageBody">
                     <div class="customerDiv">
                         <table class="mytable" border="0">
@@ -41,58 +39,60 @@
                                 <tr>
                                     <th>客户名称</th>
                                     <td >
-                                        <input type="text" size="20">
+                                        <s:textfield name="customer.name" size="20"/>
                                         <span class="required">*</span>
                                     </td>
                                     <th>
                                         客户地址
                                     </th>
                                     <td>
-                                        <input type="text" size="30">
+                                        <s:textfield name="customer.address" size="30"/>
                                         <span class="required">*</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>客户来源</th>
                                     <td>
-                                        <s:select list="sourceMap" headerKey="NA" headerValue="%{getText('select.header.value')}"/>
+                                        <s:select name="customer.source" list="sourceMap"
+                                                   headerKey="NA" headerValue="%{getText('select.header.value')}"/>
                                         <span class="required">*</span>
                                     </td>
                                     <th>
                                         客户地址2
                                     </th>
                                     <td>
-                                        <input type="text" size="30">
+                                        <s:textfield name="customer.address2" size="30"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>传真</th>
                                     <td>
-                                        <input type="text" size="20">
+                                        <s:textfield name="customer.fax" size="20"/>
                                     </td>
                                     <th>
                                         客户网站
                                     </th>
                                     <td>
-                                        <input type="text" size="30">
+                                        <s:textfield name="customer.webSite" size="30"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>行业</th>
                                     <td>
-                                        <input type="text" size="20">
+                                        <s:textfield name="customer.business" size="20"/>
                                     </td>
                                     <th>
                                         客户等级
                                     </th>
                                     <td>
-                                        <s:select list="levelMap" headerKey="NA" headerValue="%{getText('select.header.value')}"/>
+                                        <s:select name="customer.level" list="levelMap"
+                                                   headerKey="NA" headerValue="%{getText('select.header.value')}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>客户简介</th>
                                     <td>
-                                        <textarea rows="4" cols="18"></textarea>
+                                        <s:textarea name="customer.remark" rows="4" cols="18"/>
                                     </td>
                                 </tr>
                             </table>
@@ -158,6 +158,6 @@
                         <input id="btnSave" type="button" class="mybutton" value="保存">
                     </div>
                 </div>
-            </form>
+            </s:form>
         </div>
     </div>
