@@ -1,3 +1,4 @@
+import com.company.crm.action.Pager;
 import com.company.crm.entity.*;
 import com.company.crm.service.ContactService;
 import com.company.crm.service.CustomerService;
@@ -22,5 +23,11 @@ public class TestCustomer extends AbstractJUnit4SpringContextTests{
     @Resource
     private ContactService contactService;
 
+    @Test
+    public void testServe(){
+        User user = userService.get("b0378a6e-7eb8-4674-824d-52264ddc1cf8");
+        Pager pager = contactService.getServeByUser(null,user);
+        System.out.println( pager.getList().size());
+    }
 
 }

@@ -8,5 +8,5 @@ import com.company.crm.entity.Role;
  * Date: 12-9-30
  * Description: put description for the type here...
  */
-public interface RoleService extends BaseDao<Role,String>{
+public interface RoleService extends BaseService<Role,String>{
 }

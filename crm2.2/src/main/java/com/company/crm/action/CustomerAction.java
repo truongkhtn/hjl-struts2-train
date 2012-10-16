@@ -172,6 +172,11 @@ public class CustomerAction extends BaseAction {
         return SUCCESS;
     }
 
+    public String initServe(){
+
+        return SUCCESS;
+    }
+
     //getter & setter
     public Map<String, String> getTitleMap() {
         return titleMap;

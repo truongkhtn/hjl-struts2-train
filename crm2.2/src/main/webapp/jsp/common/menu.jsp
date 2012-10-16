@@ -21,7 +21,9 @@
             <li class="menuItem">
                 <s:a namespace="/customer" action="initAdd">添加客户</s:a>
             </li>
-            <li class="menuItem"><a href="html/customer/serve.jsp">服务中签约客户</a></li>
+            <li class="menuItem">
+                <s:a namespace="/customer" action="initServe">服务中签约客户</s:a>
+            </li>
             <li class="menuItem"><a href="html/customer/noserve.jsp">未签约客户</a></li>
             <li class="menuItem"><a href="html/customer/see.jsp">公海客户</a></li>
             <li class="menuItem"><a href="html/customer/visit.jsp">拜访查询</a></li>

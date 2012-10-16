@@ -23,5 +23,8 @@
     <definition name="customer.add.success.tiles" extends="baseLayout">
         <put-attribute name="body" value="/jsp/customer/addSuccess.jsp" />
     </definition>
+    <definition name="customer.serve.tiles" extends="baseLayout">
+        <put-attribute name="body" value="/jsp/customer/serve.jsp" />
+    </definition>
 
 </tiles-definitions>
