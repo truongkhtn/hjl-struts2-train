@@ -30,6 +30,12 @@
                 <result name="input" type="tiles">customer.add.tiles</result>
             </action>
 
+             <action name="initServe" class="customerAction" method="initServe">
+                 <result type="tiles">customer.serve.tiles</result>
+             </action>
+
+
+
      </package>
 		 
 </struts>

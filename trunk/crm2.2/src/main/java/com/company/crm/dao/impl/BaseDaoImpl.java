@@ -1,8 +1,12 @@
 package com.company.crm.dao.impl;
 
+import com.company.crm.action.Pager;
 import com.company.crm.dao.BaseDao;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 
@@ -113,11 +117,28 @@ public class BaseDaoImpl<T, PK extends Serializable> implements BaseDao<T, PK> {
             getSession().delete(entity);
         }
     }
-    
-	@SuppressWarnings("unchecked")
+
+    @SuppressWarnings("unchecked")
 	public T load(PK id) {
 		Assert.notNull(id, "id is required");
 		return (T) getSession().load(entityClass, id);
 	}
+
+    public Pager findByPager(Pager pager, DetachedCriteria detachedCriteria) {
+        if(pager == null){
+            pager = new Pager();
+        }
+        Criteria criteria = detachedCriteria.getExecutableCriteria(getSession());
+         //total
+        criteria.setProjection(Projections.rowCount());
+        long lTotal = (Long)criteria.uniqueResult();
+        pager.setTotalCount(Integer.valueOf(String.valueOf(lTotal)));
+        //pager
+        criteria.setProjection(null);
+        criteria.setFirstResult((pager.getPageNumber() - 1) * pager.getPageSize());
+		criteria.setMaxResults(pager.getPageSize());
+        pager.setList(criteria.list());
+        return pager;
+    }
 
 }

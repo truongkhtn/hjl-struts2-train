@@ -1,5 +1,8 @@
 package com.company.crm.dao;
 
+import com.company.crm.action.Pager;
+import org.hibernate.criterion.DetachedCriteria;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -104,5 +107,13 @@ public interface BaseDao<T, PK extends Serializable> {
      */
     public void delete(PK[] ids);
 
+    /**
+	 * 根据Pager和DetachedCriteria对象进行查询(提供分页、查找、排序功能).
+	 *
+	 * @param pager
+	 *            Pager对象
+	 * @return Pager对象
+	 */
+	public Pager findByPager(Pager pager, DetachedCriteria detachedCriteria);
 
 }
