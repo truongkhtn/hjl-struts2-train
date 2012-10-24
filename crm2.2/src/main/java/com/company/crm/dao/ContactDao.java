@@ -26,6 +26,4 @@ public interface ContactDao extends BaseDao<Contact, String>{
 	 */
     Contact getMajorByCustomerId(String id);
 
-    Pager getByPager(Pager pager, Contact contact);
-
 }

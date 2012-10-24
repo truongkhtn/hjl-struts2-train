@@ -23,6 +23,4 @@ public interface VisitRecordDao extends BaseDao<VisitRecord, String>{
 	 * @return
 	 */
 	int getCount(VisitRecord visitRecord);
-
-    Pager getByPager(String id, Pager pager);
 }

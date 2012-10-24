@@ -8,6 +8,10 @@ import com.company.crm.action.Pager;
 import com.company.crm.dao.VisitRecordDao;
 import com.company.crm.entity.VisitRecord;
 import com.company.crm.service.VisitRecordService;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 
@@ -30,7 +34,11 @@ public class VisitRecordServiceImpl extends
 	}
 
     public Pager getByPager(String id, Pager pager) {
-        return  visitRecordDao.getByPager(id, pager);
+        DetachedCriteria dc = DetachedCriteria.forClass(VisitRecord.class);
+        DetachedCriteria customerCriteria = dc.createCriteria("customer");
+        customerCriteria.add(Restrictions.eq("id", id));
+        dc.addOrder(Order.desc("createDate"));
+        return  visitRecordDao.findByPager(pager,dc);
     }
 
 }

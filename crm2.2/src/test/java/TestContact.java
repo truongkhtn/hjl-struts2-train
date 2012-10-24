@@ -34,17 +34,17 @@ public class TestContact extends AbstractJUnit4SpringContextTests {
         Contact contact = new Contact();
         contact.setPhone("");
 //        contact.setPhone("128955");
-//        contact.setMobilePhone("");
+        contact.setMobilePhone("");
 //        contact.setMobilePhone("520472");
-        contact.setMobilePhone("20");
+//        contact.setMobilePhone("20");
         contact.setName("");
 //        contact.setName("Chester");
 
         Customer customer = new Customer();
-//        customer.setName("CUSTOMER");
+        customer.setName("CUSTOMER");
 //        customer.setName("DAD");
-//        customer.setAddress("");
-        customer.setAddress("Race");
+        customer.setAddress("");
+//        customer.setAddress("Race");
 
         contact.setCustomer(customer);
         Pager pager = contactService.getByPager(null,contact);
