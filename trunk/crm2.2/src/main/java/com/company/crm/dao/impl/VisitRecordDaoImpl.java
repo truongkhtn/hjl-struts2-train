@@ -59,24 +59,25 @@ public class VisitRecordDaoImpl extends BaseDaoImpl<VisitRecord, String> impleme
 		return totle;
 	}
 
-    public Pager getByPager(String id, Pager pager) {
-        if(pager == null){
-            pager = new Pager();
-        }
-        Criteria criteria = getSession().createCriteria(VisitRecord.class);
-        Criteria customerCriteria = criteria.createCriteria("customer");
-        customerCriteria.add(Restrictions.eq("id", id));
-        criteria.addOrder(Order.desc("createDate"));
-        //total
-        criteria.setProjection(Projections.rowCount());
-        long lTotal = (Long)criteria.uniqueResult();
-        //page
-        criteria.setProjection(null);
-        criteria.setFirstResult((pager.getPageNumber() - 1) * pager.getPageSize());
-        criteria.setMaxResults(pager.getPageSize());
-        pager.setList(criteria.list());
-        pager.setTotalCount(Integer.valueOf(String.valueOf(lTotal)));
-        return pager;
-    }
+    //todo need delete
+//    public Pager getByPager(String id, Pager pager) {
+//        if(pager == null){
+//            pager = new Pager();
+//        }
+//        Criteria criteria = getSession().createCriteria(VisitRecord.class);
+//        Criteria customerCriteria = criteria.createCriteria("customer");
+//        customerCriteria.add(Restrictions.eq("id", id));
+//        criteria.addOrder(Order.desc("createDate"));
+//        //total
+//        criteria.setProjection(Projections.rowCount());
+//        long lTotal = (Long)criteria.uniqueResult();
+//        //page
+//        criteria.setProjection(null);
+//        criteria.setFirstResult((pager.getPageNumber() - 1) * pager.getPageSize());
+//        criteria.setMaxResults(pager.getPageSize());
+//        pager.setList(criteria.list());
+//        pager.setTotalCount(Integer.valueOf(String.valueOf(lTotal)));
+//        return pager;
+//    }
 
 }

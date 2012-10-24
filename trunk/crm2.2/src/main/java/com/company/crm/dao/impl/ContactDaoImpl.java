@@ -29,42 +29,4 @@ public class ContactDaoImpl extends BaseDaoImpl<Contact, String> implements Cont
         return (Contact) query.uniqueResult();
     }
 
-    public Pager getByPager(Pager pager, Contact contact) {
-        if(pager == null){
-            pager = new Pager();
-        }
-        Criteria criteria = getSession().createCriteria(Contact.class);
-        criteria.add(Restrictions.eq("major" , true));
-
-        if(StringUtils.isNotEmpty(contact.getPhone().trim())){
-            criteria.add(Restrictions.like("phone" , "%"+contact.getPhone().trim()+"%"));
-        }
-        if(StringUtils.isNotEmpty(contact.getMobilePhone().trim())){
-            criteria.add(Restrictions.like("mobilePhone" , "%"+contact.getMobilePhone().trim()+"%"));
-        }
-        if(StringUtils.isNotEmpty(contact.getName().trim())){
-            criteria.add(Restrictions.like("name" , "%"+contact.getName().trim()+"%"));
-        }
-        if(contact.getCustomer()!=null){
-            Criteria criteriaCustomer = criteria.createCriteria("customer");
-            if(StringUtils.isNotEmpty(contact.getCustomer().getName().trim())){
-                criteriaCustomer.add(Restrictions.like("name" , "%"+contact.getCustomer().getName().trim()+"%"));
-            }
-            if(StringUtils.isNotEmpty(contact.getCustomer().getAddress().trim())){
-                criteriaCustomer.add(Restrictions.like("address" , "%"+contact.getCustomer().getAddress().trim()+"%"));
-            }
-        }
-        //total
-        criteria.setProjection(Projections.rowCount());
-        long lTotal = (Long)criteria.uniqueResult();
-        pager.setTotalCount(Integer.valueOf(String.valueOf(lTotal)));
-
-        //pager
-        criteria.setProjection(null);
-        criteria.setFirstResult((pager.getPageNumber() - 1) * pager.getPageSize());
-		criteria.setMaxResults(pager.getPageSize());
-        pager.setList(criteria.list());
-        return pager;
-    }
-
 }
