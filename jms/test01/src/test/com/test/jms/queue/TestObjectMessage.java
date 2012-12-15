@@ -1,5 +1,6 @@
-package com.test;
+package com.test.jms;
 
+import com.test.entity.User;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.fluttercode.datafactory.impl.DataFactory;
@@ -12,21 +13,20 @@ import javax.jms.*;
  * Desc: 用于测试 JSM 生产者和消费者
  * Date: 2012-12-12
  */
-public class TestTextMessage {
+public class TestObjectMessage {
 
     private String user = ActiveMQConnection.DEFAULT_USER;
     private String password = ActiveMQConnection.DEFAULT_PASSWORD;
-//    private String url = ActiveMQConnection.DEFAULT_BROKER_URL;
-    private String url = "tcp://localhost:61617";
+    private String url = ActiveMQConnection.DEFAULT_BROKER_URL;
     private boolean transacted = true;
-    private String subject = "helloQueue";
+    private String subject = "userQueue";
 
     @Test
     public void testProducer(){
         Connection connection = null;
         try {
             //连接工厂，用于产生连接
-            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(user, password, url);
+            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(null, null, url);
             //创建连接
             connection = connectionFactory.createConnection();
             connection.start();
@@ -41,13 +41,18 @@ public class TestTextMessage {
             //消息
             DataFactory dataFactory = new DataFactory();
             for (int i = 1; i <= 10; i++) {
-                String str = "[message]" + dataFactory.getRandomText(5,30);
-                TextMessage message = session.createTextMessage(str);
-                producer.send(message);
+                //创建 User
+                User user = new User();
+                user.setName(dataFactory.getName());
+                user.setPassword(dataFactory.getRandomWord());
+                //创建 ObjectMessage
+                ObjectMessage objectMessage = session.createObjectMessage();
+                objectMessage.setObject(user);
+                producer.send(objectMessage);
                 if(transacted){
                     session.commit();
                 }
-                System.out.println("发送消息 " + i + ":" + message.getText());
+                System.out.println("发送消息 " + i + ":" + user.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,7 +61,7 @@ public class TestTextMessage {
             if (connection != null) {
                 try {
                     connection.close();
-                } catch (JMSException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -81,9 +86,9 @@ public class TestTextMessage {
             int i = 1;
             Message message = null;
             while ((message = consumer.receive(1000))!=null){
-                TextMessage textMessage = (TextMessage) message;
-                String str = textMessage.getText();
-                System.out.println("接收消息 "+i+":"+str);
+                ObjectMessage objectMessage = (ObjectMessage) message;
+                User user = (User) objectMessage.getObject();
+                System.out.println("接收消息 "+i+":"+user.toString());
                 session.commit();
                 i++;
             }
