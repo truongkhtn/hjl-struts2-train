@@ -12,12 +12,12 @@ public class Stock implements Serializable {
 
 	protected String symbol; //代码
 	protected String name;  //名称
-	protected double low;   //最低
-	protected double high;  //最高
     protected double open;  //今开
-	protected double last;  //最新价
-	protected double change; //涨跌幅
-	protected Date date;    //时间
+    protected double change; //涨跌幅度
+    protected double last;  //最新价
+    protected double low;   //最低
+    protected double high;  //最高
+    protected Date date;    //时间
 
     public Stock() {
     }
@@ -26,6 +26,23 @@ public class Stock implements Serializable {
         this.symbol = symbol;
         this.name = name;
         this.open = open;
+        this.high = open;
+        this.low = open;
+        this.last = open;
+    }
+
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "symbol='" + symbol + '\'' +
+                ", name='" + name + '\'' +
+                ", low=" + low +
+                ", high=" + high +
+                ", open=" + open +
+                ", last=" + last +
+                ", change=" + change +
+                ", date=" + date +
+                '}';
     }
 
     public double getChange() {
