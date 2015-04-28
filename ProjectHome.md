@@ -1,0 +1,1 @@
+a few mavenized train examples for struts2
